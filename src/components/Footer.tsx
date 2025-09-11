@@ -38,15 +38,19 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-4 mb-8">
               <div className="relative">
-                <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg bg-white p-2">
+                <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg bg-gray-800 p-2">
                   <img
-                    src="/images/logo.png"
+                    src="/images/logo_footer.png"
                     alt={locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation'}
                     className="w-full h-full object-contain"
                     style={{ 
-                      filter: 'brightness(0) invert(1)',
                       minWidth: '48px',
                       minHeight: '48px'
+                    }}
+                    onError={(e) => {
+                      console.error('Footer logo failed to load, trying fallback');
+                      e.currentTarget.src = '/images/logo.png';
+                      e.currentTarget.style.filter = 'brightness(0) invert(1)';
                     }}
                   />
                 </div>
