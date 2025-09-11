@@ -34,7 +34,7 @@ export const getNewsData = (locale: string) => [
     catId: 'events',
     author: locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation',
     date: locale === 'mn' ? '2025 оны 3 сар' : 'March 2025',
-    image: '/images/News-Эмэгтэйчүүдийн манлайлал- Технологийн салбарт.jpg',
+    image: '/images/News-Women-Leadership-Tech.jpg',
     color: 'from-pink-500 to-pink-600',
     bgColor: 'bg-pink-50',
     borderColor: 'border-pink-200'
@@ -54,7 +54,7 @@ export const getNewsData = (locale: string) => [
     catId: 'business',
     author: locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation',
     date: locale === 'mn' ? '2024 оны 2 сар' : 'February 2024',
-    image: '/images/News-ӨРХИЙН БИЗНЕС ЭРХЛЭГЧ ЭМЭГТЭЙЧҮҮДИЙГ ДЭМЖИХ ТАЛААР САНАЛ СОЛИЛЦЛОО .jpg',
+    image: '/images/News-Business-Women-Support.jpg',
     color: 'from-green-500 to-green-600',
     bgColor: 'bg-green-50',
     borderColor: 'border-green-200'
@@ -94,7 +94,7 @@ export const getNewsData = (locale: string) => [
     catId: 'academy',
     author: locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation',
     date: locale === 'mn' ? '2024 оны 10 сар' : 'October 2024',
-    image: '/images/News-Бизнес эрхлэгч эмэгтэйчүүдийн академи төсөл эхэллээ. .jpg',
+    image: '/images/News-AWE-Academy-Start.jpg',
     color: 'from-orange-500 to-orange-600',
     bgColor: 'bg-orange-50',
     borderColor: 'border-orange-200'
@@ -134,7 +134,7 @@ export const getNewsData = (locale: string) => [
     catId: 'research',
     author: locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation',
     date: locale === 'mn' ? '2024 оны 9 сар' : 'September 2024',
-    image: '/images/Дархан-Уул аймаг орон нутгаас анх удаа Жендэрийн өнөөгийн нөхцөл байдлын үнэлгээг боловсруулан гаргалаа..jpg',
+    image: '/images/News-Gender-Assessment.jpg',
     color: 'from-indigo-500 to-indigo-600',
     bgColor: 'bg-indigo-50',
     borderColor: 'border-indigo-200'
@@ -154,7 +154,7 @@ export const getNewsData = (locale: string) => [
     catId: 'publication',
     author: locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation',
     date: locale === 'mn' ? '2024 оны 8 сар' : 'August 2024',
-    image: '/images/News-Хүчирхэг эмэгтэйчүүд.jpg',
+    image: '/images/News-Powerful-Women.jpg',
     color: 'from-rose-500 to-rose-600',
     bgColor: 'bg-rose-50',
     borderColor: 'border-rose-200'
@@ -194,7 +194,7 @@ export const getNewsData = (locale: string) => [
     catId: 'academy',
     author: locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation',
     date: locale === 'mn' ? '2024 оны 10 сар' : 'October 2024',
-    image: '/images/News-Бизнес эрхлэгч эмэгтэйчүүдийн академи хөтөлбөр .jpg',
+    image: '/images/News-AWE-Academy-Program.jpg',
     color: 'from-orange-500 to-orange-600',
     bgColor: 'bg-orange-50',
     borderColor: 'border-orange-200'
@@ -214,7 +214,7 @@ export const getNewsData = (locale: string) => [
     catId: 'business',
     author: locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation',
     date: locale === 'mn' ? '2024 оны 9 сар' : 'September 2024',
-    image: '/images/News-БИЗНЕСИЙН САЛБАРТ ЭМЭГТЭЙЧҮҮДИЙН ОРОЛЦООГ ДЭМЖИХ НЬ .jpg',
+    image: '/images/News-Business-Sector-Women.jpg',
     color: 'from-green-500 to-green-600',
     bgColor: 'bg-green-50',
     borderColor: 'border-green-200'
@@ -234,7 +234,7 @@ export const getNewsData = (locale: string) => [
     catId: 'training',
     author: locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation',
     date: locale === 'mn' ? '2024 оны 9 сар' : 'September 2024',
-    image: '/images/News-Дархан-Уул аймагт 2 дахь жилдээ үйл ажиллагаагаа явуулж буй Toastmasters олон улсын байгууллага нь намрын нээлтээ хийлээ. .jpg',
+    image: '/images/News-Toastmasters-Autumn.jpg',
     color: 'from-indigo-500 to-indigo-600',
     bgColor: 'bg-indigo-50',
     borderColor: 'border-indigo-200'
@@ -254,7 +254,7 @@ export const getNewsData = (locale: string) => [
     catId: 'organization',
     author: locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation',
     date: locale === 'mn' ? '2024 оны 8 сар' : 'August 2024',
-    image: '/images/News-Дархан-Уул аймгийн эмэгтэйчүүдийн холбоо гишүүн байгууллагуудтайгаа гишүүнчлэлээ шинэчлэн батламжилж байна.jpg',
+    image: '/images/News-Membership-Renewal.jpg',
     color: 'from-blue-500 to-blue-600',
     bgColor: 'bg-blue-50',
     borderColor: 'border-blue-200'
@@ -274,7 +274,7 @@ export const getNewsData = (locale: string) => [
     catId: 'reports',
     author: locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation',
     date: locale === 'mn' ? '2024 оны 1 сар' : 'January 2024',
-    image: '/images/News-ДУАЭХ 2023 онд.jpg',
+    image: '/images/News-Annual-Report-2023.jpg',
     color: 'from-slate-500 to-slate-600',
     bgColor: 'bg-slate-50',
     borderColor: 'border-slate-200'
