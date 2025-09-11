@@ -40,7 +40,7 @@ export default function Footer() {
               <div className="relative">
                 <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg">
                   <Image
-                    src="/images/logo.png"
+                    src="/images/Logo-footer.png"
                     alt={locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation'}
                     width={64}
                     height={64}
