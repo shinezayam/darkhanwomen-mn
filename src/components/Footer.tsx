@@ -38,21 +38,19 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-4 mb-8">
               <div className="relative">
-                <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg bg-gray-800 p-2">
-                  <img
-                    src="/images/logo_footer.png"
-                    alt={locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation'}
-                    className="w-full h-full object-contain"
-                    style={{ 
-                      minWidth: '48px',
-                      minHeight: '48px'
-                    }}
-                    onError={(e) => {
-                      console.error('Footer logo failed to load, trying fallback');
-                      e.currentTarget.src = '/images/logo.png';
-                      e.currentTarget.style.filter = 'brightness(0) invert(1)';
-                    }}
-                  />
+                <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg bg-gray-800 p-2 flex items-center justify-center">
+                  <svg 
+                    width="48" 
+                    height="48" 
+                    viewBox="0 0 48 48" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="text-white"
+                  >
+                    <circle cx="24" cy="24" r="20" stroke="currentColor" strokeWidth="2" fill="none"/>
+                    <path d="M16 20h16M16 24h12M16 28h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    <circle cx="24" cy="16" r="3" fill="currentColor"/>
+                  </svg>
                 </div>
               </div>
               <div>
