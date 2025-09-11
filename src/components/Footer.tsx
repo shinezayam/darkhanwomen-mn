@@ -39,11 +39,9 @@ export default function Footer() {
             <div className="flex items-center space-x-4 mb-8">
               <div className="relative">
                 <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg">
-                  <Image
+                  <img
                     src="/images/Logo-footer.png"
                     alt={locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation'}
-                    width={64}
-                    height={64}
                     className="w-full h-full object-contain"
                   />
                 </div>
