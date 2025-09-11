@@ -93,7 +93,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`px-4 py-2 rounded-[6px] text-sm font-medium transition-all duration-200 ${
+                className={`${item.name === 'Бидний тухай' || item.name === 'About' ? 'px-6' : 'px-4'} py-2 rounded-[6px] text-sm font-medium transition-all duration-200 ${
                   isActive(item.href)
                     ? 'text-pink-600 bg-pink-50'
                     : 'text-gray-700 hover:text-pink-600 hover:bg-pink-50/50'
