@@ -39,17 +39,11 @@ export default function Footer() {
             <div className="flex items-center space-x-4 mb-8">
               <div className="relative">
                 <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg bg-gray-800 p-2">
-                  <Image
+                  <img
                     src="/images/logo-footer-white.png"
                     alt={locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation'}
-                    width={64}
-                    height={64}
                     className="w-full h-full object-contain"
-                    unoptimized
-                    priority
-                    quality={100}
-                    onLoad={() => console.log('Next.js Image loaded successfully!')}
-                    onError={() => console.error('Next.js Image failed to load')}
+                    style={{ minWidth: '48px', minHeight: '48px' }}
                   />
                 </div>
               </div>
