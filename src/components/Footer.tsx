@@ -40,9 +40,13 @@ export default function Footer() {
               <div className="relative">
                 <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg">
                   <img
-                    src="/images/Logo-footer.png"
+                    src="/images/logo_footer.png"
                     alt={locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation'}
                     className="w-full h-full object-contain"
+                    onError={(e) => {
+                      console.error('Footer logo failed to load:', e);
+                      e.currentTarget.src = '/images/logo.png'; // Fallback to original logo
+                    }}
                   />
                 </div>
               </div>
