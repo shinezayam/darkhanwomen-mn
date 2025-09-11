@@ -38,16 +38,10 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-4 mb-8">
               <div className="relative">
-                <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg bg-white p-2">
-                  <Image
-                    src="/images/logo_footer.png"
-                    alt={locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation'}
-                    width={64}
-                    height={64}
-                    className="w-full h-full object-contain"
-                    priority
-                    unoptimized
-                  />
+                <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg bg-white p-2 flex items-center justify-center">
+                  <div className="text-2xl font-bold text-gray-800">
+                    {locale === 'mn' ? 'ЭХ' : 'WF'}
+                  </div>
                 </div>
               </div>
               <div>
