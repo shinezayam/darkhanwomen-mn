@@ -84,9 +84,6 @@ export default function Header() {
               <h1 className="font-display text-xl font-bold text-gray-900 group-hover:text-pink-600 transition-colors duration-200">
                 {locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation'}
               </h1>
-              <p className="text-sm text-gray-500 font-medium tracking-wide">
-                {locale === 'mn' ? 'Дархан-Уул аймаг' : 'Darkhan-Uul Province'}
-              </p>
             </div>
           </Link>
 
