@@ -35,9 +35,9 @@ export const getNewsData = (locale: string) => [
     author: locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation',
     date: locale === 'mn' ? '2025 оны 3 сар' : 'March 2025',
     image: '/images/News-Women-Leadership-Tech.jpg',
-    color: 'from-pink-500 to-pink-600',
-    bgColor: 'bg-pink-50',
-    borderColor: 'border-pink-200'
+    color: 'from-brand-500 to-brand-600',
+    bgColor: 'bg-brand-50',
+    borderColor: 'border-brand-200'
   },
   {
     id: 'business-women-support',

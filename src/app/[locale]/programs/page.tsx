@@ -88,8 +88,8 @@ export default function ProgramsPage() {
       category: locale === 'mn' ? 'Сошиал нэвтрүүлэг' : 'Social Program',
       participants: '80+',
       duration: locale === 'mn' ? 'Тасралтгүй' : 'Ongoing',
-      color: 'from-pink-500 to-pink-600',
-      bgColor: 'bg-gradient-to-br from-pink-50 to-pink-100',
+      color: 'from-brand-500 to-brand-600',
+      bgColor: 'bg-gradient-to-br from-brand-50 to-brand-100',
       features: [locale === 'mn' ? 'Сошиал' : 'Social', locale === 'mn' ? 'Нэвтрүүлэг' : 'Program']
     },
     {
@@ -327,7 +327,7 @@ export default function ProgramsPage() {
           <div className="fixed top-24 left-6 z-50">
             <Link 
               href={`/${locale}`}
-              className="inline-flex items-center space-x-2 text-pink-600 hover:text-pink-700 font-medium transition-all duration-200 hover:scale-105 group bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-pink-100"
+              className="inline-flex items-center space-x-2 text-brand-500 hover:text-brand-700 font-medium transition-all duration-200 hover:scale-105 group bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-brand-100"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-200" />
               <span className="hidden sm:inline">{locale === 'mn' ? 'Нүүр хуудас' : 'Home'}</span>
@@ -337,7 +337,7 @@ export default function ProgramsPage() {
           <div className="container-max container-spacing relative z-10">
             <div className="text-center mb-16">
               {/* Badge */}
-              <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm text-pink-700 px-6 py-3 mb-8 shadow-lg border border-pink-100 rounded-full">
+              <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm text-brand-700 px-6 py-3 mb-8 shadow-lg border border-brand-100 rounded-full">
                 <Sparkles className="w-5 h-5" />
                 <span className="text-sm font-medium">
                   {locale === 'mn' ? 'Бүх хөтөлбөрүүд' : 'All Programs'}
@@ -345,7 +345,7 @@ export default function ProgramsPage() {
               </div>
 
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
-                <span className="bg-gradient-to-r from-pink-500 to-pink-700 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent">
                   {locale === 'mn' ? 'ХӨТӨЛБӨРҮҮД' : 'PROGRAMS'}
                 </span>
               </h1>
@@ -366,13 +366,13 @@ export default function ProgramsPage() {
                   </div>
                 </div>
                 <div className="text-center p-6 bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg border border-white/50 hover:scale-105 transition-transform duration-300">
-                  <div className="text-3xl font-bold text-pink-600 mb-2">1000+</div>
+                  <div className="text-3xl font-bold text-brand-500 mb-2">1000+</div>
                   <div className="text-sm text-gray-600 font-medium">
                     {locale === 'mn' ? 'Оролцогчид' : 'Participants'}
                   </div>
                 </div>
                 <div className="text-center p-6 bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg border border-white/50 hover:scale-105 transition-transform duration-300">
-                  <div className="text-3xl font-bold text-pink-600 mb-2">95%</div>
+                  <div className="text-3xl font-bold text-brand-500 mb-2">95%</div>
                   <div className="text-sm text-gray-600 font-medium">
                     {locale === 'mn' ? 'Амжилтын хувь' : 'Success Rate'}
                   </div>
@@ -394,7 +394,7 @@ export default function ProgramsPage() {
                   placeholder={locale === 'mn' ? 'Хөтөлбөр хайх...' : 'Search programs...'}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-12 pr-4 py-4 text-lg border-2 border-gray-200 rounded-2xl focus:border-pink-500 focus:outline-none transition-all duration-300 bg-white/80 backdrop-blur-sm shadow-lg"
+                  className="w-full pl-12 pr-4 py-4 text-lg border-2 border-gray-200 rounded-2xl focus:border-brand-500 focus:outline-none transition-all duration-300 bg-white/80 backdrop-blur-sm shadow-lg"
                 />
                 {searchTerm && (
                   <button
@@ -414,8 +414,8 @@ export default function ProgramsPage() {
                     onClick={() => setSelectedCategory(category.id)}
                     className={`flex items-center space-x-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                       selectedCategory === category.id
-                        ? 'bg-gradient-to-r from-pink-500 to-pink-600 text-white shadow-lg scale-105'
-                        : 'bg-white text-gray-600 border-2 border-gray-200 hover:border-pink-300 hover:scale-105'
+                        ? 'bg-gradient-to-r from-brand-500 to-brand-600 text-white shadow-lg scale-105'
+                        : 'bg-white text-gray-600 border-2 border-gray-200 hover:border-brand-300 hover:scale-105'
                     }`}
                   >
                     <category.icon className="w-4 h-4" />
@@ -542,7 +542,7 @@ export default function ProgramsPage() {
                     setSearchTerm('');
                     setSelectedCategory('all');
                   }}
-                  className="bg-gradient-to-r from-pink-500 to-pink-600 text-white"
+                  className="bg-gradient-to-r from-brand-500 to-brand-600 text-white"
                 >
                   {locale === 'mn' ? 'Бүх хөтөлбөрийг харах' : 'View All Programs'}
                 </Button>
@@ -571,7 +571,7 @@ export default function ProgramsPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button 
                     size="lg"
-                    className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg"
+                    className="bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg"
                   >
                     {locale === 'mn' ? 'Оролцох' : 'Get Involved'}
                   </Button>
@@ -579,7 +579,7 @@ export default function ProgramsPage() {
                   <Button 
                     variant="outline"
                     size="lg"
-                    className="border-2 border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 hover:scale-105"
+                    className="border-2 border-brand-500 text-brand-500 hover:bg-brand-500 hover:text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 hover:scale-105"
                   >
                     {locale === 'mn' ? 'Холбоо барих' : 'Contact Us'}
                   </Button>
