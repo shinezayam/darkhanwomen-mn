@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Heart, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogTrigger, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 
 export default function Header() {
   const pathname = usePathname();
@@ -159,39 +158,14 @@ export default function Header() {
               )}
             </div>
             
-            <Dialog>
-                              <DialogTrigger asChild>
-                  <Button 
-                    className="btn-primary group"
-                  >
-                    <Heart className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-300" />
-                    {locale === 'mn' ? 'Хандивлах' : 'Donate'}
-                  </Button>
-                </DialogTrigger>
-              <DialogContent className="sm:max-w-md bg-white/95 backdrop-blur-xl border-0 shadow-xl">
-                <DialogHeader className="text-center">
-                  <DialogTitle className="text-2xl font-heading font-bold text-pink-600 mb-4">
-                    {locale === 'mn' ? 'Хандивлах' : 'Donate'}
-                  </DialogTitle>
-                  <DialogDescription className="text-gray-600 mb-8 text-lg">
-                    {locale === 'mn' 
-                      ? 'Эмэгтэйчүүдийн хөгжилд дэмжлэг үзүүлээрэй'
-                      : 'Support women\'s development and empowerment'
-                    }
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="text-center">
-                  <Link href={`/${locale}/donate`}>
-                    <Button 
-                      className="btn-primary w-full group"
-                    >
-                      <Heart className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
-                      {locale === 'mn' ? 'Хандивлах' : 'Donate Now'}
-                    </Button>
-                  </Link>
-                </div>
-              </DialogContent>
-            </Dialog>
+            <Link href={`/${locale}/donate`}>
+              <Button 
+                className="btn-primary group"
+              >
+                <Heart className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                {locale === 'mn' ? 'Хандивлах' : 'Donate'}
+              </Button>
+            </Link>
 
             {/* Modern mobile menu button */}
             <button
