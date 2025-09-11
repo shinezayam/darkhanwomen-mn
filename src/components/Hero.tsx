@@ -17,16 +17,16 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Badge */}
         <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 mb-8 shadow-lg border border-pink-100">
-          <div className="w-2 h-2 bg-pink-500 rounded-full animate-pulse"></div>
+          <div className="w-2 h-2 bg-brand-500 rounded-full animate-pulse"></div>
           <span className="text-sm font-medium text-gray-700">
             {locale === 'mn' ? '1962 оноос хойш' : 'since 1962'}
           </span>
-          <div className="w-2 h-2 bg-pink-500 rounded-full animate-pulse delay-1000"></div>
+          <div className="w-2 h-2 bg-brand-500 rounded-full animate-pulse delay-1000"></div>
         </div>
         
         {/* Main Headline */}
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
-          <span className="bg-gradient-to-r from-pink-600 via-pink-700 to-purple-700 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-brand-500 via-brand-600 to-brand-700 bg-clip-text text-transparent">
             {locale === 'mn' 
               ? 'ДАРХАН-УУЛ АЙМГИЙН ЭМЭГТЭЙЧҮҮДИЙН ХОЛБОО'
               : 'DARKHAN-UUL WOMEN\'S FEDERATION'
@@ -49,7 +49,7 @@ export default function Hero() {
           <Link href={`/${locale}/donate`}>
             <Button 
               size="lg" 
-              className="btn-primary group bg-gradient-to-r from-pink-600 to-pink-700 hover:from-pink-700 hover:to-pink-800 text-white font-bold px-12 py-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+              className="btn-primary group bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white font-bold px-12 py-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
             >
               <span className="relative z-10 flex items-center">
                 <Heart className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform duration-300" />
@@ -62,7 +62,7 @@ export default function Hero() {
             <Button 
               variant="outline" 
               size="lg" 
-              className="btn-secondary group border-2 border-pink-600 text-pink-600 hover:bg-pink-600 hover:text-white font-bold px-10 py-6 rounded-2xl transition-all duration-300 hover:scale-105"
+              className="btn-secondary group border-2 border-brand-500 text-brand-500 hover:bg-brand-500 hover:text-white font-bold px-10 py-6 rounded-2xl transition-all duration-300 hover:scale-105"
             >
               <span className="flex items-center">
                 {locale === 'mn' ? 'Дэлгэрэнгүй' : 'Learn More'}
@@ -96,8 +96,8 @@ export default function Hero() {
             <span className="text-sm text-gray-500 font-medium">
               {locale === 'mn' ? 'Доош гүйлгэх' : 'Scroll Down'}
             </span>
-            <div className="w-6 h-10 border-2 border-pink-300 rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-pink-500 rounded-full mt-2 animate-pulse"></div>
+            <div className="w-6 h-10 border-2 border-brand-300 rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-brand-500 rounded-full mt-2 animate-pulse"></div>
             </div>
           </div>
         </div>

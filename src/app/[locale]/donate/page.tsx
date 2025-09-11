@@ -65,7 +65,7 @@ export default function DonatePage() {
             <div className="absolute top-6 left-6 z-50">
               <Link
                 href={`/${locale}`}
-                className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm text-pink-600 hover:text-pink-700 font-medium transition-all duration-200 hover:scale-105 group px-4 py-2 rounded-full shadow-lg border border-pink-100/50"
+                className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm text-brand-500 hover:text-pink-700 font-medium transition-all duration-200 hover:scale-105 group px-4 py-2 rounded-full shadow-lg border border-pink-100/50"
               >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-200" />
                 <span className="hidden sm:inline">{locale === 'mn' ? 'Нүүр хуудас' : 'Home'}</span>
@@ -74,7 +74,7 @@ export default function DonatePage() {
 
             <div className="text-center mb-16 pt-16">
               {/* Enhanced Badge */}
-              <div className="inline-flex items-center space-x-2 bg-pink-500 text-white px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-xl border border-pink-500/20">
+              <div className="inline-flex items-center space-x-2 bg-brand-500 text-white px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-xl border border-brand-500/20">
                 <Heart className="w-5 h-5" />
                 <span className="tracking-wide">{locale === 'mn' ? 'Хандив' : 'Donate'}</span>
                 <Sparkles className="w-4 h-4" />
@@ -96,7 +96,7 @@ export default function DonatePage() {
               {/* Impact Counter */}
               <div className="flex justify-center items-center space-x-8 mb-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-pink-600">500+</div>
+                  <div className="text-3xl font-bold text-brand-500">500+</div>
                   <div className="text-sm text-gray-600">{locale === 'mn' ? 'Эмэгтэйчүүд' : 'Women Helped'}</div>
                 </div>
                 <div className="w-px h-12 bg-gray-300"></div>
@@ -106,7 +106,7 @@ export default function DonatePage() {
                 </div>
                 <div className="w-px h-12 bg-gray-300"></div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-pink-600">100%</div>
+                  <div className="text-3xl font-bold text-brand-500">100%</div>
                   <div className="text-sm text-gray-600">{locale === 'mn' ? 'Ил тод байдал' : 'Transparency'}</div>
                 </div>
               </div>
@@ -121,7 +121,7 @@ export default function DonatePage() {
               {/* Enhanced Donation Form */}
               <Card className="card-modern p-8 shadow-2xl border-2 border-pink-300 bg-gradient-to-br from-white to-pink-50/30 backdrop-blur-sm ring-4 ring-pink-200 scale-105">
                 <CardHeader className="text-center pb-6">
-                  <div className="w-20 h-20 bg-pink-500 rounded-3xl mx-auto mb-6 flex items-center justify-center shadow-lg">
+                  <div className="w-20 h-20 bg-brand-500 rounded-3xl mx-auto mb-6 flex items-center justify-center shadow-lg">
                     <Heart className="w-10 h-10 text-white" />
                   </div>
                   <CardTitle className="text-4xl font-bold text-gray-900 mb-4">
@@ -142,14 +142,14 @@ export default function DonatePage() {
                         onClick={() => setDonationType('one-time')}
                         className={`p-6 border-2 rounded-2xl transition-all duration-300 text-center group ${
                           donationType === 'one-time' 
-                            ? 'border-pink-500 bg-pink-50 shadow-lg scale-105' 
-                            : 'border-gray-200 hover:border-pink-500 hover:bg-pink-50 hover:scale-105'
+                            ? 'border-brand-500 bg-brand-50 shadow-lg scale-105' 
+                            : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50 hover:scale-105'
                         }`}
                       >
                         <div className={`font-bold text-lg ${donationType === 'one-time' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
                           {locale === 'mn' ? 'Нэг удаа' : 'One-time'}
                         </div>
-                        <div className={`text-sm mt-1 ${donationType === 'one-time' ? 'text-pink-600' : 'text-gray-500 group-hover:text-pink-600'}`}>
+                        <div className={`text-sm mt-1 ${donationType === 'one-time' ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
                           {locale === 'mn' ? 'Нэг удаагийн хандив' : 'Single donation'}
                         </div>
                       </button>
@@ -157,14 +157,14 @@ export default function DonatePage() {
                         onClick={() => setDonationType('monthly')}
                         className={`p-6 border-2 rounded-2xl transition-all duration-300 text-center group ${
                           donationType === 'monthly' 
-                            ? 'border-pink-500 bg-pink-50 shadow-lg scale-105' 
-                            : 'border-gray-200 hover:border-pink-500 hover:bg-pink-50 hover:scale-105'
+                            ? 'border-brand-500 bg-brand-50 shadow-lg scale-105' 
+                            : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50 hover:scale-105'
                         }`}
                       >
                         <div className={`font-bold text-lg ${donationType === 'monthly' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
                           {locale === 'mn' ? 'Сар бүр' : 'Monthly'}
                         </div>
-                        <div className={`text-sm mt-1 ${donationType === 'monthly' ? 'text-pink-600' : 'text-gray-500 group-hover:text-pink-600'}`}>
+                        <div className={`text-sm mt-1 ${donationType === 'monthly' ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
                           {locale === 'mn' ? 'Тогтмол хандив' : 'Recurring donation'}
                         </div>
                       </button>
@@ -183,17 +183,17 @@ export default function DonatePage() {
                           onClick={() => setSelectedAmount(stat.amount)}
                           className={`p-6 border-2 rounded-2xl transition-all duration-300 text-center group relative overflow-hidden ${
                             selectedAmount === stat.amount 
-                              ? 'border-pink-500 bg-pink-50 shadow-lg scale-105' 
-                              : 'border-gray-200 hover:border-pink-500 hover:bg-pink-50 hover:scale-105'
+                              ? 'border-brand-500 bg-brand-50 shadow-lg scale-105' 
+                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50 hover:scale-105'
                           }`}
                         >
                           <div className="absolute top-2 right-2">
-                            <stat.icon className={`w-5 h-5 ${selectedAmount === stat.amount ? 'text-pink-600' : 'text-gray-400 group-hover:text-pink-500'}`} />
+                            <stat.icon className={`w-5 h-5 ${selectedAmount === stat.amount ? 'text-brand-500' : 'text-gray-400 group-hover:text-pink-500'}`} />
                           </div>
                           <div className={`font-bold text-xl ${selectedAmount === stat.amount ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
                             {stat.amount.toLocaleString()}₮
                           </div>
-                          <div className={`text-xs mt-2 ${selectedAmount === stat.amount ? 'text-pink-600' : 'text-gray-500 group-hover:text-pink-600'}`}>
+                          <div className={`text-xs mt-2 ${selectedAmount === stat.amount ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
                             {stat.impact}
                           </div>
                         </button>
@@ -213,7 +213,7 @@ export default function DonatePage() {
                         value={customAmount}
                         onChange={(e) => setCustomAmount(e.target.value)}
                         placeholder={locale === 'mn' ? 'Хэмжээ оруулах' : 'Enter amount'}
-                        className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-pink-500 text-lg font-medium transition-all duration-200"
+                        className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
                       />
                     </div>
                   </div>
@@ -228,19 +228,19 @@ export default function DonatePage() {
                         onClick={() => setDedicationType(dedicationType === 'honor' ? null : 'honor')}
                         className={`w-full p-4 border-2 rounded-2xl transition-all duration-200 text-left group ${
                           dedicationType === 'honor' 
-                            ? 'border-pink-500 bg-pink-50' 
-                            : 'border-gray-200 hover:border-pink-500 hover:bg-pink-50'
+                            ? 'border-brand-500 bg-brand-50' 
+                            : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50'
                         }`}
                       >
                         <div className="flex items-center space-x-3">
-                          <div className={`w-8 h-8 rounded-full flex items-center justify-center ${dedicationType === 'honor' ? 'bg-pink-500' : 'bg-gray-200 group-hover:bg-pink-200'}`}>
-                            <Heart className={`w-4 h-4 ${dedicationType === 'honor' ? 'text-white' : 'text-gray-600 group-hover:text-pink-600'}`} />
+                          <div className={`w-8 h-8 rounded-full flex items-center justify-center ${dedicationType === 'honor' ? 'bg-brand-500' : 'bg-gray-200 group-hover:bg-pink-200'}`}>
+                            <Heart className={`w-4 h-4 ${dedicationType === 'honor' ? 'text-white' : 'text-gray-600 group-hover:text-brand-500'}`} />
                           </div>
                           <div>
                             <div className={`font-semibold ${dedicationType === 'honor' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
                               {locale === 'mn' ? 'Хэнтэй холбоотой' : 'In Honor Of'}
                             </div>
-                            <div className={`text-sm ${dedicationType === 'honor' ? 'text-pink-600' : 'text-gray-500 group-hover:text-pink-600'}`}>
+                            <div className={`text-sm ${dedicationType === 'honor' ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
                               {locale === 'mn' ? 'Хэн нэгний хүндэтгэлд' : 'To honor someone special'}
                             </div>
                           </div>
@@ -250,19 +250,19 @@ export default function DonatePage() {
                         onClick={() => setDedicationType(dedicationType === 'memory' ? null : 'memory')}
                         className={`w-full p-4 border-2 rounded-2xl transition-all duration-200 text-left group ${
                           dedicationType === 'memory' 
-                            ? 'border-pink-500 bg-pink-50' 
-                            : 'border-gray-200 hover:border-pink-500 hover:bg-pink-50'
+                            ? 'border-brand-500 bg-brand-50' 
+                            : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50'
                         }`}
                       >
                         <div className="flex items-center space-x-3">
-                          <div className={`w-8 h-8 rounded-full flex items-center justify-center ${dedicationType === 'memory' ? 'bg-pink-500' : 'bg-gray-200 group-hover:bg-pink-200'}`}>
-                            <Star className={`w-4 h-4 ${dedicationType === 'memory' ? 'text-white' : 'text-gray-600 group-hover:text-pink-600'}`} />
+                          <div className={`w-8 h-8 rounded-full flex items-center justify-center ${dedicationType === 'memory' ? 'bg-brand-500' : 'bg-gray-200 group-hover:bg-pink-200'}`}>
+                            <Star className={`w-4 h-4 ${dedicationType === 'memory' ? 'text-white' : 'text-gray-600 group-hover:text-brand-500'}`} />
                           </div>
                           <div>
                             <div className={`font-semibold ${dedicationType === 'memory' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
                               {locale === 'mn' ? 'Дурсгалд' : 'In Memory Of'}
                             </div>
-                            <div className={`text-sm ${dedicationType === 'memory' ? 'text-pink-600' : 'text-gray-500 group-hover:text-pink-600'}`}>
+                            <div className={`text-sm ${dedicationType === 'memory' ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
                               {locale === 'mn' ? 'Нас барсан хүний дурсгалд' : 'To remember someone who passed'}
                             </div>
                           </div>
@@ -281,49 +281,49 @@ export default function DonatePage() {
                         onClick={() => setPaymentMethod('card')}
                         className={`w-full p-4 border-2 rounded-2xl transition-all duration-200 flex items-center space-x-4 group ${
                           paymentMethod === 'card' 
-                            ? 'border-pink-500 bg-pink-50' 
-                            : 'border-gray-200 hover:border-pink-500 hover:bg-pink-50'
+                            ? 'border-brand-500 bg-brand-50' 
+                            : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50'
                         }`}
                       >
-                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${paymentMethod === 'card' ? 'bg-pink-500' : 'bg-gray-200 group-hover:bg-pink-200'}`}>
-                          <CreditCard className={`w-5 h-5 ${paymentMethod === 'card' ? 'text-white' : 'text-gray-600 group-hover:text-pink-600'}`} />
+                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${paymentMethod === 'card' ? 'bg-brand-500' : 'bg-gray-200 group-hover:bg-pink-200'}`}>
+                          <CreditCard className={`w-5 h-5 ${paymentMethod === 'card' ? 'text-white' : 'text-gray-600 group-hover:text-brand-500'}`} />
                         </div>
                         <div>
                           <span className={`font-semibold ${paymentMethod === 'card' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
                             {locale === 'mn' ? 'Банкны карт' : 'Bank Card'}
                           </span>
-                          <div className={`text-sm ${paymentMethod === 'card' ? 'text-pink-600' : 'text-gray-500 group-hover:text-pink-600'}`}>
+                          <div className={`text-sm ${paymentMethod === 'card' ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
                             {locale === 'mn' ? 'Visa, Mastercard' : 'Visa, Mastercard'}
                           </div>
                         </div>
-                        <Lock className={`w-5 h-5 ml-auto ${paymentMethod === 'card' ? 'text-pink-600' : 'text-gray-400 group-hover:text-pink-500'}`} />
+                        <Lock className={`w-5 h-5 ml-auto ${paymentMethod === 'card' ? 'text-brand-500' : 'text-gray-400 group-hover:text-pink-500'}`} />
                       </button>
                       <button 
                         onClick={() => setPaymentMethod('online')}
                         className={`w-full p-4 border-2 rounded-2xl transition-all duration-200 flex items-center space-x-4 group ${
                           paymentMethod === 'online' 
-                            ? 'border-pink-500 bg-pink-50' 
-                            : 'border-gray-200 hover:border-pink-500 hover:bg-pink-50'
+                            ? 'border-brand-500 bg-brand-50' 
+                            : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50'
                         }`}
                       >
-                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${paymentMethod === 'online' ? 'bg-pink-500' : 'bg-gray-200 group-hover:bg-pink-200'}`}>
-                          <Globe className={`w-5 h-5 ${paymentMethod === 'online' ? 'text-white' : 'text-gray-600 group-hover:text-pink-600'}`} />
+                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${paymentMethod === 'online' ? 'bg-brand-500' : 'bg-gray-200 group-hover:bg-pink-200'}`}>
+                          <Globe className={`w-5 h-5 ${paymentMethod === 'online' ? 'text-white' : 'text-gray-600 group-hover:text-brand-500'}`} />
                         </div>
                         <div>
                           <span className={`font-semibold ${paymentMethod === 'online' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
                             {locale === 'mn' ? 'Онлайн төлбөр' : 'Online Payment'}
                           </span>
-                          <div className={`text-sm ${paymentMethod === 'online' ? 'text-pink-600' : 'text-gray-500 group-hover:text-pink-600'}`}>
+                          <div className={`text-sm ${paymentMethod === 'online' ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
                             {locale === 'mn' ? 'PayPal, Stripe' : 'PayPal, Stripe'}
                           </div>
                         </div>
-                        <Shield className={`w-5 h-5 ml-auto ${paymentMethod === 'online' ? 'text-pink-600' : 'text-gray-400 group-hover:text-pink-500'}`} />
+                        <Shield className={`w-5 h-5 ml-auto ${paymentMethod === 'online' ? 'text-brand-500' : 'text-gray-400 group-hover:text-pink-500'}`} />
                       </button>
                     </div>
                   </div>
 
                   {/* Enhanced Donate Button */}
-                  <Button className="w-full bg-pink-500 hover:bg-pink-600 text-white text-xl py-6 rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group">
+                  <Button className="w-full bg-brand-500 hover:bg-brand-600 text-white text-xl py-6 rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group">
                     <Heart className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform duration-200" />
                     {locale === 'mn' ? 'Хандивлах' : 'Donate Now'}
                     <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform duration-200" />
@@ -424,7 +424,7 @@ export default function DonatePage() {
             {/* Enhanced Why Donate Section */}
             <Card className="card-modern p-12 mb-16 shadow-2xl border-0 bg-gradient-to-br from-white to-gray-50/50">
               <CardHeader className="text-center pb-8">
-                <div className="w-20 h-20 bg-pink-500 rounded-3xl mx-auto mb-6 flex items-center justify-center">
+                <div className="w-20 h-20 bg-brand-500 rounded-3xl mx-auto mb-6 flex items-center justify-center">
                   <Zap className="w-10 h-10 text-white" />
                 </div>
                 <CardTitle className="text-4xl font-bold text-gray-900 mb-4">
@@ -440,7 +440,7 @@ export default function DonatePage() {
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="text-center p-8 group hover:scale-105 transition-all duration-300">
-                    <div className="w-20 h-20 bg-pink-500 rounded-3xl mx-auto mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-20 h-20 bg-brand-500 rounded-3xl mx-auto mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <Users className="w-10 h-10 text-white" />
                     </div>
                     <h4 className="font-bold text-gray-900 mb-4 text-xl">

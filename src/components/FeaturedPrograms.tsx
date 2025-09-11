@@ -84,9 +84,9 @@ export default function FeaturedPrograms() {
       category: locale === 'mn' ? 'Сошиал нэвтрүүлэг' : 'Social Program',
       participants: '80+',
       duration: locale === 'mn' ? 'Тасралтгүй' : 'Ongoing',
-      color: 'from-pink-500 to-pink-600',
-      bgColor: 'bg-pink-50',
-      borderColor: 'border-pink-200',
+      color: 'from-brand-500 to-brand-600',
+      bgColor: 'bg-brand-50',
+      borderColor: 'border-brand-200',
       features: [locale === 'mn' ? 'Сошиал' : 'Social', locale === 'mn' ? 'Нэвтрүүлэг' : 'Program']
     },
     {
@@ -407,9 +407,9 @@ export default function FeaturedPrograms() {
       category: locale === 'mn' ? 'Хөгжүүлэх сургалт' : 'Development Training',
       participants: '35',
       duration: locale === 'mn' ? '1 сар' : '1 Month',
-      color: 'from-pink-500 to-pink-600',
-      bgColor: 'bg-pink-50',
-      borderColor: 'border-pink-200',
+      color: 'from-brand-500 to-brand-600',
+      bgColor: 'bg-brand-50',
+      borderColor: 'border-brand-200',
       features: [locale === 'mn' ? 'Сэтгэл зүй' : 'Psychology', locale === 'mn' ? 'Хувь хөгжил' : 'Personal development']
     },
     {
@@ -434,13 +434,13 @@ export default function FeaturedPrograms() {
       {/* Modern Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-pink-100/30 to-purple-100/30 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-100/30 to-pink-100/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-100/30 to-brand-100/30 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container-max container-spacing relative z-10">
         {/* Modern Section Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm text-pink-700 px-4 py-2 rounded-[6px] text-sm font-medium mb-6 shadow-sm border border-pink-100/50">
+          <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm text-brand-700 px-4 py-2 rounded-[6px] text-sm font-medium mb-6 shadow-sm border border-brand-100/50">
             <Sparkles className="w-5 h-5" />
             <span className="tracking-wide">{locale === 'mn' ? 'Гол хөтөлбөрүүд' : 'Featured Programs'}</span>
           </div>
@@ -544,7 +544,7 @@ export default function FeaturedPrograms() {
                   {/* Enhanced CTA Button */}
                 <Button 
                   variant="outline" 
-                      className="w-full bg-gradient-to-r from-white/90 to-white/70 backdrop-blur-sm border-2 border-gray-200 hover:border-pink-400 hover:bg-gradient-to-r hover:from-pink-50 hover:to-pink-100 text-gray-700 hover:text-pink-700 font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl group"
+                      className="w-full bg-gradient-to-r from-white/90 to-white/70 backdrop-blur-sm border-2 border-gray-200 hover:border-brand-400 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100 text-gray-700 hover:text-brand-700 font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl group"
                 >
                   <span className="flex items-center justify-center">
                     {locale === 'mn' ? 'Дэлгэрэнгүй' : 'Learn More'}
@@ -555,7 +555,7 @@ export default function FeaturedPrograms() {
               </div>
 
               {/* Subtle Border Glow on Hover - Fixed to not interfere with content */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-brand-500/10 via-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
             </Card>
             </Link>
           ))}
@@ -565,9 +565,9 @@ export default function FeaturedPrograms() {
         <div className="my-24">
           <div className="flex items-center justify-center">
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
-            <div className="mx-12 px-8 py-4 bg-gradient-to-r from-pink-50 via-purple-50 to-blue-50 rounded-2xl border border-pink-200 shadow-sm">
+            <div className="mx-12 px-8 py-4 bg-gradient-to-r from-brand-50 via-purple-50 to-blue-50 rounded-2xl border border-brand-200 shadow-sm">
               <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
+                <div className="w-2 h-2 bg-brand-500 rounded-full"></div>
                 <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
                 <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
               </div>
@@ -661,7 +661,7 @@ export default function FeaturedPrograms() {
                     <Link href={`/${locale}/programs/${program.id}`}>
                       <Button 
                         variant="outline" 
-                        className="w-full bg-gradient-to-r from-white/90 to-white/70 backdrop-blur-sm border-2 border-gray-200 hover:border-pink-400 hover:bg-gradient-to-r hover:from-pink-50 hover:to-pink-100 text-gray-700 hover:text-pink-700 font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl group"
+                        className="w-full bg-gradient-to-r from-white/90 to-white/70 backdrop-blur-sm border-2 border-gray-200 hover:border-brand-400 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100 text-gray-700 hover:text-brand-700 font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl group"
                       >
                         <span className="flex items-center justify-center">
                           {locale === 'mn' ? 'Дэлгэрэнгүй' : 'Learn More'}
@@ -672,7 +672,7 @@ export default function FeaturedPrograms() {
                   </div>
                 </div>
                 
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-brand-500/10 via-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
               </Card>
             ))}
           </div>
@@ -681,7 +681,7 @@ export default function FeaturedPrograms() {
         {/* Visual Separator */}
         <div className="flex items-center justify-center mb-16">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
-          <div className="mx-8 px-6 py-3 bg-gradient-to-r from-pink-50 to-purple-50 rounded-full border border-pink-200">
+          <div className="mx-8 px-6 py-3 bg-gradient-to-r from-brand-50 to-purple-50 rounded-full border border-brand-200">
             <span className="text-sm font-semibold text-gray-600">
               {locale === 'mn' ? 'Мөн' : 'AND'}
             </span>
@@ -763,7 +763,7 @@ export default function FeaturedPrograms() {
                     <Link href={`/${locale}/programs/${program.id}`}>
                       <Button 
                         variant="outline" 
-                        className="w-full bg-gradient-to-r from-white/90 to-white/70 backdrop-blur-sm border-2 border-gray-200 hover:border-pink-400 hover:bg-gradient-to-r hover:from-pink-50 hover:to-pink-100 text-gray-700 hover:text-pink-700 font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl group"
+                        className="w-full bg-gradient-to-r from-white/90 to-white/70 backdrop-blur-sm border-2 border-gray-200 hover:border-brand-400 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100 text-gray-700 hover:text-brand-700 font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl group"
                       >
                         <span className="flex items-center justify-center">
                           {locale === 'mn' ? 'Дэлгэрэнгүй' : 'Learn More'}
@@ -774,7 +774,7 @@ export default function FeaturedPrograms() {
                   </div>
                 </div>
                 
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-brand-500/10 via-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
               </Card>
             ))}
           </div>
@@ -785,7 +785,7 @@ export default function FeaturedPrograms() {
           <Link href={`/${locale}/programs`}>
           <Button 
             size="lg" 
-              className="bg-gradient-to-r from-pink-600 to-pink-700 hover:from-pink-700 hover:to-pink-800 text-white font-bold px-12 py-4 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 group border-0"
+              className="bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white font-bold px-12 py-4 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 group border-0"
           >
             <span className="flex items-center">
               {locale === 'mn' ? 'Бүх хөтөлбөрүүдийг харах' : 'View All Programs'}

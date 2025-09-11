@@ -81,7 +81,7 @@ export default function Header() {
               </div>
             </div>
             <div className="hidden sm:block">
-              <h1 className="font-display text-xl font-bold text-gray-900 group-hover:text-pink-600 transition-colors duration-200">
+              <h1 className="font-display text-xl font-bold text-gray-900 group-hover:text-brand-500 transition-colors duration-200">
                 {locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation'}
               </h1>
             </div>
@@ -95,8 +95,8 @@ export default function Header() {
                 href={item.href}
                 className={`${item.name === 'Бидний тухай' || item.name === 'About' ? 'px-6' : 'px-4'} py-2 rounded-[6px] text-sm font-medium transition-all duration-200 ${
                   isActive(item.href)
-                    ? 'text-pink-600 bg-pink-50'
-                    : 'text-gray-700 hover:text-pink-600 hover:bg-pink-50/50'
+                    ? 'text-brand-500 bg-brand-50'
+                    : 'text-gray-700 hover:text-brand-500 hover:bg-brand-50/50'
                 }`}
               >
                 {item.name}
@@ -110,7 +110,7 @@ export default function Header() {
             <div className="relative" ref={languageMenuRef}>
               <button
                 onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
-                className="flex items-center space-x-1 px-3 py-2 text-sm font-medium text-pink-600 bg-pink-50 rounded-[6px] transition-all duration-200 border border-pink-200 group"
+                className="flex items-center space-x-1 px-3 py-2 text-sm font-medium text-brand-500 bg-brand-50 rounded-[6px] transition-all duration-200 border border-brand-200 group"
               >
                 <span className="text-lg">
                   {locale === 'mn' ? '🇲🇳' : '🇺🇸'}
@@ -120,13 +120,13 @@ export default function Header() {
               
               {/* Language dropdown menu */}
               {isLanguageMenuOpen && (
-                <div className="absolute top-full right-0 mt-2 w-48 bg-white/95 backdrop-blur-xl border border-pink-200/50 rounded-[8px] shadow-xl z-50 overflow-hidden">
+                <div className="absolute top-full right-0 mt-2 w-48 bg-white/95 backdrop-blur-xl border border-brand-200/50 rounded-[8px] shadow-xl z-50 overflow-hidden">
                   <Link
                     href={pathname.replace(/^\/[a-z]{2}/, '/mn')}
                     className={`flex items-center space-x-3 px-4 py-3 text-sm font-medium transition-all duration-200 ${
                       locale === 'mn' 
-                        ? 'bg-pink-50 text-pink-600 border-l-2 border-pink-500' 
-                        : 'text-gray-700 hover:bg-pink-50/50 hover:text-pink-600'
+                        ? 'bg-brand-50 text-brand-500 border-l-2 border-brand-500' 
+                        : 'text-gray-700 hover:bg-brand-50/50 hover:text-brand-500'
                     }`}
                     onClick={() => setIsLanguageMenuOpen(false)}
                   >
@@ -140,8 +140,8 @@ export default function Header() {
                     href={pathname.replace(/^\/[a-z]{2}/, '/en')}
                     className={`flex items-center space-x-3 px-4 py-3 text-sm font-medium transition-all duration-200 ${
                       locale === 'en' 
-                        ? 'bg-pink-50 text-pink-600 border-l-2 border-pink-500' 
-                        : 'text-gray-700 hover:bg-pink-50/50 hover:text-pink-600'
+                        ? 'bg-brand-50 text-brand-500 border-l-2 border-brand-500' 
+                        : 'text-gray-700 hover:bg-brand-50/50 hover:text-brand-500'
                     }`}
                     onClick={() => setIsLanguageMenuOpen(false)}
                   >
@@ -167,7 +167,7 @@ export default function Header() {
             {/* Modern mobile menu button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-[6px] text-gray-700 hover:text-pink-600 hover:bg-pink-50/50 transition-all duration-200 border border-transparent hover:border-pink-200"
+              className="lg:hidden p-2 rounded-[6px] text-gray-700 hover:text-brand-500 hover:bg-brand-50/50 transition-all duration-200 border border-transparent hover:border-brand-200"
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -188,8 +188,8 @@ export default function Header() {
                   href={item.href}
                   className={`px-4 py-3 rounded-[6px] text-base font-medium transition-all duration-200 ${
                     isActive(item.href)
-                      ? 'text-pink-600 bg-pink-50 border-l-2 border-pink-500'
-                      : 'text-gray-700 hover:text-pink-600 hover:bg-pink-50/50'
+                      ? 'text-brand-500 bg-brand-50 border-l-2 border-brand-500'
+                      : 'text-gray-700 hover:text-brand-500 hover:bg-brand-50/50'
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -207,8 +207,8 @@ export default function Header() {
                     href="/mn"
                     className={`flex items-center space-x-3 px-4 py-3 rounded-[6px] text-base font-medium transition-all duration-200 ${
                       locale === 'mn' 
-                        ? 'text-pink-600 bg-pink-50 border-l-2 border-pink-500' 
-                        : 'text-gray-700 hover:text-pink-600 hover:bg-pink-50/50'
+                        ? 'text-brand-500 bg-brand-50 border-l-2 border-brand-500' 
+                        : 'text-gray-700 hover:text-brand-500 hover:bg-brand-50/50'
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -222,8 +222,8 @@ export default function Header() {
                     href="/en"
                     className={`flex items-center space-x-3 px-4 py-3 rounded-[6px] text-base font-medium transition-all duration-200 ${
                       locale === 'en' 
-                        ? 'text-pink-600 bg-pink-50 border-l-2 border-pink-500' 
-                        : 'text-gray-700 hover:text-pink-600 hover:bg-pink-50/50'
+                        ? 'text-brand-500 bg-brand-50 border-l-2 border-brand-500' 
+                        : 'text-gray-700 hover:text-brand-500 hover:bg-brand-50/50'
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >

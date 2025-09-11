@@ -43,7 +43,7 @@ export default function RecentNews() {
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-pink-50 to-white" />
+                  <div className="w-full h-full bg-gradient-to-br from-brand-50 to-white" />
                 )}
               </div>
                 <div className="p-6 bg-white flex flex-col flex-grow">
@@ -54,7 +54,7 @@ export default function RecentNews() {
                       <span>{item.category}</span>
                       <span>{item.date}</span>
                     </div>
-                    <Button variant="outline" className="text-sm px-5 py-2 border-2 border-pink-500 text-pink-600 hover:bg-pink-500 hover:text-white rounded-xl w-full transition-all duration-300">{locale === 'mn' ? 'Дэлгэрэнгүй' : 'Read More'}</Button>
+                    <Button variant="outline" className="text-sm px-5 py-2 border-2 border-brand-500 text-brand-500 hover:bg-brand-500 hover:text-white rounded-xl w-full transition-all duration-300">{locale === 'mn' ? 'Дэлгэрэнгүй' : 'Read More'}</Button>
                   </div>
                 </div>
               </Card>
@@ -66,7 +66,7 @@ export default function RecentNews() {
           <Link href={`/${locale}/news`}>
             <Button 
               size="lg" 
-              className="bg-gradient-to-r from-pink-600 to-pink-700 hover:from-pink-700 hover:to-pink-800 text-white font-bold px-12 py-4 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 group border-0"
+              className="bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white font-bold px-12 py-4 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 group border-0"
             >
               <span className="flex items-center">
                 {locale === 'mn' ? 'Бүх мэдээг харах' : 'View All News'}
