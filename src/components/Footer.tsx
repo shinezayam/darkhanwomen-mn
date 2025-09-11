@@ -39,18 +39,11 @@ export default function Footer() {
             <div className="flex items-center space-x-4 mb-8">
               <div className="relative">
                 <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg bg-gray-800 p-2">
-                  <img
-                    src="/images/logo-footer-white.png"
-                    alt={locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation'}
-                    className="w-full h-full object-contain"
-                    style={{ minWidth: '48px', minHeight: '48px' }}
-                    onLoad={() => console.log('White logo loaded successfully!')}
-                    onError={(e) => {
-                      console.error('White logo failed to load, trying original:', e);
-                      e.currentTarget.src = '/images/logo.png';
-                      e.currentTarget.style.filter = 'brightness(0) invert(1)';
-                    }}
-                  />
+                  <div className="w-full h-full flex items-center justify-center">
+                    <div className="text-white text-xs font-bold text-center">
+                      {locale === 'mn' ? 'ЭХ' : 'WF'}
+                    </div>
+                  </div>
                 </div>
               </div>
               <div>
