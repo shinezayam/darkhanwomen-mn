@@ -12,7 +12,7 @@ export default function RecentNews() {
   const locale = pathname.startsWith('/en') ? 'en' : 'mn';
 
   const allNews = getNewsData(locale);
-  const news = allNews.slice(0, 5); // Show first 5 news items
+  const news = allNews.slice(0, 6); // Show first 6 news items
 
   return (
     <section className="section-spacing bg-white">
