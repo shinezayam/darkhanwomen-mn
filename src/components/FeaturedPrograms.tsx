@@ -27,6 +27,12 @@ export default function FeaturedPrograms() {
   const pathname = usePathname();
   const locale = pathname.startsWith('/en') ? 'en' : 'mn';
 
+  // Helper function to get the correct path for each program
+  const getProgramPath = (programId: string) => {
+    const trainingPrograms = ['hair-stylist', 'embroidery', 'gift-souvenir', 'art-painting', 'english-training', 'japanese-training', 'positive-thinking', 'project-development'];
+    return trainingPrograms.includes(programId) ? `/${locale}/training/${programId}` : `/${locale}/programs/${programId}`;
+  };
+
   // Featured Activities
   const featuredActivities = [
     {
@@ -460,7 +466,7 @@ export default function FeaturedPrograms() {
         {/* Featured Activities Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {featuredActivities.map((activity, index) => (
-            <Link key={index} href={`/${locale}/programs/${activity.id}`} className="block">
+            <Link key={index} href={getProgramPath(activity.id)} className="block">
               <Card className="group relative overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 cursor-pointer">
               {/* Enhanced Background with Gradient */}
               <div className={`relative ${activity.bgColor} p-6 h-full min-h-[350px] flex flex-col`}>
@@ -658,7 +664,7 @@ export default function FeaturedPrograms() {
                       </div>
                     </div>
                     
-                    <Link href={`/${locale}/programs/${program.id}`}>
+                    <Link href={getProgramPath(program.id)}>
                       <Button 
                         variant="outline" 
                         className="w-full bg-gradient-to-r from-white/90 to-white/70 backdrop-blur-sm border-2 border-gray-200 hover:border-brand-400 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100 text-gray-700 hover:text-brand-700 font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl group"
@@ -760,7 +766,7 @@ export default function FeaturedPrograms() {
                       </div>
                     </div>
                     
-                    <Link href={`/${locale}/programs/${program.id}`}>
+                    <Link href={getProgramPath(program.id)}>
                       <Button 
                         variant="outline" 
                         className="w-full bg-gradient-to-r from-white/90 to-white/70 backdrop-blur-sm border-2 border-gray-200 hover:border-brand-400 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100 text-gray-700 hover:text-brand-700 font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl group"
