@@ -139,9 +139,9 @@ export default function TrainingPage() {
                   participants: '15',
                   icon: Scissors,
                   category: locale === 'mn' ? 'Мэргэжлийн сургалт' : 'Professional Training',
-                  color: 'from-pink-500 to-pink-600',
-                  bgColor: 'bg-gradient-to-br from-pink-50 to-pink-100',
-                  borderColor: 'border-pink-200',
+                  color: 'from-teal-500 to-teal-600',
+                  bgColor: 'bg-gradient-to-br from-teal-50 to-teal-100',
+                  borderColor: 'border-teal-200',
                   features: [
                     locale === 'mn' ? 'Үс засах техник' : 'Hair cutting techniques',
                     locale === 'mn' ? 'Засал хийх ур чадвар' : 'Coloring skills',
@@ -183,7 +183,8 @@ export default function TrainingPage() {
                   ]
                 }
               ].map((training, index) => (
-                <Card key={index} className="group relative overflow-hidden bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-0">
+                <Link key={index} href={`/${locale}/training/${training.id}`} className="block">
+                  <Card className="group relative overflow-hidden bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-0 cursor-pointer">
                   {/* Enhanced Background */}
                   <div className={`relative ${training.bgColor} p-8 h-full min-h-[400px] flex flex-col`}>
                     {/* Decorative Elements */}
@@ -247,7 +248,7 @@ export default function TrainingPage() {
                         className={`w-full bg-gradient-to-r ${training.color} hover:opacity-90 text-white font-bold py-4 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl group border-0`}
                       >
                         <span className="flex items-center justify-center">
-                          {locale === 'mn' ? 'Бүртгүүлэх' : 'Register Now'}
+                          {locale === 'mn' ? 'Дэлгэрэнгүй' : 'Learn More'}
                           <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform duration-300" />
                         </span>
                       </Button>
@@ -257,6 +258,7 @@ export default function TrainingPage() {
                   {/* Hover Glow Effect */}
                   <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-pink-500/10 to-pink-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 </Card>
+                </Link>
               ))}
             </div>
           </div>
@@ -340,9 +342,10 @@ export default function TrainingPage() {
                   ]
                 }
               ].map((training, index) => (
-                <Card key={index} className="group relative overflow-hidden bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-0">
-                  {/* Enhanced Background */}
-                  <div className={`relative ${training.bgColor} p-8 h-full min-h-[400px] flex flex-col`}>
+                <Link key={index} href={`/${locale}/training/${training.id}`} className="block">
+                  <Card className="group relative overflow-hidden bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-0 cursor-pointer">
+                    {/* Enhanced Background */}
+                    <div className={`relative ${training.bgColor} p-8 h-full min-h-[400px] flex flex-col`}>
                     {/* Decorative Elements */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-white/30 to-transparent rounded-full blur-2xl"></div>
                     <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-white/20 to-transparent rounded-full blur-xl"></div>
@@ -404,7 +407,7 @@ export default function TrainingPage() {
                         className={`w-full bg-gradient-to-r ${training.color} hover:opacity-90 text-white font-bold py-4 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl group border-0`}
                       >
                         <span className="flex items-center justify-center">
-                          {locale === 'mn' ? 'Бүртгүүлэх' : 'Register Now'}
+                          {locale === 'mn' ? 'Дэлгэрэнгүй' : 'Learn More'}
                           <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform duration-300" />
                         </span>
                       </Button>
@@ -414,6 +417,7 @@ export default function TrainingPage() {
                   {/* Hover Glow Effect */}
                   <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-pink-500/10 to-pink-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 </Card>
+                </Link>
               ))}
             </div>
           </div>

@@ -2,7 +2,6 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Card, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
@@ -35,11 +34,9 @@ export default function RecentNews() {
               <Card className="overflow-hidden rounded-2xl shadow-lg border-0 hover:-translate-y-1 transition-transform h-full flex flex-col cursor-pointer">
                 <div className="aspect-[16/9] relative overflow-hidden">
                 {item.image ? (
-                  <Image 
+                  <img 
                     src={item.image} 
                     alt={item.title}
-                    width={400}
-                    height={225}
                     className="w-full h-full object-cover"
                   />
                 ) : (

@@ -88,8 +88,8 @@ export default function ProgramsPage() {
       category: locale === 'mn' ? 'Сошиал нэвтрүүлэг' : 'Social Program',
       participants: '80+',
       duration: locale === 'mn' ? 'Тасралтгүй' : 'Ongoing',
-      color: 'from-brand-500 to-brand-600',
-      bgColor: 'bg-gradient-to-br from-brand-50 to-brand-100',
+      color: 'from-rose-400 to-rose-500',
+      bgColor: 'bg-gradient-to-br from-rose-50 to-rose-100',
       features: [locale === 'mn' ? 'Сошиал' : 'Social', locale === 'mn' ? 'Нэвтрүүлэг' : 'Program']
     },
     {
@@ -116,8 +116,8 @@ export default function ProgramsPage() {
       category: locale === 'mn' ? 'Төсөл' : 'Project',
       participants: '30',
       duration: locale === 'mn' ? '3 сар' : '3 Months',
-      color: 'from-rose-500 to-rose-600',
-      bgColor: 'bg-gradient-to-br from-rose-50 to-rose-100',
+      color: 'from-red-400 to-red-500',
+      bgColor: 'bg-gradient-to-br from-red-50 to-red-100',
       features: [locale === 'mn' ? 'Охид' : 'Girls', locale === 'mn' ? 'Хөгжүүлэлт' : 'Development']
     },
     {
@@ -491,21 +491,7 @@ export default function ProgramsPage() {
                       {/* Enhanced CTA Button */}
                       <Button 
                         variant="outline" 
-                        className={`w-full bg-gradient-to-r from-white/90 to-white/70 backdrop-blur-sm border-2 border-gray-200 hover:bg-gradient-to-r ${program.bgColor} text-gray-700 font-bold py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl group text-base`}
-                        style={{
-                          borderColor: program.color.includes('blue') ? '#3B82F6' : 
-                                      program.color.includes('pink') ? '#EC4899' :
-                                      program.color.includes('rose') ? '#F43F5E' :
-                                      program.color.includes('green') ? '#10B981' :
-                                      program.color.includes('yellow') ? '#F59E0B' :
-                                      program.color.includes('indigo') ? '#6366F1' : '#EC4899',
-                          color: program.color.includes('blue') ? '#1E40AF' : 
-                                 program.color.includes('pink') ? '#BE185D' :
-                                 program.color.includes('rose') ? '#E11D48' :
-                                 program.color.includes('green') ? '#059669' :
-                                 program.color.includes('yellow') ? '#D97706' :
-                                 program.color.includes('indigo') ? '#4338CA' : '#BE185D'
-                        } as React.CSSProperties}
+                        className="w-full bg-gradient-to-r from-white/90 to-white/70 backdrop-blur-sm border-2 border-gray-200 hover:border-brand-400 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100 text-gray-700 hover:text-brand-700 font-bold py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl group text-base"
                       >
                         <span className="flex items-center justify-center">
                           {locale === 'mn' ? 'Дэлгэрэнгүй' : 'Learn More'}

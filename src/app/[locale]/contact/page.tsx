@@ -78,7 +78,7 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
               {/* Contact Information */}
               <div className="space-y-6">
-                <Card className="card-modern p-6 border border-pink-100 shadow-sm bg-white">
+                <Card className="card-modern p-6 border border-pink-100 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white">
                   <CardHeader>
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {locale === 'mn' ? 'Холбоо барих мэдээлэл' : 'Contact Information'}
@@ -152,7 +152,7 @@ export default function ContactPage() {
                   </CardContent>
                 </Card>
 
-                <Card className="card-modern p-6 border border-pink-100 shadow-sm bg-white">
+                <Card className="card-modern p-6 border border-pink-100 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white">
                   <CardHeader>
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {locale === 'mn' ? 'Сошиал сүлжээ' : 'Social Media'}

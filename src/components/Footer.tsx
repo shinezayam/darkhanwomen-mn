@@ -2,7 +2,6 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Mail, Phone, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
 
 export default function Footer() {
@@ -39,11 +38,9 @@ export default function Footer() {
             <div className="flex items-center space-x-4 mb-8">
               <div className="relative">
                 <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg">
-                  <Image
-                    src="/images/logo.png"
+                  <img
+                    src="http://localhost:3000/images/logo.png"
                     alt={locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation'}
-                    width={64}
-                    height={64}
                     className="w-full h-full object-contain"
                   />
                 </div>
@@ -60,7 +57,7 @@ export default function Footer() {
             
             <p className="text-gray-300 mb-8 max-w-md leading-relaxed text-lg">
               {locale === 'mn'
-                ? '1962 оноос хойш эмэгтэйчүүдийн эрхийг хамгаалах, тэдний хөгжилд хувь нэмэр оруулах зорилготой ажиллаж байна.'
+                ? '1962 оноос хойш эмэгтэйчүүдийн эрхийг хамгаалах, тэдний хөгжилд хувь нэмэр оруулах зорилготойгоор ажиллаж байна.'
                 : 'Working since 1962 to protect women\'s rights and contribute to their development and empowerment.'
               }
             </p>
@@ -186,8 +183,16 @@ export default function Footer() {
         <div className="border-t border-gray-700 mt-16 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0 font-medium">
-              © 2024 {locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation'}. 
-              {locale === 'mn' ? 'Бүх эрх хуулиар хамгаалагдсан.' : 'All rights reserved.'}
+              © 2025 {locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation'}. 
+              {locale === 'mn' ? 'Бүх эрх хуулиар хамгаалагдсан.' : 'All rights reserved.'} Designed by{' '}
+              <a
+                href="https://portfolio-sage-xi-54.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-pink-400 hover:text-pink-300 transition-colors duration-300"
+              >
+                Shinezaya Myagmar
+              </a>
             </div>
             
             <div className="flex space-x-8">

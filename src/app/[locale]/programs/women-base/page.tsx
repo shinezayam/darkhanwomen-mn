@@ -29,11 +29,11 @@ export default function WomenBasePage() {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-pink-50 via-white to-pink-50 relative overflow-hidden">
+        <section className="py-20 bg-gradient-to-br from-rose-50 via-white to-rose-50 relative overflow-hidden">
           <div className="absolute inset-0">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-pink-100/40 to-pink-100/40 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-pink-100/40 to-pink-100/40 rounded-full blur-3xl"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-pink-100/20 to-pink-100/20 rounded-full blur-2xl"></div>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-rose-100/40 to-rose-100/40 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-rose-100/40 to-rose-100/40 rounded-full blur-3xl"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-rose-100/20 to-rose-100/20 rounded-full blur-2xl"></div>
           </div>
 
           <div className="container-max container-spacing relative z-10">
@@ -49,7 +49,7 @@ export default function WomenBasePage() {
             </div>
 
             <div className="text-center mb-16">
-              <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-pink-500 to-pink-600 text-white px-6 py-3 rounded-2xl text-sm font-semibold mb-8 shadow-xl border border-pink-500/20">
+              <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-rose-400 to-rose-500 text-white px-6 py-3 rounded-2xl text-sm font-semibold mb-8 shadow-xl border border-rose-400/20">
                 <Heart className="w-5 h-5" />
                 <span className="tracking-wide">{locale === 'mn' ? 'Сошиал нэвтрүүлэг' : 'Social Program'}</span>
               </div>
@@ -71,15 +71,15 @@ export default function WomenBasePage() {
               {/* Main Content */}
               <div className="lg:col-span-2">
                 <Card className="card-modern shadow-2xl border-0 overflow-hidden">
-                  <CardHeader className="bg-gradient-to-r from-pink-500 to-pink-600 text-white relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-pink-500/90 to-pink-600/90"></div>
+                  <CardHeader className="bg-gradient-to-r from-rose-400 to-rose-500 text-white relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-rose-400/90 to-rose-500/90"></div>
                     <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
                     <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
                     <div className="relative z-10">
                       <CardTitle className="text-3xl font-bold text-center mb-2">
                         {locale === 'mn' ? 'Хөтөлбөрийн тухай' : 'About the Program'}
                       </CardTitle>
-                      <p className="text-pink-100 text-center text-lg">
+                      <p className="text-rose-100 text-center text-lg">
                         {locale === 'mn' ? 'Бүсгүйчүүдийн базааны дэлгэрэнгүй мэдээлэл' : 'Detailed information about Women\'s Base'}
                       </p>
                     </div>
@@ -106,7 +106,7 @@ export default function WomenBasePage() {
                       </div>
                       
                       <div className="flex items-start space-x-3">
-                        <Heart className="w-6 h-6 text-pink-500 mt-1" />
+                        <Heart className="w-6 h-6 text-rose-400 mt-1" />
                         <div>
                           <h4 className="font-semibold text-gray-900 mb-2">
                             {locale === 'mn' ? 'Дэмжлэг' : 'Support'}
@@ -149,8 +149,8 @@ export default function WomenBasePage() {
               <div className="space-y-6">
                 {/* Program Details */}
                 <Card className="card-modern shadow-xl border-0 overflow-hidden">
-                  <CardHeader className="bg-gradient-to-r from-pink-500 to-pink-600 text-white relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-pink-500/90 to-pink-600/90"></div>
+                  <CardHeader className="bg-gradient-to-r from-rose-400 to-rose-500 text-white relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-rose-400/90 to-rose-500/90"></div>
                     <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-10 translate-x-10"></div>
                     <div className="relative z-10">
                       <CardTitle className="text-xl font-bold text-center">
@@ -160,7 +160,7 @@ export default function WomenBasePage() {
                   </CardHeader>
                   <CardContent className="p-6 bg-white space-y-4">
                     <div className="flex items-center space-x-3">
-                      <Calendar className="w-5 h-5 text-pink-500" />
+                      <Calendar className="w-5 h-5 text-rose-400" />
                       <div>
                         <div className="font-semibold text-gray-900">
                           {locale === 'mn' ? 'Хугацаа' : 'Duration'}
@@ -184,7 +184,7 @@ export default function WomenBasePage() {
                     </div>
                     
                     <div className="flex items-center space-x-3">
-                      <MapPin className="w-5 h-5 text-red-500" />
+                      <MapPin className="w-5 h-5 text-rose-400" />
                       <div>
                         <div className="font-semibold text-gray-900">
                           {locale === 'mn' ? 'Байршил' : 'Location'}

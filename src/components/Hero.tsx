@@ -4,7 +4,6 @@ import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Heart } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function Hero() {
   const pathname = usePathname();
@@ -78,13 +77,11 @@ export default function Hero() {
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
           {['/images/hero_1.jpg','/images/hero_2.jpg','/images/hero_3.jpg','/images/hero_4.jpg','/images/hero_5.jpg','/images/hero_6.jpg'].map((src, idx) => (
             <div key={src} className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200">
-              <Image
-                src={src}
+              <img
+                src={`http://localhost:3000${src}`}
                 alt={locale === 'mn' ? 'Үйл ажиллагааны зураг' : 'Activity photo'}
-                width={400}
-                height={300}
                 className="w-full h-full object-cover"
-                priority={idx < 3}
+                loading={idx < 3 ? 'eager' : 'lazy'}
               />
             </div>
           ))}

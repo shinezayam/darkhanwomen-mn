@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 const locales = ['en', 'mn'];
-const defaultLocale = 'en';
+const defaultLocale = 'mn';
 
 // Get the preferred locale, similar to the above or from a cookie
 function getLocale(request: NextRequest): string {
@@ -40,7 +40,7 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Skip all internal paths (_next)
-    '/((?!_next|api|favicon.ico).*)',
+    // Skip all internal paths (_next), api routes, static files, and images
+    '/((?!_next|api|favicon.ico|images|.*\\.).*)',
   ],
 };

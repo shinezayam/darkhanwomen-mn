@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Heart, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -71,11 +70,9 @@ export default function Header() {
           <Link href={`/${locale}`} className="flex items-center space-x-4 group">
             <div className="relative">
               <div className="w-12 h-12 rounded-[12px] overflow-hidden shadow-sm group-hover:shadow-md transition-all duration-200 group-hover:scale-105">
-                <Image
-                  src="/images/logo.png"
+                <img
+                  src="http://localhost:3000/images/logo.png"
                   alt={locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation'}
-                  width={48}
-                  height={48}
                   className="w-full h-full object-contain"
                 />
               </div>

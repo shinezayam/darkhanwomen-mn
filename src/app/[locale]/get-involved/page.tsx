@@ -129,9 +129,11 @@ export default function GetInvolvedPage() {
                       </div>
                     </div>
                     
-                    <Button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl border-0">
-                      {locale === 'mn' ? 'Оролцох' : 'Get Started'}
-                    </Button>
+                    <Link href={`/${locale}/volunteer/apply`}>
+                      <Button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl border-0">
+                        {locale === 'mn' ? 'Сайн дураар оролцох' : 'Volunteer'}
+                      </Button>
+                    </Link>
                   </div>
                 </div>
                 
@@ -185,9 +187,11 @@ export default function GetInvolvedPage() {
                       </div>
                     </div>
                     
-                    <Button className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl border-0">
-                      {locale === 'mn' ? 'Хамтрах' : 'Partner'}
-                    </Button>
+                    <Link href={`/${locale}/partner/apply`}>
+                      <Button className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl border-0">
+                        {locale === 'mn' ? 'Хамтрах' : 'Partner'}
+                      </Button>
+                    </Link>
                   </div>
                 </div>
                 
@@ -292,7 +296,7 @@ export default function GetInvolvedPage() {
                           {locale === 'mn' ? 'Арга хэмжээний туслах' : 'Event Assistant'}
                         </h4>
                         <p className="text-sm text-gray-600">
-                          {locale === 'mn' ? 'Тедх, сургалт зэрэг арга хэмжээнд туслах' : 'Help with TEDx, training events'}
+                          {locale === 'mn' ? 'TEDx, сургалт зэрэг арга хэмжээнд туслах' : 'Help with TEDx, training events'}
                         </p>
                       </div>
                     </div>
@@ -412,7 +416,7 @@ export default function GetInvolvedPage() {
                     <Users className="w-10 h-10 text-white" />
                   </div>
                   <h4 className="text-xl font-bold text-gray-900 mb-3 font-display">
-                    {locale === 'mn' ? 'Сүлжээжилт' : 'Networking'}
+                    {locale === 'mn' ? 'Танилын хүрээ' : 'Networking'}
                   </h4>
                   <p className="text-gray-600 leading-relaxed">
                     {locale === 'mn' ? 'Шинэ хүмүүстэй танилцах' : 'Meet new people'}

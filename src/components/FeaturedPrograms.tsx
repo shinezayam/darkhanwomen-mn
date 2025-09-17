@@ -29,7 +29,7 @@ export default function FeaturedPrograms() {
 
   // Helper function to get the correct path for each program
   const getProgramPath = (programId: string) => {
-    const trainingPrograms = ['hair-stylist', 'embroidery', 'gift-souvenir', 'art-painting', 'english-training', 'japanese-training', 'positive-thinking', 'project-development'];
+    const trainingPrograms = ['hair-stylist', 'embroidery-maker', 'gift-souvenir-craftsman', 'art-painting', 'english-language', 'japanese-language'];
     return trainingPrograms.includes(programId) ? `/${locale}/training/${programId}` : `/${locale}/programs/${programId}`;
   };
 
@@ -90,9 +90,9 @@ export default function FeaturedPrograms() {
       category: locale === 'mn' ? 'Сошиал нэвтрүүлэг' : 'Social Program',
       participants: '80+',
       duration: locale === 'mn' ? 'Тасралтгүй' : 'Ongoing',
-      color: 'from-brand-500 to-brand-600',
-      bgColor: 'bg-brand-50',
-      borderColor: 'border-brand-200',
+      color: 'from-rose-400 to-rose-500',
+      bgColor: 'bg-rose-50',
+      borderColor: 'border-rose-200',
       features: [locale === 'mn' ? 'Сошиал' : 'Social', locale === 'mn' ? 'Нэвтрүүлэг' : 'Program']
     },
     {
@@ -120,9 +120,9 @@ export default function FeaturedPrograms() {
       category: locale === 'mn' ? 'Төсөл' : 'Project',
       participants: '30',
       duration: locale === 'mn' ? '3 сар' : '3 Months',
-      color: 'from-rose-500 to-rose-600',
-      bgColor: 'bg-rose-50',
-      borderColor: 'border-rose-200',
+      color: 'from-red-400 to-red-500',
+      bgColor: 'bg-red-50',
+      borderColor: 'border-red-200',
       features: [locale === 'mn' ? 'Охид' : 'Girls', locale === 'mn' ? 'Хөгжүүлэлт' : 'Development']
     },
     {
@@ -319,13 +319,13 @@ export default function FeaturedPrograms() {
       category: locale === 'mn' ? 'Мэргэжлийн сургалт' : 'Professional Training',
       participants: '20',
       duration: locale === 'mn' ? '3 сар' : '3 Months',
-      color: 'from-rose-500 to-rose-600',
-      bgColor: 'bg-rose-50',
-      borderColor: 'border-rose-200',
+      color: 'from-teal-500 to-teal-600',
+      bgColor: 'bg-teal-50',
+      borderColor: 'border-teal-200',
       features: [locale === 'mn' ? 'Мэргэжлийн үнэмлэх' : 'Professional certificate', locale === 'mn' ? 'Практик' : 'Practical']
     },
     {
-      id: 'embroidery',
+      id: 'embroidery-maker',
       icon: Palette,
       title: locale === 'mn' ? 'Оёмол бүтээгдэхүүн оёдолчин' : 'Embroidery Product Maker',
       description: locale === 'mn'
@@ -334,13 +334,13 @@ export default function FeaturedPrograms() {
       category: locale === 'mn' ? 'Мэргэжлийн сургалт' : 'Professional Training',
       participants: '25',
       duration: locale === 'mn' ? '4 сар' : '4 Months',
-      color: 'from-purple-500 to-purple-600',
-      bgColor: 'bg-purple-50',
-      borderColor: 'border-purple-200',
+      color: 'from-blue-500 to-blue-600',
+      bgColor: 'bg-blue-50',
+      borderColor: 'border-blue-200',
       features: [locale === 'mn' ? 'Уран хатгамал' : 'Traditional embroidery', locale === 'mn' ? 'Бүтээгдэхүүн' : 'Products']
     },
     {
-      id: 'gift-souvenir',
+      id: 'gift-souvenir-craftsman',
       icon: Sparkles,
       title: locale === 'mn' ? 'Бэлэг дурсгалын зүйл урлаач' : 'Gift Souvenir Craftsman',
       description: locale === 'mn'
@@ -349,9 +349,9 @@ export default function FeaturedPrograms() {
       category: locale === 'mn' ? 'Мэргэжлийн сургалт' : 'Professional Training',
       participants: '15',
       duration: locale === 'mn' ? '3 сар' : '3 Months',
-      color: 'from-amber-500 to-amber-600',
-      bgColor: 'bg-amber-50',
-      borderColor: 'border-amber-200',
+      color: 'from-green-500 to-green-600',
+      bgColor: 'bg-green-50',
+      borderColor: 'border-green-200',
       features: [locale === 'mn' ? 'Мэргэжлийн үнэмлэх' : 'Professional certificate', locale === 'mn' ? 'Урлаач' : 'Craftsman']
     }
   ];
@@ -374,7 +374,7 @@ export default function FeaturedPrograms() {
       features: [locale === 'mn' ? 'Бүх насны' : 'All ages', locale === 'mn' ? 'Уран чадвар' : 'Artistic skills']
     },
     {
-      id: 'english-training',
+      id: 'english-language',
       icon: Globe,
       title: locale === 'mn' ? 'Англи хэлний сургалт' : 'English Language Training',
       description: locale === 'mn'
@@ -383,13 +383,13 @@ export default function FeaturedPrograms() {
       category: locale === 'mn' ? 'Хөгжүүлэх сургалт' : 'Development Training',
       participants: '40',
       duration: locale === 'mn' ? '6 сар' : '6 Months',
-      color: 'from-blue-500 to-blue-600',
-      bgColor: 'bg-blue-50',
-      borderColor: 'border-blue-200',
+      color: 'from-indigo-500 to-indigo-600',
+      bgColor: 'bg-indigo-50',
+      borderColor: 'border-indigo-200',
       features: [locale === 'mn' ? 'Хувь хөгжил' : 'Personal development', locale === 'mn' ? 'Ажлын боломж' : 'Job opportunities']
     },
     {
-      id: 'japanese-training',
+      id: 'japanese-language',
       icon: BookOpen,
       title: locale === 'mn' ? 'Япон хэлний сургалт' : 'Japanese Language Training',
       description: locale === 'mn'
@@ -402,36 +402,6 @@ export default function FeaturedPrograms() {
       bgColor: 'bg-emerald-50',
       borderColor: 'border-emerald-200',
       features: [locale === 'mn' ? 'Олон улсын' : 'International', locale === 'mn' ? 'Боломж' : 'Opportunities']
-    },
-    {
-      id: 'positive-thinking',
-      icon: Heart,
-      title: locale === 'mn' ? 'Эерэг сэтгэлгээний модуль сургалт' : 'Positive Thinking Module Training',
-      description: locale === 'mn'
-        ? 'Эерэг сэтгэлгээний модуль сургалтууд. Хувь хөгжил, сэтгэл зүйн тогтвортой байдал.'
-        : 'Positive thinking module training for personal development and psychological stability.',
-      category: locale === 'mn' ? 'Хөгжүүлэх сургалт' : 'Development Training',
-      participants: '35',
-      duration: locale === 'mn' ? '1 сар' : '1 Month',
-      color: 'from-brand-500 to-brand-600',
-      bgColor: 'bg-brand-50',
-      borderColor: 'border-brand-200',
-      features: [locale === 'mn' ? 'Сэтгэл зүй' : 'Psychology', locale === 'mn' ? 'Хувь хөгжил' : 'Personal development']
-    },
-    {
-      id: 'project-development',
-      icon: Target,
-      title: locale === 'mn' ? 'Төсөл боловсруулах сургалт' : 'Project Development Training',
-      description: locale === 'mn'
-        ? 'Төсөл боловсруулах сургалт. Төслийн менежмент, төлөвлөлт.'
-        : 'Project development training including project management and planning.',
-      category: locale === 'mn' ? 'Хөгжүүлэх сургалт' : 'Development Training',
-      participants: '25',
-      duration: locale === 'mn' ? '2 сар' : '2 Months',
-      color: 'from-teal-500 to-teal-600',
-      bgColor: 'bg-teal-50',
-      borderColor: 'border-teal-200',
-      features: [locale === 'mn' ? 'Төслийн менежмент' : 'Project management', locale === 'mn' ? 'Төлөвлөлт' : 'Planning']
     }
   ];
 

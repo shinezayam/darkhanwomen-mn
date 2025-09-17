@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { 
-  Target, 
+  Award, 
   Calendar,
   Users,
   Clock,
@@ -14,16 +14,16 @@ import {
   Star,
   CheckCircle,
   Globe,
-  Award,
+  Palette,
   BookOpen
 } from 'lucide-react';
 
-export default function EmbroideryMakerPage() {
+export default function GiftSouvenirCraftsmanPage() {
   const pathname = usePathname();
   const locale = pathname.startsWith('/en') ? 'en' : 'mn';
 
   const handleRegistration = () => {
-    window.location.href = `/${locale}/register?program=embroidery-maker`;
+    window.location.href = `/${locale}/register?program=gift-souvenir-craftsman`;
   };
 
   return (
@@ -31,11 +31,11 @@ export default function EmbroideryMakerPage() {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50 relative overflow-hidden">
+        <section className="py-20 bg-gradient-to-br from-green-50 via-white to-emerald-50 relative overflow-hidden">
           <div className="absolute inset-0">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-100/40 to-indigo-100/40 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-indigo-100/40 to-purple-100/40 rounded-full blur-3xl"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-blue-100/20 to-indigo-100/20 rounded-full blur-2xl"></div>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-green-100/40 to-emerald-100/40 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-emerald-100/40 to-teal-100/40 rounded-full blur-3xl"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-green-100/20 to-emerald-100/20 rounded-full blur-2xl"></div>
           </div>
 
           <div className="container-max container-spacing relative z-10">
@@ -52,21 +52,21 @@ export default function EmbroideryMakerPage() {
 
             <div className="text-center pt-16">
               {/* Category Badge */}
-              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-xl">
-                <Target className="w-4 h-4" />
+              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-xl">
+                <Award className="w-4 h-4" />
                 <span>{locale === 'mn' ? 'Мэргэжлийн сургалт' : 'Professional Training'}</span>
               </div>
 
               {/* Program Title */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-gray-900">
-                {locale === 'mn' ? 'Оёмол бүтээгдэхүүн оёдолчин' : 'Embroidery Product Maker'}
+                {locale === 'mn' ? 'Бэлэг дурсгалын зүйл урлаач' : 'Gift Souvenir Craftsman'}
               </h1>
 
               {/* Program Description */}
               <p className="text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
                 {locale === 'mn' 
-                  ? 'Оёмол бүтээгдэхүүн үйлдвэрлэх - уран оёмол, бэлэг дурсгалын зүйл'
-                  : 'Embroidery product manufacturing - artistic embroidery and souvenirs'
+                  ? 'Бэлэг дурсгалын зүйл урлах - уран зураг, гар урлал'
+                  : 'Creating gift souvenirs - painting and handicrafts'
                 }
               </p>
             </div>
@@ -81,9 +81,9 @@ export default function EmbroideryMakerPage() {
                 {/* Left Column - Main Content */}
                 <div className="lg:col-span-2 space-y-8">
                   <Card className="border-0 shadow-lg">
-                    <CardHeader className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-t-2xl">
+                    <CardHeader className="bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-t-2xl">
                       <CardTitle className="flex items-center space-x-3 text-white">
-                        <Target className="w-6 h-6" />
+                        <Award className="w-6 h-6" />
                         <span>{locale === 'mn' ? 'Сургалтын тухай' : 'About the Training'}</span>
                       </CardTitle>
                     </CardHeader>
@@ -91,8 +91,8 @@ export default function EmbroideryMakerPage() {
                       <div className="space-y-6">
                         <p className="text-gray-600 leading-relaxed">
                           {locale === 'mn' 
-                            ? 'Оёмол бүтээгдэхүүн оёдолчин сургалт нь 120 хоног үргэлжлэх, онол практик хосолсон мэргэжлийн сургалт юм. Хөдөлмөр нийгмийн хамгааллын яамны 3-р зэргийн  мэргэжлийн чадамжийн гэрчилгээ олгоно. Монгол уран оёмол, орчин үеийн дизайн, бизнес удирдлага зэрэг бүрэн мэдлэг олгоно.'
-                            : 'The embroidery product maker training is a 120-day comprehensive program combining theory and practice. Participants will receive a Level 3 professional competency certificate from the Ministry of Labor and Social Protection. The program covers Mongolian artistic embroidery, modern design, and business management.'
+                            ? 'Бэлэг дурсгалын зүйл урлаач сургалт нь 90 хоног үргэлжлэх, онол практик хосолсон мэргэжлийн сургалт юм. Хөдөлмөр нийгмийн хамгааллын яамны 4-р зэргийн гар урлаач мэргэжлийн чадамжийн гэрчилгээ олгоно. Монгол уран зураг, гар урлал, дизайн, бизнес удирдлага зэрэг бүрэн мэдлэг олгоно.'
+                            : 'The gift souvenir craftsman training is a 90-day comprehensive program combining theory and practice. Participants will receive a Level 4 professional competency certificate from the Ministry of Labor and Social Protection. The program covers Mongolian art painting, handicrafts, design, and business management.'
                           }
                         </p>
                         
@@ -119,7 +119,7 @@ export default function EmbroideryMakerPage() {
                                 </li>
                                 <li className="flex items-start space-x-3">
                                   <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                                  <span className="text-gray-600">{locale === 'mn' ? '15 төрлийн оёмол техник' : '15 types of embroidery techniques'}</span>
+                                  <span className="text-gray-600">{locale === 'mn' ? '25 төрлийн гар урлалын техник' : '25 types of handicraft techniques'}</span>
                                 </li>
                                 <li className="flex items-start space-x-3">
                                   <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
@@ -135,11 +135,11 @@ export default function EmbroideryMakerPage() {
                               <ul className="space-y-3">
                                 <li className="flex items-start space-x-3">
                                   <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                                  <span className="text-gray-600">{locale === 'mn' ? 'Цөөн хүнтэй анги - 15 хүн' : 'Small class size - 15 people'}</span>
+                                  <span className="text-gray-600">{locale === 'mn' ? 'Цөөн хүнтэй анги - 12 хүн' : 'Small class size - 12 people'}</span>
                                 </li>
                                 <li className="flex items-start space-x-3">
                                   <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                                  <span className="text-gray-600">{locale === 'mn' ? 'Бүх хэрэгсэл, материал, утас, даавуугаар бид хангана' : 'All tools, materials, threads, and fabrics provided by us'}</span>
+                                  <span className="text-gray-600">{locale === 'mn' ? 'Бүх хэрэгсэл, материал, будаг, даавуу бид хангана' : 'All tools, materials, paints, and fabrics provided by us'}</span>
                                 </li>
                                 <li className="flex items-start space-x-3">
                                   <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
@@ -165,24 +165,24 @@ export default function EmbroideryMakerPage() {
                     </CardHeader>
                     <CardContent className="p-8">
                       <div className="space-y-8">
-                        {/* Embroidery Techniques */}
+                        {/* Art Painting Techniques */}
                         <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300">
                           <h4 className="font-semibold text-gray-800 mb-4 text-lg flex items-center space-x-2">
-                            <Target className="w-5 h-5 text-blue-500" />
-                            <span>{locale === 'mn' ? 'Уран оёмол техник' : 'Artistic Embroidery Techniques'}</span>
+                            <Palette className="w-5 h-5 text-purple-500" />
+                            <span>{locale === 'mn' ? 'Уран зурагийн техник' : 'Art Painting Techniques'}</span>
                           </h4>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                             {[
-                              {mn: 'Оёмолын үндсэн техник - 20 төрөл', en: 'Basic embroidery techniques - 20 types'},
-                              {mn: 'Монгол уран оёмол - 12 төрөл', en: 'Mongolian artistic embroidery - 12 types'},
-                              {mn: 'Олон улсын оёмол техник - 15 төрөл', en: 'International embroidery techniques - 15 types'},
+                              {mn: 'Уран зурагийн үндэс - шугам, хэлбэр, гэрэл сүүдэр', en: 'Art basics - lines, shapes, light and shadow'},
                               {mn: 'Өнгөний хэрэглээ, холилт, төлөвлөлт', en: 'Color usage, mixing, and planning'},
-                              {mn: 'Утас, даавуу сонгох, чанарын шалгалт', en: 'Selecting threads and fabrics, quality control'},
-                              {mn: 'Оёмолын хэв маяг, зураглал', en: 'Embroidery patterns and sketching'},
-                              {mn: 'Оёмолын машин ашиглах, засвар', en: 'Using and maintaining embroidery machines'},
-                              {mn: 'Оёмолын бүтээгдэхүүн бэлтгэх', en: 'Preparing embroidered products'},
-                              {mn: 'Оёмолын чанарын шалгалт', en: 'Embroidery quality control'},
-                              {mn: 'Оёмолын хадгалалт, арчилгаа', en: 'Embroidery storage and maintenance'}
+                              {mn: 'Акварель техник - 8 төрөл', en: 'Watercolor techniques - 8 types'},
+                              {mn: 'Гуаш техник - 6 төрөл', en: 'Gouache techniques - 6 types'},
+                              {mn: 'Акрил будаг - 10 төрөл', en: 'Acrylic painting - 10 types'},
+                              {mn: 'Тосны будаг - 5 төрөл', en: 'Oil painting - 5 types'},
+                              {mn: 'Хуудас, даавуу, модон, чулуу дээр зурах', en: 'Painting on paper, fabric, wood, and stone'},
+                              {mn: 'Монгол уран зурагийн онцлог - 15 төрөл', en: 'Mongolian art characteristics - 15 types'},
+                              {mn: 'Олон улсын уран зурагийн хэв маяг', en: 'International art styles'},
+                              {mn: 'Зурагийн композици, төлөвлөлт', en: 'Painting composition and planning'}
                             ].map((item, index) => (
                               <div key={index} className="flex items-center space-x-2 p-2 rounded-lg hover:bg-white/60 transition-colors duration-200">
                                 <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
@@ -192,51 +192,51 @@ export default function EmbroideryMakerPage() {
                           </div>
                         </div>
 
-                        {/* Product Design */}
+                        {/* Handicraft Techniques */}
                         <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300">
                           <h4 className="font-semibold text-gray-800 mb-4 text-lg flex items-center space-x-2">
-                            <Star className="w-5 h-5 text-purple-500" />
-                            <span>{locale === 'mn' ? 'Бүтээгдэхүүн дизайн' : 'Product Design'}</span>
+                            <Star className="w-5 h-5 text-yellow-500" />
+                            <span>{locale === 'mn' ? 'Гар урлалын техник' : 'Handicraft Techniques'}</span>
                           </h4>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                             {[
-                              {mn: 'Бүтээгдэхүүн зураглал, эскиз бэлтгэх', en: 'Product sketching and creating sketches'},
-                              {mn: 'Adobe Illustrator, CorelDRAW ашиглах', en: 'Using Adobe Illustrator and CorelDRAW'},
-                              {mn: 'Бэлэг дурсгалын зүйл дизайн - 20 төрөл', en: 'Souvenir product design - 20 types'},
-                              {mn: 'Хувцас, эдлэл дизайн - 15 төрөл', en: 'Clothing and accessories design - 15 types'},
+                              {mn: 'Оёмол техник - 12 төрөл', en: 'Embroidery techniques - 12 types'},
+                              {mn: 'Сүлжмэл техник - 8 төрөл', en: 'Knitting techniques - 8 types'},
+                              {mn: 'Мод сийлбэрлэх - 10 төрөл', en: 'Wood carving - 10 types'},
+                              {mn: 'Чулуу сийлбэрлэх - 6 төрөл', en: 'Stone carving - 6 types'},
+                              {mn: 'Арьс ажиллагаа - 15 төрөл', en: 'Leather work - 15 types'},
+                              {mn: 'Даавуу ажиллагаа - 20 төрөл', en: 'Fabric work - 20 types'},
+                              {mn: 'Шилэн эдлэл - 8 төрөл', en: 'Glass work - 8 types'},
+                              {mn: 'Шаазан эдлэл - 10 төрөл', en: 'Ceramic work - 10 types'},
+                              {mn: 'Металл ажиллагаа - 12 төрөл', en: 'Metal work - 12 types'},
+                              {mn: 'Цэцэг, ургамал ашиглан хийх - 15 төрөл', en: 'Using flowers and plants - 15 types'}
+                            ].map((item, index) => (
+                              <div key={index} className="flex items-center space-x-2 p-2 rounded-lg hover:bg-white/60 transition-colors duration-200">
+                                <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                <span className="text-sm text-gray-700">{locale === 'mn' ? item.mn : item.en}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Design and Marketing */}
+                        <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300">
+                          <h4 className="font-semibold text-gray-800 mb-4 text-lg flex items-center space-x-2">
+                            <Globe className="w-5 h-5 text-blue-500" />
+                            <span>{locale === 'mn' ? 'Дизайн, борлуулалт' : 'Design and Sales'}</span>
+                          </h4>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            {[
+                              {mn: 'Бүтээгдэхүүн дизайн, зураглал, эскиз', en: 'Product design, sketching, and creating sketches'},
+                              {mn: 'Adobe Photoshop, Illustrator ашиглах', en: 'Using Adobe Photoshop and Illustrator'},
                               {mn: 'Брэнд, логотип бүтээх, бэлтгэх', en: 'Creating and preparing brand and logo'},
-                              {mn: 'Өнгө, хэлбэрийн төлөвлөлт, хэрэглээ', en: 'Color and shape planning and application'},
-                              {mn: 'Оёмолын хэв маяг дизайн', en: 'Embroidery pattern design'},
-                              {mn: 'Бүтээгдэхүүний техникийн зураглал', en: 'Technical product drawing'},
-                              {mn: 'Маркетингийн материал бэлтгэх', en: 'Preparing marketing materials'},
-                              {mn: 'Бүтээгдэхүүний үнэ тогтоох', en: 'Product pricing'}
-                            ].map((item, index) => (
-                              <div key={index} className="flex items-center space-x-2 p-2 rounded-lg hover:bg-white/60 transition-colors duration-200">
-                                <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                                <span className="text-sm text-gray-700">{locale === 'mn' ? item.mn : item.en}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Business Management */}
-                        <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300">
-                          <h4 className="font-semibold text-gray-800 mb-4 text-lg flex items-center space-x-2">
-                            <Globe className="w-5 h-5 text-green-500" />
-                            <span>{locale === 'mn' ? 'Бизнес удирдлага' : 'Business Management'}</span>
-                          </h4>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            {[
-                              {mn: 'Бизнес төлөвлөлт, стратеги бэлтгэх', en: 'Business planning and strategy development'},
+                              {mn: 'Зураг авалт, видео бэлтгэх', en: 'Photography and video production'},
+                              {mn: 'Маркетинг, сурталчилгаа, сурталчилгаа', en: 'Marketing, advertising, and promotion'},
+                              {mn: 'Онлайн борлуулалт, e-commerce', en: 'Online sales and e-commerce'},
                               {mn: 'Үнэ тогтоох, ашиг тооцоо, зардлын шинжилгээ', en: 'Pricing, profit calculation, and cost analysis'},
-                              {mn: 'Бүтээгдэхүүн борлуулалт, зах зээлийн судалгаа', en: 'Product sales and market research'},
-                              {mn: 'Онлайн борлуулалт, e-commerce платформ', en: 'Online sales and e-commerce platforms'},
-                              {mn: 'Хэрэглэгчдэд үйлчлэх, харилцаа холбоо', en: 'Customer service and communication'},
-                              {mn: 'Маркетинг, сурталчилгаа, брэнд бүтээх', en: 'Marketing, advertising, and brand building'},
-                              {mn: 'Санхүүгийн удирдлага, нягтлан бодох', en: 'Financial management and accounting'},
-                              {mn: 'Ажлын байр бий болгох, хүний нөөц', en: 'Creating job opportunities and human resources'},
-                              {mn: 'Экспорт, импорт, олон улсын худалдаа', en: 'Export, import, and international trade'},
-                              {mn: 'Хамтран ажиллах, түншлэл байгуулах', en: 'Collaboration and partnership building'}
+                              {mn: 'Хэрэглэгчдэд хүргэх, үйлчилгээ', en: 'Customer delivery and service'},
+                              {mn: 'Бизнес төлөвлөлт, стратеги', en: 'Business planning and strategy'},
+                              {mn: 'Харилцаа холбоо, түншлэл', en: 'Communication and partnerships'}
                             ].map((item, index) => (
                               <div key={index} className="flex items-center space-x-2 p-2 rounded-lg hover:bg-white/60 transition-colors duration-200">
                                 <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
@@ -254,7 +254,7 @@ export default function EmbroideryMakerPage() {
                 <div className="space-y-8">
                   {/* Training Details Card */}
                   <Card className="border-0 shadow-lg">
-                    <CardHeader className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-t-2xl">
+                    <CardHeader className="bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-t-2xl">
                       <CardTitle className="flex items-center space-x-3 text-white">
                         <Calendar className="w-6 h-6" />
                         <span>{locale === 'mn' ? 'Сургалтын мэдээлэл' : 'Training Details'}</span>
@@ -263,23 +263,23 @@ export default function EmbroideryMakerPage() {
                     <CardContent className="p-6">
                       <div className="space-y-4">
                         <div className="flex items-center space-x-3">
-                          <Users className="w-5 h-5 text-blue-500" />
+                          <Users className="w-5 h-5 text-green-500" />
                           <div>
-                            <div className="font-semibold text-gray-900">15</div>
+                            <div className="font-semibold text-gray-900">12</div>
                             <div className="text-sm text-gray-600">{locale === 'mn' ? 'Оролцогчид' : 'Participants'}</div>
                           </div>
                         </div>
                         <div className="flex items-center space-x-3">
-                          <Clock className="w-5 h-5 text-blue-500" />
+                          <Clock className="w-5 h-5 text-green-500" />
                           <div>
-                            <div className="font-semibold text-gray-900">{locale === 'mn' ? '120 хоног' : '120 Days'}</div>
+                            <div className="font-semibold text-gray-900">{locale === 'mn' ? '90 хоног' : '90 Days'}</div>
                             <div className="text-sm text-gray-600">{locale === 'mn' ? 'Хугацаа' : 'Duration'}</div>
                           </div>
                         </div>
                         <div className="flex items-center space-x-3">
-                          <Award className="w-5 h-5 text-blue-500" />
+                          <Award className="w-5 h-5 text-green-500" />
                           <div>
-                            <div className="font-semibold text-gray-900">{locale === 'mn' ? '3-р зэрэг' : 'Level 3'}</div>
+                            <div className="font-semibold text-gray-900">{locale === 'mn' ? '4-р зэрэг' : 'Level 4'}</div>
                             <div className="text-sm text-gray-600">{locale === 'mn' ? 'Сертификат' : 'Certificate'}</div>
                           </div>
                         </div>
@@ -319,3 +319,4 @@ export default function EmbroideryMakerPage() {
     </div>
   );
 }
+

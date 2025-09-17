@@ -28,11 +28,11 @@ export default function WarmJourneyPage() {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-green-50 via-white to-pink-50 relative overflow-hidden">
+        <section className="py-20 bg-gradient-to-br from-orange-50 via-white to-pink-50 relative overflow-hidden">
           <div className="absolute inset-0">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-green-100/40 to-pink-100/40 rounded-full blur-3xl"></div>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-orange-100/40 to-pink-100/40 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-pink-100/40 to-purple-100/40 rounded-full blur-3xl"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-green-100/20 to-pink-100/20 rounded-full blur-2xl"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-orange-100/20 to-pink-100/20 rounded-full blur-2xl"></div>
           </div>
 
           <div className="container-max container-spacing relative z-10">
@@ -48,7 +48,7 @@ export default function WarmJourneyPage() {
             </div>
 
             <div className="text-center mb-16">
-              <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-3 rounded-2xl text-sm font-semibold mb-8 shadow-xl border border-green-500/20">
+              <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-orange-600 to-orange-700 text-white px-6 py-3 rounded-2xl text-sm font-semibold mb-8 shadow-xl border border-orange-500/20">
                 <Users className="w-5 h-5" />
                 <span className="tracking-wide">{locale === 'mn' ? 'Үйлчилгээ' : 'Service'}</span>
               </div>
@@ -70,15 +70,15 @@ export default function WarmJourneyPage() {
               {/* Main Content */}
               <div className="lg:col-span-2">
                 <Card className="card-modern shadow-2xl border-0 overflow-hidden">
-                  <CardHeader className="bg-gradient-to-r from-green-500 to-green-600 text-white relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-green-500/90 to-green-600/90"></div>
+                  <CardHeader className="bg-gradient-to-r from-orange-500 to-orange-600 text-white relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500/90 to-orange-600/90"></div>
                     <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
                     <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
                     <div className="relative z-10">
                       <CardTitle className="text-3xl font-bold text-center mb-2">
                         {locale === 'mn' ? 'Хөтөлбөрийн тухай' : 'About the Program'}
                       </CardTitle>
-                      <p className="text-green-100 text-center text-lg">
+                      <p className="text-orange-100 text-center text-lg">
                         {locale === 'mn' ? 'Дулаан аяны дэлгэрэнгүй мэдээлэл' : 'Detailed information about Warm Journey'}
                       </p>
                     </div>
@@ -93,7 +93,7 @@ export default function WarmJourneyPage() {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="flex items-start space-x-3">
-                        <CheckCircle className="w-6 h-6 text-green-500 mt-1" />
+                        <CheckCircle className="w-6 h-6 text-orange-500 mt-1" />
                         <div>
                           <h4 className="font-semibold text-gray-900 mb-2">
                             {locale === 'mn' ? 'Хөдөөгийн хүртээмж' : 'Rural Access'}

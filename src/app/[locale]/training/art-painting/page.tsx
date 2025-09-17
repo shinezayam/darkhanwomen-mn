@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { 
+  Palette, 
   Calendar,
   Users,
   Clock,
@@ -14,7 +15,7 @@ import {
   CheckCircle,
   Globe,
   Award,
-  Brush
+  BookOpen
 } from 'lucide-react';
 
 export default function ArtPaintingPage() {
@@ -30,10 +31,11 @@ export default function ArtPaintingPage() {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="section-spacing bg-gradient-to-br from-indigo-50 via-white to-pink-50/30 relative overflow-hidden">
+        <section className="py-20 bg-gradient-to-br from-purple-50 via-white to-pink-50 relative overflow-hidden">
           <div className="absolute inset-0">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-indigo-100/30 to-pink-100/30 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-pink-100/30 to-purple-100/30 rounded-full blur-3xl"></div>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-100/40 to-pink-100/40 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-pink-100/40 to-violet-100/40 rounded-full blur-3xl"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-purple-100/20 to-pink-100/20 rounded-full blur-2xl"></div>
           </div>
 
           <div className="container-max container-spacing relative z-10">
@@ -41,7 +43,7 @@ export default function ArtPaintingPage() {
             <div className="absolute top-6 left-6 z-50">
               <button
                 onClick={() => window.history.back()}
-                className="inline-flex items-center space-x-2 text-pink-600 hover:text-pink-700 font-medium transition-all duration-200 hover:scale-105 group"
+                className="inline-flex items-center space-x-2 text-pink-600 hover:text-pink-700 font-medium transition-all duration-200 hover:scale-105 group bg-white/80 backdrop-blur-sm px-4 py-2 rounded-xl shadow-lg border border-pink-100"
               >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-200" />
                 <span className="hidden sm:inline">{locale === 'mn' ? 'Буцах' : 'Back'}</span>
@@ -49,203 +51,275 @@ export default function ArtPaintingPage() {
             </div>
 
             <div className="text-center pt-16">
-              {/* Program Icon */}
-              <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-3xl shadow-2xl mb-8">
-                <Brush className="w-12 h-12 text-white" />
+              {/* Category Badge */}
+              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-xl">
+                <Palette className="w-4 h-4" />
+                <span>{locale === 'mn' ? 'Хөгжүүлэх сургалт' : 'Development Training'}</span>
               </div>
 
               {/* Program Title */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                  {locale === 'mn' ? 'Уран зураг' : 'Art Painting'}
-                </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-gray-900">
+                {locale === 'mn' ? 'Уран зураг' : 'Art Painting'}
               </h1>
 
               {/* Program Description */}
               <p className="text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
                 {locale === 'mn' 
-                  ? 'Хүүхэд, залуучууд, насанд хүрэгчдэд зориулсан уран зурагийн сургалт'
-                  : 'Art painting training for children, youth, and adults'
+                  ? 'Хүүхэд, залуучуудын болон насанд хүрэгчид - уран зурагийн ур чадвар хөгжүүлэх'
+                  : 'For children, youth and adults - developing artistic painting skills'
                 }
               </p>
-
-              {/* Program Stats */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto mb-12">
-                <div className="text-center p-6 bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg border border-white/50">
-                  <Users className="w-8 h-8 text-indigo-600 mx-auto mb-3" />
-                  <div className="text-2xl font-bold text-gray-900 mb-1">30</div>
-                  <div className="text-sm text-gray-600 font-medium">
-                    {locale === 'mn' ? 'Оролцогчид' : 'Participants'}
-                  </div>
-                </div>
-                <div className="text-center p-6 bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg border border-white/50">
-                  <Clock className="w-8 h-8 text-purple-600 mx-auto mb-3" />
-                  <div className="text-2xl font-bold text-gray-900 mb-1">
-                    {locale === 'mn' ? '2 сар' : '2 Months'}
-                  </div>
-                  <div className="text-sm text-gray-600 font-medium">
-                    {locale === 'mn' ? 'Хугацаа' : 'Duration'}
-                  </div>
-                </div>
-                <div className="text-center p-6 bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg border border-white/50">
-                  <Award className="w-8 h-8 text-pink-600 mx-auto mb-3" />
-                  <div className="text-2xl font-bold text-gray-900 mb-1">
-                    {locale === 'mn' ? 'Хөгжүүлэлт' : 'Development'}
-                  </div>
-                  <div className="text-sm text-gray-600 font-medium">
-                    {locale === 'mn' ? 'Төрөл' : 'Type'}
-                  </div>
-                </div>
-              </div>
-
-              {/* Registration Button */}
-              <div className="text-center pt-6">
-                <Button className="btn-primary" onClick={handleRegistration}>
-                  {locale === 'mn' ? 'Бүртгүүлэх' : 'Register Now'}
-                </Button>
-              </div>
             </div>
           </div>
         </section>
 
         {/* Program Details */}
-        <section className="section-spacing bg-white">
+        <section className="py-20 bg-white">
           <div className="container-max container-spacing">
-            <div className="max-w-4xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                {/* Left Column - Program Info */}
-                <div className="space-y-8">
-                  <div className="brief-intro-card">
-                    <div className="text-center mb-8">
-                      <div className="flex items-center justify-center space-x-3 mb-4">
-                        <Star className="w-6 h-6 text-indigo-500" />
-                        <h3 className="brief-intro-title text-2xl">
-                          {locale === 'mn' ? 'Сургалтын тухай' : 'About the Training'}
-                        </h3>
-                      </div>
-                      <div className="brief-intro-divider-indigo"></div>
-                    </div>
-                    <div className="brief-intro-content">
-                      <p className="brief-intro-text">
-                        {locale === 'mn' 
-                          ? 'Уран зурагийн сургалт нь хүүхэд, залуучууд, насанд хүрэгчдэд зориулсан бүтээлч ур чадварыг хөгжүүлэх сургалт юм. Энэ сургалт нь зурагийн онол, техник, өнгөний хэрэглээ, бүтээлч сэтгэлгээ зэрэг чухал асуудлуудыг хамардаг.'
-                          : 'Art painting training is designed to develop creative skills for children, youth, and adults. This training covers drawing theory, techniques, color usage, creative thinking, and other important aspects.'
-                        }
-                      </p>
-                    </div>
-                  </div>
-
+            <div className="max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {/* Left Column - Main Content */}
+                <div className="lg:col-span-2 space-y-8">
                   <Card className="border-0 shadow-lg">
-                    <CardHeader>
-                      <CardTitle className="flex items-center space-x-3">
-                        <CheckCircle className="w-6 h-6 text-green-500" />
-                        <span>{locale === 'mn' ? 'Сургалтын давуу тал' : 'Training Benefits'}</span>
+                    <CardHeader className="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-t-2xl">
+                      <CardTitle className="flex items-center space-x-3 text-white">
+                        <Palette className="w-6 h-6" />
+                        <span>{locale === 'mn' ? 'Сургалтын тухай' : 'About the Training'}</span>
                       </CardTitle>
                     </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-3">
-                        <li className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-600">
-                            {locale === 'mn' ? 'Бүтээлч ур чадвар хөгжүүлэх' : 'Developing creative skills'}
-                          </span>
-                        </li>
-                        <li className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-600">
-                            {locale === 'mn' ? 'Зурагийн техник, арга' : 'Drawing techniques and methods'}
-                          </span>
-                        </li>
-                        <li className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-600">
-                            {locale === 'mn' ? 'Өнгөний хэрэглээ, дизайн' : 'Color usage and design'}
-                          </span>
-                        </li>
-                        <li className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-600">
-                            {locale === 'mn' ? 'Хувь хөгжил, итгэл үнэмшил' : 'Personal growth and confidence'}
-                          </span>
-                        </li>
-                      </ul>
+                    <CardContent className="p-8">
+                      <div className="space-y-6">
+                        <p className="text-gray-600 leading-relaxed">
+                          {locale === 'mn' 
+                            ? 'Уран зурагийн сургалт нь 2 сар үргэлжлэх, хүүхэд, залуучуудын болон насанд хүрэгчдийн уран зурагийн ур чадвар хөгжүүлэх хөгжүүлэх сургалт юм. Орчин үеийн арга техник ашиглан уран зурагийн үндэс, техникийг эзэмшүүлнэ.'
+                            : 'The art painting training is a 2-month development program for children, youth and adults to develop artistic painting skills. Using modern methods, participants will learn the basics and techniques of art painting.'
+                          }
+                        </p>
+                        
+                        {/* Training Information Section */}
+                        <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 mb-6">
+                          <div className="mb-4">
+                            <h4 className="font-semibold text-gray-800 text-xl">
+                              {locale === 'mn' ? 'Сургалтын тухай' : 'About the Training'}
+                            </h4>
+                          </div>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="space-y-4">
+                              <h5 className="font-semibold text-gray-800 text-lg">
+                                {locale === 'mn' ? 'Сургалтын онцлог:' : 'Training Features:'}
+                              </h5>
+                              <ul className="space-y-3">
+                                <li className="flex items-start space-x-3">
+                                  <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                                  <span className="text-gray-600">{locale === 'mn' ? 'Уран зурагийн техник' : 'Painting techniques'}</span>
+                                </li>
+                                <li className="flex items-start space-x-3">
+                                  <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                                  <span className="text-gray-600">{locale === 'mn' ? 'Өнгөний хэрэглээ' : 'Color usage'}</span>
+                                </li>
+                                <li className="flex items-start space-x-3">
+                                  <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                                  <span className="text-gray-600">{locale === 'mn' ? 'Бүтээл үүсгэх' : 'Creating artworks'}</span>
+                                </li>
+                                <li className="flex items-start space-x-3">
+                                  <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                                  <span className="text-gray-600">{locale === 'mn' ? 'Уран зурагийн түүх' : 'Art history'}</span>
+                                </li>
+                              </ul>
+                            </div>
+                            
+                            <div className="space-y-4">
+                              <h5 className="font-semibold text-gray-800 text-lg">
+                                {locale === 'mn' ? 'Сургалтын нөхцөл:' : 'Training Conditions:'}
+                              </h5>
+                              <ul className="space-y-3">
+                                <li className="flex items-start space-x-3">
+                                  <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                                  <span className="text-gray-600">{locale === 'mn' ? 'Цөөн хүнтэй анги - 25 хүн' : 'Small class size - 25 people'}</span>
+                                </li>
+                                <li className="flex items-start space-x-3">
+                                  <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                                  <span className="text-gray-600">{locale === 'mn' ? 'Бүх хэрэгсэл, материал бид хангана' : 'All tools and materials provided by us'}</span>
+                                </li>
+                                <li className="flex items-start space-x-3">
+                                  <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                                  <span className="text-gray-600">{locale === 'mn' ? 'Дадлагад суурилсан сургалт' : 'Practice-based training'}</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <CardHeader className="bg-white border-b border-gray-200 rounded-t-2xl">
+                      <CardTitle className="text-gray-900 group-hover:scale-105 transition-transform duration-300">
+                        {locale === 'mn' ? 'Сургалтын хөтөлбөр' : 'Training Curriculum'}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-8">
+                      <div className="space-y-8">
+                        {/* Basic Painting Techniques */}
+                        <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300">
+                          <h4 className="font-semibold text-gray-800 mb-4 text-lg flex items-center space-x-2">
+                            <Palette className="w-5 h-5 text-purple-500" />
+                            <span>{locale === 'mn' ? 'Уран зурагийн үндэс' : 'Basic Painting Techniques'}</span>
+                          </h4>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            {[
+                              {mn: 'Шугам, хэлбэр зурах', en: 'Drawing lines and shapes'},
+                              {mn: 'Өнгөний үндэс, холилт', en: 'Color basics and mixing'},
+                              {mn: 'Акварель техник', en: 'Watercolor techniques'},
+                              {mn: 'Гуаш техник', en: 'Gouache techniques'},
+                              {mn: 'Акрил будаг', en: 'Acrylic painting'},
+                              {mn: 'Тосны будаг', en: 'Oil painting'},
+                              {mn: 'Хуудас, даавуу дээр зурах', en: 'Painting on paper and fabric'},
+                              {mn: 'Мод, чулуу дээр зурах', en: 'Painting on wood and stone'}
+                            ].map((item, index) => (
+                              <div key={index} className="flex items-center space-x-2 p-2 rounded-lg hover:bg-white/60 transition-colors duration-200">
+                                <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                <span className="text-sm text-gray-700">{locale === 'mn' ? item.mn : item.en}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Color Theory */}
+                        <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300">
+                          <h4 className="font-semibold text-gray-800 mb-4 text-lg flex items-center space-x-2">
+                            <Star className="w-5 h-5 text-yellow-500" />
+                            <span>{locale === 'mn' ? 'Өнгөний онол' : 'Color Theory'}</span>
+                          </h4>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            {[
+                              {mn: 'Өнгөний дугуй', en: 'Color wheel'},
+                              {mn: 'Үндсэн өнгөнүүд', en: 'Primary colors'},
+                              {mn: 'Хоёрдогч өнгөнүүд', en: 'Secondary colors'},
+                              {mn: 'Гуравдагч өнгөнүүд', en: 'Tertiary colors'},
+                              {mn: 'Халуун, хүйтэн өнгө', en: 'Warm and cool colors'},
+                              {mn: 'Өнгөний харьцаа', en: 'Color harmony'},
+                              {mn: 'Өнгөний сэтгэл зүй', en: 'Color psychology'},
+                              {mn: 'Өнгөний хэрэглээ', en: 'Color application'}
+                            ].map((item, index) => (
+                              <div key={index} className="flex items-center space-x-2 p-2 rounded-lg hover:bg-white/60 transition-colors duration-200">
+                                <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                <span className="text-sm text-gray-700">{locale === 'mn' ? item.mn : item.en}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Art History and Styles */}
+                        <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300">
+                          <h4 className="font-semibold text-gray-800 mb-4 text-lg flex items-center space-x-2">
+                            <BookOpen className="w-5 h-5 text-blue-500" />
+                            <span>{locale === 'mn' ? 'Уран зурагийн түүх, хэв маяг' : 'Art History and Styles'}</span>
+                          </h4>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            {[
+                              {mn: 'Монгол уран зураг', en: 'Mongolian art'},
+                              {mn: 'Олон улсын уран зураг', en: 'International art'},
+                              {mn: 'Сонгодог уран зураг', en: 'Classical painting'},
+                              {mn: 'Орчин үеийн уран зураг', en: 'Modern art'},
+                              {mn: 'Абстракт уран зураг', en: 'Abstract art'},
+                              {mn: 'Реалист уран зураг', en: 'Realistic art'},
+                              {mn: 'Импрессионист уран зураг', en: 'Impressionist art'},
+                              {mn: 'Экспрессионист уран зураг', en: 'Expressionist art'}
+                            ].map((item, index) => (
+                              <div key={index} className="flex items-center space-x-2 p-2 rounded-lg hover:bg-white/60 transition-colors duration-200">
+                                <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                <span className="text-sm text-gray-700">{locale === 'mn' ? item.mn : item.en}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Creative Expression */}
+                        <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300">
+                          <h4 className="font-semibold text-gray-800 mb-4 text-lg flex items-center space-x-2">
+                            <Globe className="w-5 h-5 text-green-500" />
+                            <span>{locale === 'mn' ? 'Бүтээлч илэрхийлэл' : 'Creative Expression'}</span>
+                          </h4>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            {[
+                              {mn: 'Өөрийн бүтээл үүсгэх', en: 'Creating personal artworks'},
+                              {mn: 'Бүтээл тайлбарлах', en: 'Explaining artworks'},
+                              {mn: 'Уран зурагийн үзэсгэлэн', en: 'Art exhibitions'},
+                              {mn: 'Бүтээл хуваалцах', en: 'Sharing artworks'},
+                              {mn: 'Уран зурагийн сэтгэлгээ', en: 'Artistic thinking'},
+                              {mn: 'Бүтээлч асуудал шийдвэрлэх', en: 'Creative problem solving'}
+                            ].map((item, index) => (
+                              <div key={index} className="flex items-center space-x-2 p-2 rounded-lg hover:bg-white/60 transition-colors duration-200">
+                                <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                <span className="text-sm text-gray-700">{locale === 'mn' ? item.mn : item.en}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
                     </CardContent>
                   </Card>
                 </div>
 
-                {/* Right Column - Program Structure */}
+                {/* Right Column - Sidebar */}
                 <div className="space-y-8">
+                  {/* Training Details Card */}
                   <Card className="border-0 shadow-lg">
-                    <CardHeader>
-                      <CardTitle className="flex items-center space-x-3">
-                        <Calendar className="w-6 h-6 text-blue-500" />
-                        <span>{locale === 'mn' ? 'Сургалтын бүтэц' : 'Training Structure'}</span>
+                    <CardHeader className="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-t-2xl">
+                      <CardTitle className="flex items-center space-x-3 text-white">
+                        <Calendar className="w-6 h-6" />
+                        <span>{locale === 'mn' ? 'Сургалтын мэдээлэл' : 'Training Details'}</span>
                       </CardTitle>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="p-6">
                       <div className="space-y-4">
-                        <div className="flex items-center space-x-3 p-3 bg-indigo-50 rounded-lg">
-                          <div className="w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
-                          <span className="text-gray-700">
-                            {locale === 'mn' ? 'Зурагийн онол, үндэс' : 'Drawing theory and basics'}
-                          </span>
+                        <div className="flex items-center space-x-3">
+                          <Users className="w-5 h-5 text-purple-500" />
+                          <div>
+                            <div className="font-semibold text-gray-900">25</div>
+                            <div className="text-sm text-gray-600">{locale === 'mn' ? 'Оролцогчид' : 'Participants'}</div>
+                          </div>
                         </div>
-                        <div className="flex items-center space-x-3 p-3 bg-purple-50 rounded-lg">
-                          <div className="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
-                          <span className="text-gray-700">
-                            {locale === 'mn' ? 'Зурагийн техник, арга' : 'Drawing techniques and methods'}
-                          </span>
+                        <div className="flex items-center space-x-3">
+                          <Clock className="w-5 h-5 text-purple-500" />
+                          <div>
+                            <div className="font-semibold text-gray-900">{locale === 'mn' ? '2 сар' : '2 Months'}</div>
+                            <div className="text-sm text-gray-600">{locale === 'mn' ? 'Хугацаа' : 'Duration'}</div>
+                          </div>
                         </div>
-                        <div className="flex items-center space-x-3 p-3 bg-pink-50 rounded-lg">
-                          <div className="w-8 h-8 bg-pink-500 text-white rounded-full flex items-center justify-center text-sm font-bold">3</div>
-                          <span className="text-gray-700">
-                            {locale === 'mn' ? 'Өнгөний хэрэглээ, дизайн' : 'Color usage and design'}
-                          </span>
-                        </div>
-                        <div className="flex items-center space-x-3 p-3 bg-green-50 rounded-lg">
-                          <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold">4</div>
-                          <span className="text-gray-700">
-                            {locale === 'mn' ? 'Бүтээлч төсөл, үзэсгэлэн' : 'Creative projects and exhibition'}
-                          </span>
+                        <div className="flex items-center space-x-3">
+                          <Award className="w-5 h-5 text-purple-500" />
+                          <div>
+                            <div className="font-semibold text-gray-900">{locale === 'mn' ? 'Хөгжүүлэх гэрчилгээ' : 'Development Certificate'}</div>
+                            <div className="text-sm text-gray-600">{locale === 'mn' ? 'Сертификат' : 'Certificate'}</div>
+                          </div>
                         </div>
                       </div>
                     </CardContent>
                   </Card>
 
-                  <Card className="border-0 shadow-lg">
-                    <CardHeader>
-                      <CardTitle className="flex items-center space-x-3">
-                        <Award className="w-6 h-6 text-purple-500" />
-                        <span>{locale === 'mn' ? 'Хүлээн авах зүйлс' : 'What You\'ll Receive'}</span>
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-3">
-                        <li className="flex items-center space-x-3">
-                          <Award className="w-5 h-5 text-purple-500" />
-                          <span className="text-gray-600">
-                            {locale === 'mn' ? 'Төгсөлтийн гэрчилгээ' : 'Completion certificate'}
-                          </span>
-                        </li>
-                        <li className="flex items-center space-x-3">
-                          <Brush className="w-5 h-5 text-indigo-500" />
-                          <span className="text-gray-600">
-                            {locale === 'mn' ? 'Зурагийн багаж хэрэгсэл' : 'Art supplies and materials'}
-                          </span>
-                        </li>
-                        <li className="flex items-center space-x-3">
-                          <Users className="w-5 h-5 text-blue-500" />
-                          <span className="text-gray-600">
-                            {locale === 'mn' ? 'Бүтээлч сүлжээ' : 'Creative network'}
-                          </span>
-                        </li>
-                        <li className="flex items-center space-x-3">
-                          <Globe className="w-5 h-5 text-green-500" />
-                          <span className="text-gray-600">
-                            {locale === 'mn' ? 'Цаашдын дэмжлэг' : 'Ongoing support'}
-                          </span>
-                        </li>
-                      </ul>
+                  {/* Registration Card */}
+                  <Card className="border-0 shadow-lg bg-white">
+                    <CardContent className="p-6">
+                      <div className="text-center">
+                        <h3 className="text-xl font-bold text-gray-900 mb-4">
+                          {locale === 'mn' ? 'Бүртгүүлэх' : 'Register'}
+                        </h3>
+                        <p className="text-gray-600 mb-6">
+                          {locale === 'mn' 
+                            ? 'Сургалтад бүртгүүлэхэд бэлэн үү?'
+                            : 'Ready to register for the training?'
+                          }
+                        </p>
+                        <Button 
+                          className="w-full btn-primary" 
+                          onClick={handleRegistration}
+                        >
+                          {locale === 'mn' ? 'Бүртгүүлэх' : 'Register Now'}
+                        </Button>
+                      </div>
                     </CardContent>
                   </Card>
                 </div>
