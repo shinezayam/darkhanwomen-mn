@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -15,7 +15,6 @@ import {
   MapPin,
   Globe,
   Target,
-  Clock,
   ArrowLeft,
   Star,
   CheckCircle,
@@ -27,7 +26,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
-export default function PartnerApplyPage() {
+function PartnerApplyContent() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const locale = pathname.startsWith('/en') ? 'en' : 'mn';
@@ -569,5 +568,13 @@ export default function PartnerApplyPage() {
       </main>
       <Footer />
     </div>
+  );
+}
+
+export default function PartnerApplyPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PartnerApplyContent />
+    </Suspense>
   );
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -26,7 +26,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
-export default function VolunteerApplyPage() {
+function VolunteerApplyContent() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const locale = pathname.startsWith('/en') ? 'en' : 'mn';
@@ -519,5 +519,13 @@ export default function VolunteerApplyPage() {
       </main>
       <Footer />
     </div>
+  );
+}
+
+export default function VolunteerApplyPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <VolunteerApplyContent />
+    </Suspense>
   );
 }
