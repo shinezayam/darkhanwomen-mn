@@ -78,7 +78,7 @@ export default function Hero() {
           {['/images/hero_1.jpg','/images/hero_2.jpg','/images/hero_3.jpg','/images/hero_4.jpg','/images/hero_5.jpg','/images/hero_6.jpg'].map((src, idx) => (
             <div key={src} className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200">
               <img
-                src={`http://localhost:3000${src}`}
+                src={src}
                 alt={locale === 'mn' ? 'Үйл ажиллагааны зураг' : 'Activity photo'}
                 className="w-full h-full object-cover"
                 loading={idx < 3 ? 'eager' : 'lazy'}

@@ -71,7 +71,7 @@ export default function Header() {
             <div className="relative">
               <div className="w-12 h-12 rounded-[12px] overflow-hidden shadow-sm group-hover:shadow-md transition-all duration-200 group-hover:scale-105">
                 <img
-                  src="http://localhost:3000/images/logo.png"
+                  src="/images/logo.png"
                   alt={locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation'}
                   className="w-full h-full object-contain"
                 />
