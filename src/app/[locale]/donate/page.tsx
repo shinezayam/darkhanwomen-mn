@@ -13,14 +13,11 @@ import {
   Star,
   CheckCircle,
   Users,
-  Target,
-  Gift,
   Shield,
   Globe,
   Sparkles,
   TrendingUp,
   Award,
-  Zap,
   ArrowRight,
   Calendar,
   Lock,
@@ -421,62 +418,6 @@ export default function DonatePage() {
               </div>
             </div>
 
-            {/* Enhanced Why Donate Section */}
-            <Card className="card-modern p-12 mb-16 shadow-2xl border-0 bg-gradient-to-br from-white to-gray-50/50">
-              <CardHeader className="text-center pb-8">
-                <div className="w-20 h-20 bg-brand-500 rounded-3xl mx-auto mb-6 flex items-center justify-center">
-                  <Zap className="w-10 h-10 text-white" />
-                </div>
-                <CardTitle className="text-4xl font-bold text-gray-900 mb-4">
-                  {locale === 'mn' ? 'Яагаад хандивлах ёстой вэ?' : 'Why Should You Donate?'}
-                </CardTitle>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                  {locale === 'mn' 
-                    ? 'Таны хандив зөвхөн мөнгө биш, эмэгтэйчүүдийн амьдралыг өөрчилж, нийгмийн хөгжилд хувь нэмэр оруулах хүч юм.'
-                    : 'Your donation is not just money, it\'s the power to transform women\'s lives and contribute to social development.'
-                  }
-                </p>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  <div className="text-center p-8 group hover:scale-105 transition-all duration-300">
-                    <div className="w-20 h-20 bg-brand-500 rounded-3xl mx-auto mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Users className="w-10 h-10 text-white" />
-                    </div>
-                    <h4 className="font-bold text-gray-900 mb-4 text-xl">
-                      {locale === 'mn' ? 'Нөлөө үзүүлэх' : 'Make Impact'}
-                    </h4>
-                    <p className="text-gray-600 leading-relaxed">
-                      {locale === 'mn' ? 'Эмэгтэйчүүдийн амьдралд жинхэнэ өөрчлөлт хийх, тэдний мөрөөдлийг бодит болгох' : 'Make real change in women\'s lives and turn their dreams into reality'}
-                    </p>
-                  </div>
-                  
-                  <div className="text-center p-8 group hover:scale-105 transition-all duration-300">
-                    <div className="w-20 h-20 bg-purple-500 rounded-3xl mx-auto mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Target className="w-10 h-10 text-white" />
-                    </div>
-                    <h4 className="font-bold text-gray-900 mb-4 text-xl">
-                      {locale === 'mn' ? 'Зорилготой' : 'Purposeful'}
-                    </h4>
-                    <p className="text-gray-600 leading-relaxed">
-                      {locale === 'mn' ? 'Тод зорилготой, ил тод ашиглалт, хэрэглээний бүрэн тайлан' : 'Clear purpose, transparent usage, and complete usage reports'}
-                    </p>
-                  </div>
-                  
-                  <div className="text-center p-8 group hover:scale-105 transition-all duration-300">
-                    <div className="w-20 h-20 bg-green-500 rounded-3xl mx-auto mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Gift className="w-10 h-10 text-white" />
-                    </div>
-                    <h4 className="font-bold text-gray-900 mb-4 text-xl">
-                      {locale === 'mn' ? 'Өгөөжтэй' : 'Rewarding'}
-                    </h4>
-                    <p className="text-gray-600 leading-relaxed">
-                      {locale === 'mn' ? 'Хувь нэмэр оруулсны сэтгэл ханамж, нийгмийн сайн сайхныг бүтээх' : 'Satisfaction of making a contribution and building social good'}
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </section>
       </main>

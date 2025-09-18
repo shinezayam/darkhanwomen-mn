@@ -334,7 +334,7 @@ export default function GetInvolvedPage() {
                       <Handshake className="w-6 h-6 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900">
-                      {locale === 'mn' ? 'Хамтрал төрлүүд' : 'Partnership Types'}
+                      {locale === 'mn' ? '' : 'Partnership Types'}
                     </h3>
                   </div>
                   
