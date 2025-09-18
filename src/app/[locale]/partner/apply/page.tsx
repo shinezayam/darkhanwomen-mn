@@ -246,7 +246,7 @@ function PartnerApplyContent() {
                               value={formData.organizationName}
                               onChange={handleInputChange}
                               required
-                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-lg font-medium transition-all duration-200"
+                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
                               placeholder={locale === 'mn' ? 'Байгууллагын нэрээ оруулна уу' : 'Enter organization name'}
                             />
                           </div>
@@ -263,7 +263,7 @@ function PartnerApplyContent() {
                               value={formData.contactPerson}
                               onChange={handleInputChange}
                               required
-                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-lg font-medium transition-all duration-200"
+                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
                               placeholder={locale === 'mn' ? 'Холбоо барих хүний нэр' : 'Enter contact person name'}
                             />
                           </div>
@@ -283,7 +283,7 @@ function PartnerApplyContent() {
                               value={formData.email}
                               onChange={handleInputChange}
                               required
-                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-lg font-medium transition-all duration-200"
+                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
                               placeholder={locale === 'mn' ? 'И-мэйл хаягаа оруулна уу' : 'Enter your email'}
                             />
                           </div>
@@ -300,7 +300,7 @@ function PartnerApplyContent() {
                               value={formData.phone}
                               onChange={handleInputChange}
                               required
-                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-lg font-medium transition-all duration-200"
+                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
                               placeholder={locale === 'mn' ? 'Утасны дугаараа оруулна уу' : 'Enter your phone number'}
                             />
                           </div>
@@ -319,7 +319,7 @@ function PartnerApplyContent() {
                               name="address"
                               value={formData.address}
                               onChange={handleInputChange}
-                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-lg font-medium transition-all duration-200"
+                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
                               placeholder={locale === 'mn' ? 'Хаягаа оруулна уу' : 'Enter your address'}
                             />
                           </div>
@@ -335,7 +335,7 @@ function PartnerApplyContent() {
                               name="website"
                               value={formData.website}
                               onChange={handleInputChange}
-                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-lg font-medium transition-all duration-200"
+                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
                               placeholder={locale === 'mn' ? 'Веб сайтын хаяг' : 'Enter website URL'}
                             />
                           </div>
@@ -416,7 +416,7 @@ function PartnerApplyContent() {
                           name="budget"
                           value={formData.budget}
                           onChange={handleInputChange}
-                          className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-lg font-medium transition-all duration-200"
+                          className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
                           placeholder={locale === 'mn' ? 'Төсөв' : 'Enter budget amount'}
                         />
                       </div>
@@ -432,7 +432,7 @@ function PartnerApplyContent() {
                         value={formData.description}
                         onChange={handleInputChange}
                         rows={4}
-                        className="w-full px-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-lg font-medium transition-all duration-200"
+                        className="w-full px-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
                         placeholder={locale === 'mn' ? 'Хамтралын тухай дэлгэрэнгүй мэдээлэл' : 'Describe your partnership proposal'}
                       />
                     </div>

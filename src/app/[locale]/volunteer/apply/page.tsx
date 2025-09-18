@@ -243,7 +243,7 @@ function VolunteerApplyContent() {
                               value={formData.name}
                               onChange={handleInputChange}
                               required
-                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg font-medium transition-all duration-200"
+                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
                               placeholder={locale === 'mn' ? 'Нэрээ оруулна уу' : 'Enter your name'}
                             />
                           </div>
@@ -260,7 +260,7 @@ function VolunteerApplyContent() {
                               value={formData.email}
                               onChange={handleInputChange}
                               required
-                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg font-medium transition-all duration-200"
+                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
                               placeholder={locale === 'mn' ? 'И-мэйл хаягаа оруулна уу' : 'Enter your email'}
                             />
                           </div>
@@ -280,7 +280,7 @@ function VolunteerApplyContent() {
                               value={formData.phone}
                               onChange={handleInputChange}
                               required
-                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg font-medium transition-all duration-200"
+                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
                               placeholder={locale === 'mn' ? 'Утасны дугаараа оруулна уу' : 'Enter your phone number'}
                             />
                           </div>
@@ -296,7 +296,7 @@ function VolunteerApplyContent() {
                               name="address"
                               value={formData.address}
                               onChange={handleInputChange}
-                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg font-medium transition-all duration-200"
+                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
                               placeholder={locale === 'mn' ? 'Хаягаа оруулна уу' : 'Enter your address'}
                             />
                           </div>
@@ -367,7 +367,7 @@ function VolunteerApplyContent() {
                             value={formData.experience}
                             onChange={handleInputChange}
                             rows={4}
-                            className="w-full px-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg font-medium transition-all duration-200"
+                            className="w-full px-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
                             placeholder={locale === 'mn' ? 'Таны туршлага, ур чадварын тухай бичнэ үү' : 'Tell us about your experience and skills'}
                           />
                         </div>
@@ -381,7 +381,7 @@ function VolunteerApplyContent() {
                             value={formData.motivation}
                             onChange={handleInputChange}
                             rows={4}
-                            className="w-full px-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg font-medium transition-all duration-200"
+                            className="w-full px-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
                             placeholder={locale === 'mn' ? 'Таны сайн дураар ажиллах хүсэл, зорилгын тухай бичнэ үү' : 'Tell us about your motivation to volunteer'}
                           />
                         </div>
