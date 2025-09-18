@@ -93,6 +93,13 @@ export default function AboutPage() {
                     }
                   </p>
                 </div>
+                <div className="mt-8">
+                  <img 
+                    src="/images/about_us-building.jpg" 
+                    alt={locale === 'mn' ? 'Дархан-Уул аймгийн эмэгтэйчүүдийн холбооны байр' : 'Darkhan-Uul Women\'s Federation Building'} 
+                    className="w-full h-80 object-cover rounded-xl shadow-lg"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -372,12 +379,19 @@ export default function AboutPage() {
                       <h3 className="text-2xl font-bold text-gray-900 mb-4">
                         {locale === 'mn' ? 'Эмэгтэйчүүдийн ордон' : 'Women\'s Palace'}
                       </h3>
-                      <p className="text-gray-700 leading-relaxed">
+                      <p className="text-gray-700 leading-relaxed mb-6">
                         {locale === 'mn'
                           ? '1987 онд Дархан – Уул аймгийн бүсгүйчүүдийн санаачлага, олон нийтийн хандиваар Монгол улсдаа цорын ганц Эмэгтэйчүүдийн ордонг барьж байгуулан үүдийг нээж одоог хүртэл үйл ажиллагаа нь тогтмол явагдаж байгаа.'
                           : 'In 1987, through the initiative of Darkhan-Uul province women and public donations, the only Women\'s Palace in Mongolia was built and opened, and its activities continue regularly to this day.'
                         }
                       </p>
+                      <div className="mt-6">
+                        <img 
+                          src="/images/about_us-1987.jpg" 
+                          alt={locale === 'mn' ? '1987 оны Эмэгтэйчүүдийн ордон' : '1987 Women\'s Palace'} 
+                          className="w-full h-64 object-cover rounded-xl shadow-lg"
+                        />
+                      </div>
                     </div>
                   </div>
 
