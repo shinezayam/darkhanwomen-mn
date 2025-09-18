@@ -402,81 +402,249 @@ export default function AboutPage() {
         </section>
 
         {/* Organization Activities & Goals Section */}
-        <section className="py-20 bg-gradient-to-br from-pink-50 via-white to-pink-50">
-          <div className="container-max container-spacing">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        <section className="py-20 bg-white relative overflow-hidden">
+          {/* Background decorative elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-br from-pink-100/30 to-pink-200/30 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-br from-blue-100/30 to-blue-200/30 rounded-full blur-3xl"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-gradient-to-br from-purple-100/20 to-purple-200/20 rounded-full blur-2xl"></div>
+          </div>
+          
+          <div className="container-max container-spacing relative z-10">
+            <div className="max-w-7xl mx-auto">
+              {/* Section Header */}
+              <div className="text-center mb-16">
+                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-4 mb-8 shadow-xl rounded-full">
+                  <Target className="w-6 h-6" />
+                  <span className="text-lg font-semibold">
+                    {locale === 'mn' ? 'Бидний зорилго' : 'Our Goals'}
+                  </span>
+                </div>
+                <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-gray-900">
                   {locale === 'mn' ? 'Эмэгтэйчүүдийн холбооны үйл ажиллагааны чиглэл зорилтууд' : 'Women\'s Federation Activities & Goals'}
                 </h2>
-                <div className="w-24 h-1 bg-gradient-to-r from-pink-500 to-pink-600 mx-auto rounded-full"></div>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                  {locale === 'mn'
+                    ? 'Бид эдгээр зорилтуудыг хэрэгжүүлэх замаар эмэгтэйчүүдийн эрх ашгийг хамгаалах, нийгмийн тэгш байдлыг хангах ажлыг хийж байна'
+                    : 'We work to protect women\'s rights and interests and ensure social equality by implementing these goals'
+                  }
+                </p>
+                <div className="w-32 h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 mx-auto rounded-full mt-6"></div>
               </div>
               
-              <div className="bg-white/70 backdrop-blur-sm p-8 rounded-3xl border border-white/20 shadow-xl">
-                <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-                  <ol className="space-y-6 list-decimal list-inside">
-                    <li className="text-lg">
+              {/* Interactive Goals Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                {/* Goal 1 - Rights & Advocacy */}
+                <div className="group h-full">
+                  <div className="bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-3xl border-2 border-pink-200 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                        <Users className="w-8 h-8 text-white" />
+                      </div>
+                      <span className="text-2xl font-bold text-pink-600 group-hover:text-pink-700 transition-colors duration-300">01</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-pink-600 transition-colors duration-300">
+                      {locale === 'mn' ? 'Эрх ашгийн хамгаалалт' : 'Rights Protection'}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed flex-grow text-sm">
                       {locale === 'mn'
                         ? 'Эхчүүд эмэгтэйчүүд охидын нийгэм, гэр бүлд гүйцэтгэх үүрэг, эзлэх байр суурь, бие сэтгэл зүйн онцлогтой холбогдсон асуудлыг шийдвэрлэхэд идэвхитэй оролцох, тэдний эрх ашгийг хамгаалсан хууль тогтоомжийн хэрэгжилтэнд санал дэвшүүлнэ.'
                         : 'Actively participate in solving issues related to the roles, positions, and psychological characteristics of mothers, women, and girls in society and family, and propose the implementation of laws that protect their rights and interests.'
                       }
-                    </li>
-                    <li className="text-lg">
+                    </p>
+                  </div>
+                </div>
+
+                {/* Goal 2 - Policy Development */}
+                <div className="group h-full">
+                  <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-3xl border-2 border-blue-200 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                        <Target className="w-8 h-8 text-white" />
+                      </div>
+                      <span className="text-2xl font-bold text-blue-600 group-hover:text-blue-700 transition-colors duration-300">02</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                      {locale === 'mn' ? 'Бодлого боловсруулалт' : 'Policy Development'}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed flex-grow text-sm">
                       {locale === 'mn'
                         ? 'Жендэрийн мэдрэмжтэй бодлого боловсруулалт, төсөв, төлөвлөлтийн арга зүйг нэвтрүүлэхэд дэмжлэг үзүүлнэ.'
                         : 'Support the introduction of gender-sensitive policy development, budgeting, and planning methodologies.'
                       }
-                    </li>
-                    <li className="text-lg">
+                    </p>
+                  </div>
+                </div>
+
+                {/* Goal 3 - Leadership Support */}
+                <div className="group h-full">
+                  <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-3xl border-2 border-green-200 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                        <Award className="w-8 h-8 text-white" />
+                      </div>
+                      <span className="text-2xl font-bold text-green-600 group-hover:text-green-700 transition-colors duration-300">03</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-green-600 transition-colors duration-300">
+                      {locale === 'mn' ? 'Манлайлал дэмжлэг' : 'Leadership Support'}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed flex-grow text-sm">
                       {locale === 'mn'
                         ? 'Манлайлагч эмэгтэйчүүдийн бүх шатны сонгуульд дэмжиж эмэгтэйчүүдийн төлөөллийг нэмэгдүүлэхэд идэвхитэй ажиллана.'
                         : 'Actively work to support women leaders in all levels of elections and increase women\'s representation.'
                       }
-                    </li>
-                    <li className="text-lg">
+                    </p>
+                  </div>
+                </div>
+
+                {/* Goal 4 - International Cooperation */}
+                <div className="group h-full">
+                  <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-3xl border-2 border-purple-200 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                        <Heart className="w-8 h-8 text-white" />
+                      </div>
+                      <span className="text-2xl font-bold text-purple-600 group-hover:text-purple-700 transition-colors duration-300">04</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-purple-600 transition-colors duration-300">
+                      {locale === 'mn' ? 'Олон улсын хамтын ажиллагаа' : 'International Cooperation'}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed flex-grow text-sm">
                       {locale === 'mn'
                         ? 'Олон улсын байгууллага, хөгжлийн агентлагуудтай хамтран үндсэн чиглэлийн хүрээнд төсөл хөтөлбөр хэрэгжүүлнэ.'
                         : 'Implement projects and programs within the framework of main directions in cooperation with international organizations and development agencies.'
                       }
-                    </li>
-                    <li className="text-lg">
+                    </p>
+                  </div>
+                </div>
+
+                {/* Goal 5 - Network Expansion */}
+                <div className="group h-full">
+                  <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-3xl border-2 border-indigo-200 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                        <Users className="w-8 h-8 text-white" />
+                      </div>
+                      <span className="text-2xl font-bold text-indigo-600 group-hover:text-indigo-700 transition-colors duration-300">05</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-indigo-600 transition-colors duration-300">
+                      {locale === 'mn' ? 'Сүлжээг өргөжүүлэх' : 'Network Expansion'}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed flex-grow text-sm">
                       {locale === 'mn'
                         ? 'Дэлхийн болон бүс нутаг, үндэсний эмэгтэйчүүдийн бусад хөдөлгөөн, байгууллагуудтай холбоо харилцаагаа өргөжүүлж үр дүнтэй хамтын ажиллагааг өрнүүлнэ.'
                         : 'Expand connections and communications with other women\'s movements and organizations at global, regional, and national levels and develop effective cooperation.'
                       }
-                    </li>
-                    <li className="text-lg">
+                    </p>
+                  </div>
+                </div>
+
+                {/* Goal 6 - Economic Support */}
+                <div className="group h-full">
+                  <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-3xl border-2 border-orange-200 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                        <Target className="w-8 h-8 text-white" />
+                      </div>
+                      <span className="text-2xl font-bold text-orange-600 group-hover:text-orange-700 transition-colors duration-300">06</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-orange-600 transition-colors duration-300">
+                      {locale === 'mn' ? 'Эдийн засгийн дэмжлэг' : 'Economic Support'}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed flex-grow text-sm">
                       {locale === 'mn'
                         ? 'Эмэгтэйчүүдийн эдийн засгийн байдлыг дэмжих төсөл хөтөлбөр хэрэгжүүлнэ.'
                         : 'Implement projects and programs to support women\'s economic situation.'
                       }
-                    </li>
-                    <li className="text-lg">
+                    </p>
+                  </div>
+                </div>
+
+                {/* Goal 7 - Capacity Building */}
+                <div className="group h-full">
+                  <div className="bg-gradient-to-br from-teal-50 to-teal-100 p-6 rounded-3xl border-2 border-teal-200 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-teal-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                        <Award className="w-8 h-8 text-white" />
+                      </div>
+                      <span className="text-2xl font-bold text-teal-600 group-hover:text-teal-700 transition-colors duration-300">07</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-teal-600 transition-colors duration-300">
+                      {locale === 'mn' ? 'Чадавхжуулалт' : 'Capacity Building'}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed flex-grow text-sm">
                       {locale === 'mn'
                         ? 'Охид, эмэгтэйчүүдийг чадавхжуулах, хөгжүүлэх, мэргэжлийн сургалтаар ур чадвар олгож ажил хөдөлмөр эрхлэхэд дэмжлэг үзүүлнэ.'
                         : 'Support girls and women in capacity building, development, providing skills through professional training, and employment.'
                       }
-                    </li>
-                    <li className="text-lg">
+                    </p>
+                  </div>
+                </div>
+
+                {/* Goal 8 - Equality & Anti-discrimination */}
+                <div className="group h-full">
+                  <div className="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-3xl border-2 border-red-200 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                        <CheckCircle className="w-8 h-8 text-white" />
+                      </div>
+                      <span className="text-2xl font-bold text-red-600 group-hover:text-red-700 transition-colors duration-300">08</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-red-600 transition-colors duration-300">
+                      {locale === 'mn' ? 'Тэгш байдал' : 'Equality'}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed flex-grow text-sm">
                       {locale === 'mn'
                         ? 'Эмэгтэйчүүдийн эрх тэгш байдлыг хангах, жендерт суурилсан ялгаварлалыг багасгах, хүчирхийллийг зогсоох'
                         : 'Ensure women\'s equality, reduce gender-based discrimination, and stop violence.'
                       }
-                    </li>
-                    <li className="text-lg">
+                    </p>
+                  </div>
+                </div>
+
+                {/* Goal 9 - Education & Awareness */}
+                <div className="group h-full">
+                  <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-3xl border-2 border-yellow-200 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                        <Heart className="w-8 h-8 text-white" />
+                      </div>
+                      <span className="text-2xl font-bold text-yellow-600 group-hover:text-yellow-700 transition-colors duration-300">09</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-yellow-600 transition-colors duration-300">
+                      {locale === 'mn' ? 'Боловсрол, мэдээлэл' : 'Education & Awareness'}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed flex-grow text-sm">
                       {locale === 'mn'
                         ? 'Нийгэмтэй хөл зэрэгцэн алхах соёлтой, оюунлаг иргэнтэй болох, зөв иргэнийг бэлтгэхэд оролцоог ханган соён гэгээрүүлэх нөлөөллийн ажлыг өрнүүлнэ.'
                         : 'Develop educational and awareness activities by providing participation in cultivating a culture of walking side by side with society, becoming intelligent citizens, and preparing good citizens.'
                       }
-                    </li>
-                    <li className="text-lg">
+                    </p>
+                  </div>
+                </div>
+
+                {/* Goal 10 - Research & Monitoring */}
+                <div className="group h-full">
+                  <div className="bg-gradient-to-br from-cyan-50 to-cyan-100 p-6 rounded-3xl border-2 border-cyan-200 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                        <Target className="w-8 h-8 text-white" />
+                      </div>
+                      <span className="text-2xl font-bold text-cyan-600 group-hover:text-cyan-700 transition-colors duration-300">10</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-cyan-600 transition-colors duration-300">
+                      {locale === 'mn' ? 'Судалгаа, хяналт' : 'Research & Monitoring'}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed flex-grow text-sm">
                       {locale === 'mn'
                         ? 'Судалгаа, тандалт асуулга хийх замаар иргэд эмэгтэйчүүд, олон нийтийн хяналт үнэлгээг хүргэнэ.'
                         : 'Provide public monitoring and evaluation to citizens and women through research and surveys.'
                       }
-                    </li>
-                  </ol>
+                    </p>
+                  </div>
                 </div>
+
               </div>
             </div>
           </div>
