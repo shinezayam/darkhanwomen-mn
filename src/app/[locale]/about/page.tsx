@@ -62,43 +62,97 @@ export default function AboutPage() {
         </section>
 
         {/* Brief Introduction Section */}
-        <section className="py-20 bg-gradient-to-br from-pink-50 via-white to-pink-50">
-          <div className="container-max container-spacing">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="brief-intro-title">
+        <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-pink-50 relative overflow-hidden">
+          {/* Background decorative elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-pink-200/30 to-pink-300/30 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-br from-blue-200/30 to-pink-200/30 rounded-full blur-3xl"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-yellow-200/20 to-orange-200/20 rounded-full blur-2xl"></div>
+          </div>
+          
+          <div className="container-max container-spacing relative z-10">
+            <div className="max-w-6xl mx-auto">
+              {/* Section Header */}
+              <div className="text-center mb-16">
+                <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm text-pink-700 px-6 py-3 mb-6 shadow-lg border border-pink-100 rounded-full">
+                  <Users className="w-5 h-5" />
+                  <span className="text-sm font-medium">
+                    {locale === 'mn' ? 'Бидний тухай' : 'About Us'}
+                  </span>
+                </div>
+                <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-gray-900">
                   {locale === 'mn' ? 'Товч танилцуулга' : 'Brief Introduction'}
                 </h2>
-                <div className="brief-intro-divider"></div>
+                <div className="w-24 h-1 bg-gradient-to-r from-pink-500 to-pink-600 mx-auto rounded-full"></div>
               </div>
               
-              <div className="brief-intro-card">
-                <div className="brief-intro-content">
-                  <p className="brief-intro-text">
-                    {locale === 'mn'
-                      ? '"Дархан-Уул аймгийн эмэгтэйчүүдийн холбоо" НҮТББ нь 1962 онд үүсгэн байгуулагдсанаас хойш охид, эмэгтэйчүүдийн эрх ашгийг хамгаалах, хөгжүүлэх, нийгэмд чиглэсэн соён гэгээрлийн үйл ажиллагаа зохион байгуулах үндсэн чиглэлийг баримтлан 63 жил тогтвортой үйл ажиллагаа явуулж байгаа орон нутгийн ууган ТББ юм.'
-                      : 'The "Darkhan-Uul Women\'s Federation" NGO has been operating steadily for 63 years since its establishment in 1962, following the main direction of protecting and developing the rights and interests of girls and women, and organizing socially-oriented educational activities, making it the oldest local NGO in the region.'
-                    }
-                  </p>
-                  <p className="brief-intro-text">
-                    {locale === 'mn'
-                      ? 'Дархан-Уул аймаг нь 4 сум, 26 багтай бөгөөд өрхийн тоо 29503, хүн амын тоо 104551, үүний 50.99 хувийг эмэгтэйчүүд эзэлдэг ба аймгийн төвийн 84.7 мянган хүний 43.6 мянга /51.47 хувь/, хөдөөд 9.6 мянган хүний 4.6 мянга буюу 48.27 хувь нь эмэгтэйчүүд байна. 2022 оны байдлаар хөдөлмөрийн насны хүн ам 32,852 байгаагаас эрэгтэй 18,528, эмэгтэй 14,323 байна.'
-                      : 'Darkhan-Uul Province has 4 districts and 26 bags with 29,503 households and a population of 104,551, of which 50.99% are women. In the provincial center, 43.6 thousand out of 84.7 thousand people (51.47%) are women, and in rural areas, 4.6 thousand out of 9.6 thousand people (48.27%) are women. As of 2022, the working-age population is 32,852, with 18,528 men and 14,323 women.'
-                    }
-                  </p>
-                  <p className="brief-intro-text">
-                    {locale === 'mn'
-                      ? 'АЭХ нь Удирдах зөвлөл 15, хяналтын зөвлөл 3, ажлын алба 3, сургагч багш 12, Хонгор, Шарын гол, Орхон сум болон Дархан сумын 1-18 багуудад өөрийн нэгж эмэгтэйчүүдийн зөвлөлтэй, зөвлөл бүр нь дарга, 9-11 тэргүүлэгчтэй, томоохон аж ахуй нэгж 20 байгууллагуудад эмэгтэйчүүдийн зөвлөл, 741 гишүүнчлэлтэйгээр үйл ажиллагаагаа явуулж байна.'
-                      : 'The Women\'s Federation operates with 15 Management Councils, 3 Supervisory Councils, 3 working offices, 12 instructors, and has its own women\'s councils in Khongor, Sharyn Gol, Orkhon districts and bags 1-18 of Darkhan district, with each council having a chairman and 9-11 leaders, and women\'s councils in 20 major business organizations, with 741 members.'
-                    }
-                  </p>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                {/* Content */}
+                <div className="space-y-8">
+                  <div className="bg-white/90 backdrop-blur-sm p-8 rounded-3xl border border-pink-100 shadow-xl">
+                    <div className="flex items-center mb-6">
+                      <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center mr-4">
+                        <Users className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-gray-900">
+                        {locale === 'mn' ? '63 жилийн түүх' : '63 Years of History'}
+                      </h3>
+                    </div>
+                    <p className="text-gray-700 leading-relaxed text-lg">
+                      {locale === 'mn'
+                        ? '"Дархан-Уул аймгийн эмэгтэйчүүдийн холбоо" НҮТББ нь 1962 онд үүсгэн байгуулагдсанаас хойш охид, эмэгтэйчүүдийн эрх ашгийг хамгаалах, хөгжүүлэх, нийгэмд чиглэсэн соён гэгээрлийн үйл ажиллагаа зохион байгуулах үндсэн чиглэлийг баримтлан 63 жил тогтвортой үйл ажиллагаа явуулж байгаа орон нутгийн ууган ТББ юм.'
+                        : 'The "Darkhan-Uul Women\'s Federation" NGO has been operating steadily for 63 years since its establishment in 1962, following the main direction of protecting and developing the rights and interests of girls and women, and organizing socially-oriented educational activities, making it the oldest local NGO in the region.'
+                      }
+                    </p>
+                  </div>
+
+                  <div className="bg-white/90 backdrop-blur-sm p-8 rounded-3xl border border-blue-100 shadow-xl">
+                    <div className="flex items-center mb-6">
+                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mr-4">
+                        <Target className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-gray-900">
+                        {locale === 'mn' ? 'Хүн амын бүтэц' : 'Population Structure'}
+                      </h3>
+                    </div>
+                    <p className="text-gray-700 leading-relaxed text-lg">
+                      {locale === 'mn'
+                        ? 'Дархан-Уул аймаг нь 4 сум, 26 багтай бөгөөд өрхийн тоо 29503, хүн амын тоо 104551, үүний 50.99 хувийг эмэгтэйчүүд эзэлдэг ба аймгийн төвийн 84.7 мянган хүний 43.6 мянга /51.47 хувь/, хөдөөд 9.6 мянган хүний 4.6 мянга буюу 48.27 хувь нь эмэгтэйчүүд байна.'
+                        : 'Darkhan-Uul Province has 4 districts and 26 bags with 29,503 households and a population of 104,551, of which 50.99% are women. In the provincial center, 43.6 thousand out of 84.7 thousand people (51.47%) are women, and in rural areas, 4.6 thousand out of 9.6 thousand people (48.27%) are women.'
+                      }
+                    </p>
+                  </div>
+
+                  <div className="bg-white/90 backdrop-blur-sm p-8 rounded-3xl border border-green-100 shadow-xl">
+                    <div className="flex items-center mb-6">
+                      <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mr-4">
+                        <Award className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-gray-900">
+                        {locale === 'mn' ? 'Зохион байгуулалт' : 'Organization'}
+                      </h3>
+                    </div>
+                    <p className="text-gray-700 leading-relaxed text-lg">
+                      {locale === 'mn'
+                        ? 'АЭХ нь Удирдах зөвлөл 15, хяналтын зөвлөл 3, ажлын алба 3, сургагч багш 12, Хонгор, Шарын гол, Орхон сум болон Дархан сумын 1-18 багуудад өөрийн нэгж эмэгтэйчүүдийн зөвлөлтэй, зөвлөл бүр нь дарга, 9-11 тэргүүлэгчтэй, томоохон аж ахуй нэгж 20 байгууллагуудад эмэгтэйчүүдийн зөвлөл, 741 гишүүнчлэлтэйгээр үйл ажиллагаагаа явуулж байна.'
+                        : 'The Women\'s Federation operates with 15 Management Councils, 3 Supervisory Councils, 3 working offices, 12 instructors, and has its own women\'s councils in Khongor, Sharyn Gol, Orkhon districts and bags 1-18 of Darkhan district, with each council having a chairman and 9-11 leaders, and women\'s councils in 20 major business organizations, with 741 members.'
+                      }
+                    </p>
+                  </div>
                 </div>
-                <div className="mt-8">
-                  <img 
-                    src="/images/about_us-building.jpg" 
-                    alt={locale === 'mn' ? 'Дархан-Уул аймгийн эмэгтэйчүүдийн холбооны байр' : 'Darkhan-Uul Women\'s Federation Building'} 
-                    className="w-full h-80 object-cover rounded-xl shadow-lg"
-                  />
+
+                {/* Image */}
+                <div className="relative">
+                  <div className="relative z-10">
+                    <img 
+                      src="/images/about_us-building.jpg" 
+                      alt={locale === 'mn' ? 'Дархан-Уул аймгийн эмэгтэйчүүдийн холбооны байр' : 'Darkhan-Uul Women\'s Federation Building'} 
+                      className="w-full h-96 object-cover rounded-3xl shadow-2xl"
+                    />
+                  </div>
+                  {/* Decorative elements around image */}
+                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-pink-300/30 to-pink-400/30 rounded-full blur-xl"></div>
+                  <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-blue-300/30 to-blue-400/30 rounded-full blur-xl"></div>
                 </div>
               </div>
             </div>
@@ -106,65 +160,101 @@ export default function AboutPage() {
         </section>
 
         {/* Vision, Mission, Values Cards */}
-        <section className="py-20 bg-white">
-          <div className="container-max container-spacing">
+        <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-pink-50 relative overflow-hidden">
+          {/* Background decorative elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-10 right-10 w-32 h-32 bg-gradient-to-br from-pink-200/40 to-pink-300/40 rounded-full blur-2xl"></div>
+            <div className="absolute bottom-10 left-10 w-40 h-40 bg-gradient-to-br from-blue-200/40 to-blue-300/40 rounded-full blur-2xl"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br from-purple-200/30 to-purple-300/30 rounded-full blur-xl"></div>
+          </div>
+          
+          <div className="container-max container-spacing relative z-10">
             <div className="max-w-6xl mx-auto">
+              {/* Section Header */}
+              <div className="text-center mb-16">
+                <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm text-pink-700 px-6 py-3 mb-6 shadow-lg border border-pink-100 rounded-full">
+                  <Award className="w-5 h-5" />
+                  <span className="text-sm font-medium">
+                    {locale === 'mn' ? 'Бидний үнэт зүйлс' : 'Our Core Values'}
+                  </span>
+                </div>
+                <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-gray-900">
+                  {locale === 'mn' ? 'Алсын хараа, зорилго, үнэт зүйл' : 'Vision, Mission & Values'}
+                </h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 mx-auto rounded-full"></div>
+              </div>
+
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 
                 {/* Vision Card */}
-                <div className="h-full">
-                  <div className="hidden"></div>
-                  <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-                    <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6">
-                      <Target className="w-8 h-8 text-white" />
+                <div className="group h-full">
+                  <div className="bg-white/90 backdrop-blur-sm p-8 rounded-3xl border border-pink-100 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
+                    {/* Card background pattern */}
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-pink-100/50 to-pink-200/50 rounded-full -translate-y-10 translate-x-10"></div>
+                    <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-pink-100/30 to-pink-200/30 rounded-full translate-y-8 -translate-x-8"></div>
+                    
+                    <div className="relative z-10">
+                      <div className="w-20 h-20 bg-gradient-to-br from-pink-500 to-pink-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                        <Target className="w-10 h-10 text-white" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-pink-600 transition-colors duration-300">
+                        {locale === 'mn' ? 'Алсын хараа' : 'Vision'}
+                      </h3>
+                      <p className="text-gray-700 leading-relaxed flex-grow text-lg">
+                        {locale === 'mn'
+                          ? 'Үндэсний манлайлагч эмэгтэйчүүдийн байгууллага байх'
+                          : 'To be a nationally leading women\'s organization'
+                        }
+                      </p>
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                      {locale === 'mn' ? 'Алсын хараа' : 'Vision'}
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed flex-grow">
-                      {locale === 'mn'
-                        ? 'Үндэсний манлайлагч эмэгтэйчүүдийн байгууллага байх'
-                        : 'To be a nationally leading women\'s organization'
-                      }
-                    </p>
                   </div>
                 </div>
 
                 {/* Mission Card */}
-                <div className="h-full">
-                  <div className="hidden"></div>
-                  <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
-                      <Heart className="w-8 h-8 text-white" />
+                <div className="group h-full">
+                  <div className="bg-white/90 backdrop-blur-sm p-8 rounded-3xl border border-blue-100 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
+                    {/* Card background pattern */}
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-100/50 to-blue-200/50 rounded-full -translate-y-10 translate-x-10"></div>
+                    <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-blue-100/30 to-blue-200/30 rounded-full translate-y-8 -translate-x-8"></div>
+                    
+                    <div className="relative z-10">
+                      <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                        <Heart className="w-10 h-10 text-white" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                        {locale === 'mn' ? 'Эрхэм зорилго' : 'Mission'}
+                      </h3>
+                      <p className="text-gray-700 leading-relaxed flex-grow text-lg">
+                        {locale === 'mn'
+                          ? 'Эмэгтэйчүүдийн үзэл бодол, нийгмийн байдал, сүсэг бишрэл, яс үндэс, хөрөнгө чинээ, албан тушаал үл харгалзан тэдний нийтлэг, эрх ашиг, сонирхлыг илэрхийлэн хамгаалах, хөгжүүлэх'
+                          : 'To express, protect, and develop the common rights, interests, and concerns of women regardless of their ideology, social status, beliefs, ethnicity, wealth, or position'
+                        }
+                      </p>
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                      {locale === 'mn' ? 'Эрхэм зорилго' : 'Mission'}
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed flex-grow">
-                      {locale === 'mn'
-                        ? 'Эмэгтэйчүүдийн үзэл бодол, нийгмийн байдал, сүсэг бишрэл, яс үндэс, хөрөнгө чинээ, албан тушаал үл харгалзан тэдний нийтлэг, эрх ашиг, сонирхлыг илэрхийлэн хамгаалах, хөгжүүлэх'
-                        : 'To express, protect, and develop the common rights, interests, and concerns of women regardless of their ideology, social status, beliefs, ethnicity, wealth, or position'
-                      }
-                    </p>
                   </div>
                 </div>
 
                 {/* Values Card */}
-                <div className="h-full">
-                  <div className="hidden"></div>
-                  <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6">
-                      <Award className="w-8 h-8 text-white" />
+                <div className="group h-full">
+                  <div className="bg-white/90 backdrop-blur-sm p-8 rounded-3xl border border-purple-100 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
+                    {/* Card background pattern */}
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-purple-100/50 to-purple-200/50 rounded-full -translate-y-10 translate-x-10"></div>
+                    <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-purple-100/30 to-purple-200/30 rounded-full translate-y-8 -translate-x-8"></div>
+                    
+                    <div className="relative z-10">
+                      <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                        <Award className="w-10 h-10 text-white" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-purple-600 transition-colors duration-300">
+                        {locale === 'mn' ? 'Үнэт зүйл' : 'Values'}
+                      </h3>
+                      <p className="text-gray-700 leading-relaxed flex-grow text-lg">
+                        {locale === 'mn'
+                          ? 'Тэгш боломж- Тэгш хөгжил, Оюунлаг эмэгтэйчүүд - Оюунлаг нийгэм'
+                          : 'Equal Opportunity - Equal Development, Smart Women - Smart Society'
+                        }
+                      </p>
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                      {locale === 'mn' ? 'Үнэт зүйл' : 'Values'}
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed flex-grow">
-                      {locale === 'mn'
-                        ? 'Тэгш боломж- Тэгш хөгжил, Оюунлаг эмэгтэйчүүд - Оюунлаг нийгэм'
-                        : 'Equal Opportunity - Equal Development, Smart Women - Smart Society'
-                      }
-                    </p>
                   </div>
                 </div>
 
