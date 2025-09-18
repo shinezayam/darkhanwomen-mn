@@ -78,7 +78,7 @@ export default function GetInvolvedPage() {
         </section>
 
         {/* Ways to Get Involved Section */}
-        <section className="py-20 bg-white">
+        <section id="cta-buttons" className="py-20 bg-white">
           <div className="container-max container-spacing">
             {/* Ways to Get Involved */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
@@ -462,7 +462,15 @@ export default function GetInvolvedPage() {
                   }
                 </p>
                 <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                  <Button className="btn-primary px-8 py-4 text-lg">
+                  <Button 
+                    className="btn-primary px-8 py-4 text-lg"
+                    onClick={() => {
+                      document.getElementById('cta-buttons')?.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                      });
+                    }}
+                  >
                     {locale === 'mn' ? 'Оролцох' : 'Get Involved'}
                   </Button>
                   <Link href={`/${locale}/contact`}>
