@@ -233,7 +233,7 @@ function PartnerApplyContent() {
                       <label className="block text-lg font-semibold text-gray-800 mb-4">
                         {locale === 'mn' ? 'Байгууллагын мэдээлэл' : 'Organization Information'}
                       </label>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="grid grid-cols-1 gap-6">
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
                             {locale === 'mn' ? 'Байгууллагын нэр *' : 'Organization Name *'}
@@ -270,7 +270,7 @@ function PartnerApplyContent() {
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                      <div className="grid grid-cols-1 gap-6 mt-6">
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
                             {locale === 'mn' ? 'И-мэйл *' : 'Email *'}
@@ -307,7 +307,7 @@ function PartnerApplyContent() {
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                      <div className="grid grid-cols-1 gap-6 mt-6">
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
                             {locale === 'mn' ? 'Хаяг' : 'Address'}

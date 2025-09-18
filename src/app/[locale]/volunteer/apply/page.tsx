@@ -230,7 +230,7 @@ function VolunteerApplyContent() {
                       <label className="block text-lg font-semibold text-gray-800 mb-4">
                         {locale === 'mn' ? 'Хувийн мэдээлэл' : 'Personal Information'}
                       </label>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="grid grid-cols-1 gap-6">
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
                             {locale === 'mn' ? 'Нэр *' : 'Name *'}
@@ -267,7 +267,7 @@ function VolunteerApplyContent() {
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                      <div className="grid grid-cols-1 gap-6 mt-6">
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
                             {locale === 'mn' ? 'Утасны дугаар *' : 'Phone Number *'}
