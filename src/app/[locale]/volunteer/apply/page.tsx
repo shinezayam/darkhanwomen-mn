@@ -157,7 +157,7 @@ function VolunteerApplyContent() {
           <div className="container-max container-spacing">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
               {/* Enhanced Form */}
-              <Card className="card-modern p-8 shadow-2xl border-2 border-blue-300 bg-gradient-to-br from-white to-blue-50/30 backdrop-blur-sm ring-4 ring-blue-200 scale-105">
+              <Card className="card-modern p-8 shadow-2xl border-2 border-pink-300 bg-gradient-to-br from-white to-pink-50/30 backdrop-blur-sm ring-4 ring-pink-200 scale-105">
                 <CardHeader className="text-center pb-6">
                   <div className="w-20 h-20 bg-brand-500 rounded-3xl mx-auto mb-6 flex items-center justify-center shadow-lg">
                     <IconComponent className="w-10 h-10 text-white" />
