@@ -177,7 +177,7 @@ function PartnerApplyContent() {
                     {/* Enhanced Partnership Type Selection */}
                     <div>
                       <label className="block text-lg font-semibold text-gray-800 mb-4">
-                        {locale === 'mn' ? 'Хамтралын төрөл' : 'Partnership Type'}
+                        {locale === 'mn' ? 'Хамтрал төрлүүд' : 'Partnership Types'}
                       </label>
                       <div className="grid grid-cols-1 gap-4">
                         <button 
