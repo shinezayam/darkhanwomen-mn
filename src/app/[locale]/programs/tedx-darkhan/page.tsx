@@ -134,7 +134,7 @@ export default function TEDxDarkhanPage() {
                         <Users className="w-6 h-6 text-blue-500 mt-1" />
                         <div>
                           <h4 className="font-semibold text-gray-900 mb-2">
-                            {locale === 'mn' ? 'Сүлжээжилт' : 'Networking'}
+                            {locale === 'mn' ? 'Танилын хүрээ' : 'Networking'}
                           </h4>
                           <p className="text-gray-600 text-sm">
                             {locale === 'mn' ? 'Мэргэжилтнүүдтэй уулзалт' : 'Meet with professionals'}

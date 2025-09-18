@@ -376,7 +376,7 @@ export default function HairStylistPage() {
                         </h3>
                         <p className="text-gray-600 mb-6">
                           {locale === 'mn' 
-                            ? 'Сургалтад бүртгүүлэхэд бэлэн байна уу?'
+                            ? 'Сургалтад бүртгүүлэхэд бэлэн үү?'
                             : 'Ready to register for the training?'
                           }
                         </p>

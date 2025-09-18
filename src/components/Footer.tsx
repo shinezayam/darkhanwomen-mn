@@ -62,7 +62,7 @@ export default function Footer() {
               }
             </p>
 
-            {/* Modern Contact Info */}
+
             <div className="space-y-4">
               <div className="flex items-center space-x-4 text-gray-300 hover:text-pink-400 transition-colors duration-300">
                 <div className="w-10 h-10 bg-pink-500/20 rounded-xl flex items-center justify-center">
