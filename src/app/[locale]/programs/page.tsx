@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardTitle } from '@/components/ui/card';
@@ -30,7 +31,6 @@ import {
   ChevronDown,
   ChevronUp
 } from 'lucide-react';
-import Link from 'next/link';
 
 export default function ProgramsPage() {
   const pathname = usePathname();
@@ -517,15 +517,17 @@ export default function ProgramsPage() {
                       </div>
                       
                       {/* Enhanced CTA Button */}
-                      <Button 
-                        variant="outline" 
-                        className="w-full bg-gradient-to-r from-white/90 to-white/70 backdrop-blur-sm border-2 border-gray-200 hover:border-brand-400 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100 text-gray-700 hover:text-brand-700 font-bold py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl group text-base"
-                      >
-                        <span className="flex items-center justify-center">
-                          {locale === 'mn' ? 'Дэлгэрэнгүй' : 'Learn More'}
-                          <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform duration-300" />
-                        </span>
-                      </Button>
+                      <Link href={`/${locale}/programs/${program.id}`}>
+                        <Button 
+                          variant="outline" 
+                          className="w-full bg-gradient-to-r from-white/90 to-white/70 backdrop-blur-sm border-2 border-gray-200 hover:border-brand-400 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100 text-gray-700 hover:text-brand-700 font-bold py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl group text-base"
+                        >
+                          <span className="flex items-center justify-center">
+                            {locale === 'mn' ? 'Дэлгэрэнгүй' : 'Learn More'}
+                            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform duration-300" />
+                          </span>
+                        </Button>
+                      </Link>
                     </div>
                   </div>
 
@@ -583,20 +585,24 @@ export default function ProgramsPage() {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button 
-                    size="lg"
-                    className="bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg"
-                  >
-                    {locale === 'mn' ? 'Оролцох' : 'Get Involved'}
-                  </Button>
+                  <Link href={`/${locale}/get-involved`}>
+                    <Button 
+                      size="lg"
+                      className="bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg"
+                    >
+                      {locale === 'mn' ? 'Оролцох' : 'Get Involved'}
+                    </Button>
+                  </Link>
                   
-                  <Button 
-                    variant="outline"
-                    size="lg"
-                    className="border-2 border-brand-500 text-brand-500 hover:bg-brand-500 hover:text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 hover:scale-105"
-                  >
-                    {locale === 'mn' ? 'Холбоо барих' : 'Contact Us'}
-                  </Button>
+                  <Link href={`/${locale}/contact`}>
+                    <Button 
+                      variant="outline"
+                      size="lg"
+                      className="border-2 border-brand-500 text-brand-500 hover:bg-brand-500 hover:text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 hover:scale-105"
+                    >
+                      {locale === 'mn' ? 'Холбоо барих' : 'Contact Us'}
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
