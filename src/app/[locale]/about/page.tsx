@@ -25,14 +25,14 @@ export default function AboutPage() {
 
           {/* Fixed Back Button */}
           <div className="fixed top-24 left-6 z-50">
-            <Link 
-              href={`/${locale}`}
+              <Link 
+                href={`/${locale}`}
               className="inline-flex items-center space-x-2 text-pink-600 hover:text-pink-700 font-medium transition-all duration-200 hover:scale-105 group bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-pink-100"
-            >
+              >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-200" />
-              <span className="hidden sm:inline">{locale === 'mn' ? 'Нүүр хуудас' : 'Home'}</span>
-            </Link>
-          </div>
+                <span className="hidden sm:inline">{locale === 'mn' ? 'Нүүр хуудас' : 'Home'}</span>
+              </Link>
+            </div>
 
           <div className="container-max container-spacing relative z-10">
             <div className="text-center mb-16">
@@ -43,7 +43,7 @@ export default function AboutPage() {
                   {locale === 'mn' ? 'Бидний тухай' : 'About Us'}
                 </span>
               </div>
-
+              
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
                 <span className="bg-gradient-to-r from-pink-500 to-pink-700 bg-clip-text text-transparent">
                   {locale === 'mn' ? 'БИДНИЙ ТУХАЙ' : 'ABOUT US'}
@@ -57,8 +57,8 @@ export default function AboutPage() {
                 }
               </p>
 
-            </div>
-          </div>
+                </div>
+                </div>
         </section>
 
         {/* Brief Introduction Section */}
@@ -70,8 +70,8 @@ export default function AboutPage() {
                   {locale === 'mn' ? 'Товч танилцуулга' : 'Brief Introduction'}
                 </h2>
                 <div className="brief-intro-divider"></div>
-              </div>
-              
+            </div>
+
               <div className="brief-intro-card">
                 <div className="brief-intro-content">
                   <p className="brief-intro-text">
@@ -87,19 +87,19 @@ export default function AboutPage() {
                     }
                   </p>
                   <p className="brief-intro-text">
-                    {locale === 'mn'
+                  {locale === 'mn' 
                       ? 'АЭХ нь Удирдах зөвлөл 15, хяналтын зөвлөл 3, ажлын алба 3, сургагч багш 12, Хонгор, Шарын гол, Орхон сум болон Дархан сумын 1-18 багуудад өөрийн нэгж эмэгтэйчүүдийн зөвлөлтэй, зөвлөл бүр нь дарга, 9-11 тэргүүлэгчтэй, томоохон аж ахуй нэгж 20 байгууллагуудад эмэгтэйчүүдийн зөвлөл, 741 гишүүнчлэлтэйгээр үйл ажиллагаагаа явуулж байна.'
                       : 'The Women\'s Federation operates with 15 Management Councils, 3 Supervisory Councils, 3 working offices, 12 instructors, and has its own women\'s councils in Khongor, Sharyn Gol, Orkhon districts and bags 1-18 of Darkhan district, with each council having a chairman and 9-11 leaders, and women\'s councils in 20 major business organizations, with 741 members.'
-                    }
-                  </p>
-                </div>
+                  }
+                </p>
+              </div>
                 <div className="mt-8">
                   <img 
                     src="/images/about_us-building.jpg" 
                     alt={locale === 'mn' ? 'Дархан-Уул аймгийн эмэгтэйчүүдийн холбооны байр' : 'Darkhan-Uul Women\'s Federation Building'} 
                     className="w-full h-80 object-cover rounded-xl shadow-lg"
                   />
-                </div>
+                    </div>
               </div>
             </div>
           </div>
@@ -122,11 +122,11 @@ export default function AboutPage() {
                       {locale === 'mn' ? 'Алсын хараа' : 'Vision'}
                     </h3>
                     <p className="text-gray-700 leading-relaxed flex-grow">
-                      {locale === 'mn'
-                        ? 'Үндэсний манлайлагч эмэгтэйчүүдийн байгууллага байх'
-                        : 'To be a nationally leading women\'s organization'
-                      }
-                    </p>
+                    {locale === 'mn' 
+                      ? 'Үндэсний манлайлагч эмэгтэйчүүдийн байгууллага байх'
+                      : 'To be a nationally leading women\'s organization'
+                    }
+                  </p>
                   </div>
                 </div>
 
@@ -160,11 +160,11 @@ export default function AboutPage() {
                       {locale === 'mn' ? 'Үнэт зүйл' : 'Values'}
                     </h3>
                     <p className="text-gray-700 leading-relaxed flex-grow">
-                      {locale === 'mn'
+                    {locale === 'mn' 
                         ? 'Тэгш боломж- Тэгш хөгжил, Оюунлаг эмэгтэйчүүд - Оюунлаг нийгэм'
-                        : 'Equal Opportunity - Equal Development, Smart Women - Smart Society'
-                      }
-                    </p>
+                      : 'Equal Opportunity - Equal Development, Smart Women - Smart Society'
+                    }
+                  </p>
                   </div>
                 </div>
 
@@ -196,14 +196,14 @@ export default function AboutPage() {
                       {locale === 'mn' ? 'Хүний эрх' : 'Human Rights'}
                     </h3>
                     <p className="text-gray-700 leading-relaxed flex-grow">
-                      {locale === 'mn'
-                        ? 'Хүний эрхэд суурилсан хандлага, арга зүйгээр бүхий л үйл ажиллагаагаа явуулдаг'
+                          {locale === 'mn' 
+                            ? 'Хүний эрхэд суурилсан хандлага, арга зүйгээр бүхий л үйл ажиллагаагаа явуулдаг'
                         : 'We conduct all our activities based on human rights approaches and methodologies'
-                      }
-                    </p>
-                  </div>
-                </div>
-
+                          }
+                        </p>
+                      </div>
+                    </div>
+                    
                 {/* Multi-stakeholder Participation */}
                 <div className="h-full">
                   <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
@@ -214,32 +214,32 @@ export default function AboutPage() {
                       {locale === 'mn' ? 'Олон талт оролцоо, төлөөлөл' : 'Multi-stakeholder Participation & Representation'}
                     </h3>
                     <p className="text-gray-700 leading-relaxed flex-grow">
-                      {locale === 'mn'
+                          {locale === 'mn' 
                         ? 'Олон янзын хүмүүс, бүлгүүдийн оролцоог хангадаг, дуу хоолойгоо хүргэж чадахгүй байгаа бүтцийн ялгаварлан гадуурхалт болон давхар ялгаварлан гадуурхалтанд өртсөн бүлгүүдийг тусгайлан анхаардаг'
                         : 'We ensure participation of diverse people and groups, paying special attention to groups affected by structural discrimination and double discrimination who cannot make their voices heard'
-                      }
-                    </p>
-                  </div>
-                </div>
+                          }
+                        </p>
+                      </div>
+                    </div>
 
                 {/* Transparency & Accountability */}
                 <div className="h-full">
                   <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
                     <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6">
                       <CheckCircle className="w-8 h-8 text-white" />
-                    </div>
+                  </div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       {locale === 'mn' ? 'Ил тод, хариуцлагатай' : 'Transparency & Accountability'}
                     </h3>
                     <p className="text-gray-700 leading-relaxed flex-grow">
-                      {locale === 'mn'
+                          {locale === 'mn' 
                         ? 'Тэтгэлэг авагч-түншлэгч байгууллага бүлгүүд, эмэгтэйчүүдийн хөдөлгөөн, хандивлагчдынхаа өмнө хариуцлага ухамсарладаг, бидний үйл ажиллагаа ил тод байдаг'
                         : 'We are accountable to beneficiary-partner organizations, women\'s movements, and our donors, and our activities are transparent'
-                      }
-                    </p>
-                  </div>
-                </div>
-
+                          }
+                        </p>
+                      </div>
+                    </div>
+                    
                 {/* Partnership & Collaboration */}
                 <div className="h-full">
                   <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
@@ -250,17 +250,17 @@ export default function AboutPage() {
                       {locale === 'mn' ? 'Түншлэл, хамтын ажиллагаа' : 'Partnership & Collaboration'}
                     </h3>
                     <p className="text-gray-700 leading-relaxed flex-grow">
-                      {locale === 'mn'
+                          {locale === 'mn' 
                         ? 'Нийгмийн өөрчлөлтийг зөвхөн тууштай, зарчимч, ёс зүйтэй хамтын ажиллагаа, түншлэлийн замаар авчрах боломжтой гэж итгэдэг'
                         : 'We believe that social change can only be achieved through consistent, principled, and ethical collaboration and partnership'
-                      }
-                    </p>
-                  </div>
+                          }
+                        </p>
+                      </div>
                 </div>
 
-              </div>
-            </div>
-          </div>
+                    </div>
+                  </div>
+                </div>
         </section>
 
         {/* Historical Timeline Section */}
@@ -290,14 +290,14 @@ export default function AboutPage() {
                         {locale === 'mn' ? 'Үүсгэн байгуулагдсан' : 'Founded'}
                       </h3>
                       <p className="text-gray-700 leading-relaxed">
-                        {locale === 'mn'
+                        {locale === 'mn' 
                           ? '1962 оны 10 дугаар сарын 21-ны өдөр Дархан хотын эмэгтэйчүүдийн анхдугаар хурлаар МАХН-ын хорооны харъяа орон тооны бус Зөвлөл байгуулагдсан.'
                           : 'On October 21, 1962, the first women\'s conference of Darkhan city established a non-staff Council under the Party Committee.'
                         }
                       </p>
                     </div>
                   </div>
-
+                  
                   {/* 1964 */}
                   <div className="relative flex items-start space-x-8">
                     <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
@@ -308,14 +308,14 @@ export default function AboutPage() {
                         {locale === 'mn' ? 'Албан ёсны эхлэл' : 'Official Beginning'}
                       </h3>
                       <p className="text-gray-700 leading-relaxed">
-                        {locale === 'mn'
+                        {locale === 'mn' 
                           ? '1964 оноос Дархан хотын эмэгтэйчүүдийн орон тооны зөвлөл ажиллаж эхэлсэн.'
                           : 'From 1964, the staff council of Darkhan city women began working.'
                         }
                       </p>
                     </div>
                   </div>
-
+                  
                   {/* 1990 */}
                   <div className="relative flex items-start space-x-8">
                     <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-lg">
@@ -326,14 +326,14 @@ export default function AboutPage() {
                         {locale === 'mn' ? 'Бие даасан байгууллага' : 'Independent Organization'}
                       </h3>
                       <p className="text-gray-700 leading-relaxed">
-                        {locale === 'mn'
+                        {locale === 'mn' 
                           ? '1990 оноос Дархан хотын эмэгтэйчүүдийн зөвлөл бие даасан олон нийтийн байгууллага болсон.'
                           : 'From 1990, the Darkhan city women\'s council became an independent public organization.'
                         }
                       </p>
                     </div>
                   </div>
-
+                  
                   {/* 1994 */}
                   <div className="relative flex items-start space-x-8">
                     <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
@@ -344,14 +344,14 @@ export default function AboutPage() {
                         {locale === 'mn' ? 'Аймгийн түвшинд' : 'Provincial Level'}
                       </h3>
                       <p className="text-gray-700 leading-relaxed">
-                        {locale === 'mn'
+                        {locale === 'mn' 
                           ? '1994 оноос Дархан-Уул аймгийн эмэгтэйчүүдийн зөвлөл.'
                           : 'From 1994, the Darkhan-Uul province women\'s council.'
                         }
                       </p>
                     </div>
                   </div>
-
+                  
                   {/* 1997 */}
                   <div className="relative flex items-start space-x-8">
                     <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center shadow-lg">
@@ -362,7 +362,7 @@ export default function AboutPage() {
                         {locale === 'mn' ? 'НҮТББ болж шинэчлэгдсэн' : 'Renewed as NGO'}
                       </h3>
                       <p className="text-gray-700 leading-relaxed">
-                        {locale === 'mn'
+                        {locale === 'mn' 
                           ? '1997 оноос Дархан-Уул аймгийн эмэгтэйчүүдийн холбоо ТББ болж шинэчлэгдсэн.'
                           : 'From 1997, the Darkhan-Uul province women\'s federation was renewed as an NGO.'
                         }
@@ -433,42 +433,42 @@ export default function AboutPage() {
               </div>
               
               {/* Interactive Goals Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
                 {/* Goal 1 - Rights & Advocacy */}
                 <div className="group h-full">
-                  <div className="bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-3xl border-2 border-pink-200 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
-                    <div className="flex items-center justify-between mb-4">
+                  <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                    <div className="flex items-center justify-between mb-6">
                       <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
                         <Users className="w-8 h-8 text-white" />
                       </div>
-                      <span className="text-2xl font-bold text-pink-600 group-hover:text-pink-700 transition-colors duration-300">01</span>
+                      <span className="text-2xl font-bold text-pink-600">01</span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-pink-600 transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       {locale === 'mn' ? 'Эрх ашгийн хамгаалалт' : 'Rights Protection'}
                     </h3>
-                    <p className="text-gray-700 leading-relaxed flex-grow text-sm">
-                      {locale === 'mn'
+                    <p className="text-gray-700 leading-relaxed flex-grow text-lg">
+                          {locale === 'mn' 
                         ? 'Эхчүүд эмэгтэйчүүд охидын нийгэм, гэр бүлд гүйцэтгэх үүрэг, эзлэх байр суурь, бие сэтгэл зүйн онцлогтой холбогдсон асуудлыг шийдвэрлэхэд идэвхитэй оролцох, тэдний эрх ашгийг хамгаалсан хууль тогтоомжийн хэрэгжилтэнд санал дэвшүүлнэ.'
                         : 'Actively participate in solving issues related to the roles, positions, and psychological characteristics of mothers, women, and girls in society and family, and propose the implementation of laws that protect their rights and interests.'
-                      }
-                    </p>
-                  </div>
-                </div>
-
+                          }
+                        </p>
+                      </div>
+                    </div>
+                    
                 {/* Goal 2 - Policy Development */}
                 <div className="group h-full">
-                  <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-3xl border-2 border-blue-200 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
-                    <div className="flex items-center justify-between mb-4">
+                  <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                    <div className="flex items-center justify-between mb-6">
                       <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
                         <Target className="w-8 h-8 text-white" />
                       </div>
-                      <span className="text-2xl font-bold text-blue-600 group-hover:text-blue-700 transition-colors duration-300">02</span>
+                      <span className="text-2xl font-bold text-blue-600">02</span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       {locale === 'mn' ? 'Бодлого боловсруулалт' : 'Policy Development'}
                     </h3>
-                    <p className="text-gray-700 leading-relaxed flex-grow text-sm">
+                    <p className="text-gray-700 leading-relaxed flex-grow text-lg">
                       {locale === 'mn'
                         ? 'Жендэрийн мэдрэмжтэй бодлого боловсруулалт, төсөв, төлөвлөлтийн арга зүйг нэвтрүүлэхэд дэмжлэг үзүүлнэ.'
                         : 'Support the introduction of gender-sensitive policy development, budgeting, and planning methodologies.'
@@ -479,17 +479,17 @@ export default function AboutPage() {
 
                 {/* Goal 3 - Leadership Support */}
                 <div className="group h-full">
-                  <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-3xl border-2 border-green-200 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
-                    <div className="flex items-center justify-between mb-4">
+                  <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                    <div className="flex items-center justify-between mb-6">
                       <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
                         <Award className="w-8 h-8 text-white" />
                       </div>
-                      <span className="text-2xl font-bold text-green-600 group-hover:text-green-700 transition-colors duration-300">03</span>
+                      <span className="text-2xl font-bold text-green-600">03</span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-green-600 transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       {locale === 'mn' ? 'Манлайлал дэмжлэг' : 'Leadership Support'}
                     </h3>
-                    <p className="text-gray-700 leading-relaxed flex-grow text-sm">
+                    <p className="text-gray-700 leading-relaxed flex-grow text-lg">
                       {locale === 'mn'
                         ? 'Манлайлагч эмэгтэйчүүдийн бүх шатны сонгуульд дэмжиж эмэгтэйчүүдийн төлөөллийг нэмэгдүүлэхэд идэвхитэй ажиллана.'
                         : 'Actively work to support women leaders in all levels of elections and increase women\'s representation.'
@@ -500,17 +500,17 @@ export default function AboutPage() {
 
                 {/* Goal 4 - International Cooperation */}
                 <div className="group h-full">
-                  <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-3xl border-2 border-purple-200 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
-                    <div className="flex items-center justify-between mb-4">
+                  <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                    <div className="flex items-center justify-between mb-6">
                       <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
                         <Heart className="w-8 h-8 text-white" />
                       </div>
-                      <span className="text-2xl font-bold text-purple-600 group-hover:text-purple-700 transition-colors duration-300">04</span>
+                      <span className="text-2xl font-bold text-purple-600">04</span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-purple-600 transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       {locale === 'mn' ? 'Олон улсын хамтын ажиллагаа' : 'International Cooperation'}
                     </h3>
-                    <p className="text-gray-700 leading-relaxed flex-grow text-sm">
+                    <p className="text-gray-700 leading-relaxed flex-grow text-lg">
                       {locale === 'mn'
                         ? 'Олон улсын байгууллага, хөгжлийн агентлагуудтай хамтран үндсэн чиглэлийн хүрээнд төсөл хөтөлбөр хэрэгжүүлнэ.'
                         : 'Implement projects and programs within the framework of main directions in cooperation with international organizations and development agencies.'
@@ -521,17 +521,17 @@ export default function AboutPage() {
 
                 {/* Goal 5 - Network Expansion */}
                 <div className="group h-full">
-                  <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-3xl border-2 border-indigo-200 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
-                    <div className="flex items-center justify-between mb-4">
+                  <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                    <div className="flex items-center justify-between mb-6">
                       <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
                         <Users className="w-8 h-8 text-white" />
                       </div>
-                      <span className="text-2xl font-bold text-indigo-600 group-hover:text-indigo-700 transition-colors duration-300">05</span>
+                      <span className="text-2xl font-bold text-indigo-600">05</span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-indigo-600 transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       {locale === 'mn' ? 'Сүлжээг өргөжүүлэх' : 'Network Expansion'}
                     </h3>
-                    <p className="text-gray-700 leading-relaxed flex-grow text-sm">
+                    <p className="text-gray-700 leading-relaxed flex-grow text-lg">
                       {locale === 'mn'
                         ? 'Дэлхийн болон бүс нутаг, үндэсний эмэгтэйчүүдийн бусад хөдөлгөөн, байгууллагуудтай холбоо харилцаагаа өргөжүүлж үр дүнтэй хамтын ажиллагааг өрнүүлнэ.'
                         : 'Expand connections and communications with other women\'s movements and organizations at global, regional, and national levels and develop effective cooperation.'
@@ -542,38 +542,38 @@ export default function AboutPage() {
 
                 {/* Goal 6 - Economic Support */}
                 <div className="group h-full">
-                  <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-3xl border-2 border-orange-200 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
-                    <div className="flex items-center justify-between mb-4">
+                  <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                    <div className="flex items-center justify-between mb-6">
                       <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
                         <Target className="w-8 h-8 text-white" />
                       </div>
-                      <span className="text-2xl font-bold text-orange-600 group-hover:text-orange-700 transition-colors duration-300">06</span>
+                      <span className="text-2xl font-bold text-orange-600">06</span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-orange-600 transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       {locale === 'mn' ? 'Эдийн засгийн дэмжлэг' : 'Economic Support'}
                     </h3>
-                    <p className="text-gray-700 leading-relaxed flex-grow text-sm">
+                    <p className="text-gray-700 leading-relaxed flex-grow text-lg">
                       {locale === 'mn'
                         ? 'Эмэгтэйчүүдийн эдийн засгийн байдлыг дэмжих төсөл хөтөлбөр хэрэгжүүлнэ.'
                         : 'Implement projects and programs to support women\'s economic situation.'
                       }
                     </p>
+                    </div>
                   </div>
-                </div>
-
+                  
                 {/* Goal 7 - Capacity Building */}
                 <div className="group h-full">
-                  <div className="bg-gradient-to-br from-teal-50 to-teal-100 p-6 rounded-3xl border-2 border-teal-200 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
-                    <div className="flex items-center justify-between mb-4">
+                  <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                    <div className="flex items-center justify-between mb-6">
                       <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-teal-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
                         <Award className="w-8 h-8 text-white" />
                       </div>
-                      <span className="text-2xl font-bold text-teal-600 group-hover:text-teal-700 transition-colors duration-300">07</span>
+                      <span className="text-2xl font-bold text-teal-600">07</span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-teal-600 transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       {locale === 'mn' ? 'Чадавхжуулалт' : 'Capacity Building'}
                     </h3>
-                    <p className="text-gray-700 leading-relaxed flex-grow text-sm">
+                    <p className="text-gray-700 leading-relaxed flex-grow text-lg">
                       {locale === 'mn'
                         ? 'Охид, эмэгтэйчүүдийг чадавхжуулах, хөгжүүлэх, мэргэжлийн сургалтаар ур чадвар олгож ажил хөдөлмөр эрхлэхэд дэмжлэг үзүүлнэ.'
                         : 'Support girls and women in capacity building, development, providing skills through professional training, and employment.'
@@ -584,38 +584,38 @@ export default function AboutPage() {
 
                 {/* Goal 8 - Equality & Anti-discrimination */}
                 <div className="group h-full">
-                  <div className="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-3xl border-2 border-red-200 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
-                    <div className="flex items-center justify-between mb-4">
+                  <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                    <div className="flex items-center justify-between mb-6">
                       <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
                         <CheckCircle className="w-8 h-8 text-white" />
                       </div>
-                      <span className="text-2xl font-bold text-red-600 group-hover:text-red-700 transition-colors duration-300">08</span>
+                      <span className="text-2xl font-bold text-red-600">08</span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-red-600 transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       {locale === 'mn' ? 'Тэгш байдал' : 'Equality'}
                     </h3>
-                    <p className="text-gray-700 leading-relaxed flex-grow text-sm">
+                    <p className="text-gray-700 leading-relaxed flex-grow text-lg">
                       {locale === 'mn'
                         ? 'Эмэгтэйчүүдийн эрх тэгш байдлыг хангах, жендерт суурилсан ялгаварлалыг багасгах, хүчирхийллийг зогсоох'
                         : 'Ensure women\'s equality, reduce gender-based discrimination, and stop violence.'
                       }
                     </p>
-                  </div>
-                </div>
-
+                      </div>
+                    </div>
+                    
                 {/* Goal 9 - Education & Awareness */}
                 <div className="group h-full">
-                  <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-3xl border-2 border-yellow-200 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
-                    <div className="flex items-center justify-between mb-4">
+                  <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                    <div className="flex items-center justify-between mb-6">
                       <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
                         <Heart className="w-8 h-8 text-white" />
                       </div>
-                      <span className="text-2xl font-bold text-yellow-600 group-hover:text-yellow-700 transition-colors duration-300">09</span>
+                      <span className="text-2xl font-bold text-yellow-600">09</span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-yellow-600 transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       {locale === 'mn' ? 'Боловсрол, мэдээлэл' : 'Education & Awareness'}
                     </h3>
-                    <p className="text-gray-700 leading-relaxed flex-grow text-sm">
+                    <p className="text-gray-700 leading-relaxed flex-grow text-lg">
                       {locale === 'mn'
                         ? 'Нийгэмтэй хөл зэрэгцэн алхах соёлтой, оюунлаг иргэнтэй болох, зөв иргэнийг бэлтгэхэд оролцоог ханган соён гэгээрүүлэх нөлөөллийн ажлыг өрнүүлнэ.'
                         : 'Develop educational and awareness activities by providing participation in cultivating a culture of walking side by side with society, becoming intelligent citizens, and preparing good citizens.'
@@ -626,17 +626,17 @@ export default function AboutPage() {
 
                 {/* Goal 10 - Research & Monitoring */}
                 <div className="group h-full">
-                  <div className="bg-gradient-to-br from-cyan-50 to-cyan-100 p-6 rounded-3xl border-2 border-cyan-200 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative overflow-hidden group-hover:scale-105">
-                    <div className="flex items-center justify-between mb-4">
+                  <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                    <div className="flex items-center justify-between mb-6">
                       <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
                         <Target className="w-8 h-8 text-white" />
                       </div>
-                      <span className="text-2xl font-bold text-cyan-600 group-hover:text-cyan-700 transition-colors duration-300">10</span>
+                      <span className="text-2xl font-bold text-cyan-600">10</span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-cyan-600 transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       {locale === 'mn' ? 'Судалгаа, хяналт' : 'Research & Monitoring'}
                     </h3>
-                    <p className="text-gray-700 leading-relaxed flex-grow text-sm">
+                    <p className="text-gray-700 leading-relaxed flex-grow text-lg">
                       {locale === 'mn'
                         ? 'Судалгаа, тандалт асуулга хийх замаар иргэд эмэгтэйчүүд, олон нийтийн хяналт үнэлгээг хүргэнэ.'
                         : 'Provide public monitoring and evaluation to citizens and women through research and surveys.'

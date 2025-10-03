@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -35,6 +35,7 @@ export default function DonatePage() {
   const [customAmount, setCustomAmount] = useState('');
   const [dedicationType, setDedicationType] = useState<'honor' | 'memory' | null>(null);
   const [paymentMethod, setPaymentMethod] = useState<'card' | 'online' | null>(null);
+  const [dedicationName, setDedicationName] = useState('');
 
   const impactStats = [
     { amount: 50000, impact: locale === 'mn' ? '1 эмэгтэйд 1 сарын сургалт' : '1 month training for 1 woman', icon: Users },
@@ -42,6 +43,55 @@ export default function DonatePage() {
     { amount: 200000, impact: locale === 'mn' ? 'Жижиг арга хэмжээ зохион байгуулах' : 'Organize a small event', icon: Calendar },
     { amount: 500000, impact: locale === 'mn' ? 'Том арга хэмжээ зохион байгуулах' : 'Organize a major event', icon: Award },
   ];
+
+  const handleDonationSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const finalAmount = selectedAmount || parseInt(customAmount) || 0;
+    
+    if (finalAmount <= 0) {
+      alert(locale === 'mn' ? 'Хандивын хэмжээг сонгоно уу!' : 'Please select a donation amount!');
+      return;
+    }
+    
+    // Create URL parameters for payment page
+    const params = new URLSearchParams({
+      amount: finalAmount.toString(),
+      type: donationType,
+      paymentMethod: paymentMethod || 'card'
+    });
+    
+    if (dedicationType && dedicationName) {
+      params.append('dedicationType', dedicationType);
+      params.append('dedicationName', dedicationName);
+    }
+    
+    
+    // Navigate to payment page
+    window.location.href = `/${locale}/payment?${params.toString()}`;
+  };
+
+  const handleAmountSelect = (amount: number) => {
+    setSelectedAmount(amount);
+    setCustomAmount('');
+  };
+
+  const handleCustomAmountChange = (value: string) => {
+    setCustomAmount(value);
+    setSelectedAmount(null);
+  };
+
+  const handleCustomAmountFocus = () => {
+    // Clear selected amount when user focuses on custom amount input
+    setSelectedAmount(null);
+  };
+
+  // Ensure custom amount and selected amount are mutually exclusive
+  useEffect(() => {
+    if (customAmount && selectedAmount) {
+      setSelectedAmount(null);
+    }
+  }, [customAmount, selectedAmount]);
 
 
   return (
@@ -114,9 +164,9 @@ export default function DonatePage() {
         {/* Enhanced Donation Options Section */}
         <section className="py-20 bg-white">
           <div className="container-max container-spacing">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-16 max-w-7xl mx-auto">
               {/* Enhanced Donation Form */}
-              <Card className="card-modern p-8 shadow-2xl border-2 border-pink-300 bg-gradient-to-br from-white to-pink-50/30 backdrop-blur-sm ring-4 ring-pink-200 scale-105">
+              <Card className="card-modern p-6 sm:p-8 shadow-2xl border-2 border-pink-300 bg-gradient-to-br from-white to-pink-50/30 backdrop-blur-sm ring-4 ring-pink-200">
                 <CardHeader className="text-center pb-6">
                   <div className="w-20 h-20 bg-brand-500 rounded-3xl mx-auto mb-6 flex items-center justify-center shadow-lg">
                     <Heart className="w-10 h-10 text-white" />
@@ -128,7 +178,7 @@ export default function DonatePage() {
                     {locale === 'mn' ? 'Таны хандив эмэгтэйчүүдийн амьдралыг өөрчилнө' : 'Your donation transforms women\'s lives'}
                   </p>
                 </CardHeader>
-                <CardContent className="space-y-8">
+                <CardContent className="space-y-6 sm:space-y-8">
                   {/* Enhanced Donation Type */}
                   <div>
                     <label className="block text-lg font-semibold text-gray-800 mb-4">
@@ -136,11 +186,12 @@ export default function DonatePage() {
                     </label>
                     <div className="grid grid-cols-2 gap-4">
                       <button 
+                        type="button"
                         onClick={() => setDonationType('one-time')}
-                        className={`p-6 border-2 rounded-2xl transition-all duration-300 text-center group ${
+                        className={`p-4 sm:p-6 border-2 rounded-2xl transition-all duration-300 text-center group ${
                           donationType === 'one-time' 
-                            ? 'border-brand-500 bg-brand-50 shadow-lg scale-105' 
-                            : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50 hover:scale-105'
+                            ? 'border-brand-500 bg-brand-50 shadow-lg' 
+                            : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50'
                         }`}
                       >
                         <div className={`font-bold text-lg ${donationType === 'one-time' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
@@ -151,11 +202,12 @@ export default function DonatePage() {
                         </div>
                       </button>
                       <button 
+                        type="button"
                         onClick={() => setDonationType('monthly')}
-                        className={`p-6 border-2 rounded-2xl transition-all duration-300 text-center group ${
+                        className={`p-4 sm:p-6 border-2 rounded-2xl transition-all duration-300 text-center group ${
                           donationType === 'monthly' 
-                            ? 'border-brand-500 bg-brand-50 shadow-lg scale-105' 
-                            : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50 hover:scale-105'
+                            ? 'border-brand-500 bg-brand-50 shadow-lg' 
+                            : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50'
                         }`}
                       >
                         <div className={`font-bold text-lg ${donationType === 'monthly' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
@@ -177,11 +229,12 @@ export default function DonatePage() {
                       {impactStats.map((stat) => (
                         <button
                           key={stat.amount}
-                          onClick={() => setSelectedAmount(stat.amount)}
-                          className={`p-6 border-2 rounded-2xl transition-all duration-300 text-center group relative overflow-hidden ${
+                          type="button"
+                          onClick={() => handleAmountSelect(stat.amount)}
+                          className={`p-4 sm:p-6 border-2 rounded-2xl transition-all duration-300 text-center group relative overflow-hidden ${
                             selectedAmount === stat.amount 
-                              ? 'border-brand-500 bg-brand-50 shadow-lg scale-105' 
-                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50 hover:scale-105'
+                              ? 'border-brand-500 bg-brand-50 shadow-lg' 
+                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50'
                           }`}
                         >
                           <div className="absolute top-2 right-2">
@@ -200,29 +253,42 @@ export default function DonatePage() {
 
                   {/* Enhanced Custom Amount */}
                   <div>
-                    <label className="block text-lg font-semibold text-gray-800 mb-3">
+                    <label className="block text-lg font-semibold text-gray-800 mb-2">
                       {locale === 'mn' ? 'Өөрийн хэмжээ' : 'Custom Amount'}
                     </label>
+                    <p className="text-sm text-gray-500 mb-3">
+                      {locale === 'mn' ? 'Дээрх сонголтуудыг цуцлах боломжтой' : 'Will clear preset amounts above'}
+                    </p>
                     <div className="relative">
                       <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 font-bold text-lg">₮</span>
                       <input
                         type="number"
                         value={customAmount}
-                        onChange={(e) => setCustomAmount(e.target.value)}
+                        onChange={(e) => handleCustomAmountChange(e.target.value)}
+                        onFocus={handleCustomAmountFocus}
+                        onClick={handleCustomAmountFocus}
                         placeholder={locale === 'mn' ? 'Хэмжээ оруулах' : 'Enter amount'}
-                        className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
+                        className="w-full pl-12 pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
                       />
                     </div>
                   </div>
 
                   {/* Enhanced Dedication Option */}
                   <div>
-                    <label className="block text-lg font-semibold text-gray-800 mb-4">
+                    <label className="block text-lg font-semibold text-gray-800 mb-2">
                       {locale === 'mn' ? 'Хэнтэй холбоотой хандив (сонгох)' : 'Dedicate Donation (Optional)'}
                     </label>
+                    <p className="text-sm text-gray-500 mb-4">
+                      {locale === 'mn' ? 'Сонгосон бол дахин дарж цуцлах боломжтой' : 'Click again to deselect if chosen by accident'}
+                    </p>
                     <div className="space-y-3">
                       <button 
-                        onClick={() => setDedicationType(dedicationType === 'honor' ? null : 'honor')}
+                        type="button"
+                        onClick={() => {
+                          const newType = dedicationType === 'honor' ? null : 'honor';
+                          setDedicationType(newType);
+                          if (!newType) setDedicationName('');
+                        }}
                         className={`w-full p-4 border-2 rounded-2xl transition-all duration-200 text-left group ${
                           dedicationType === 'honor' 
                             ? 'border-brand-500 bg-brand-50' 
@@ -244,7 +310,12 @@ export default function DonatePage() {
                         </div>
                       </button>
                       <button 
-                        onClick={() => setDedicationType(dedicationType === 'memory' ? null : 'memory')}
+                        type="button"
+                        onClick={() => {
+                          const newType = dedicationType === 'memory' ? null : 'memory';
+                          setDedicationType(newType);
+                          if (!newType) setDedicationName('');
+                        }}
                         className={`w-full p-4 border-2 rounded-2xl transition-all duration-200 text-left group ${
                           dedicationType === 'memory' 
                             ? 'border-brand-500 bg-brand-50' 
@@ -266,6 +337,22 @@ export default function DonatePage() {
                         </div>
                       </button>
                     </div>
+                    
+                    {/* Dedication Name Input */}
+                    {dedicationType && (
+                      <div className="mt-4">
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                          {locale === 'mn' ? 'Нэр оруулах' : 'Enter Name'}
+                        </label>
+                        <input
+                          type="text"
+                          value={dedicationName}
+                          onChange={(e) => setDedicationName(e.target.value)}
+                          placeholder={locale === 'mn' ? 'Хэнтэй холбоотой нэр оруулах' : 'Enter the name to dedicate to'}
+                          className="w-full px-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
+                        />
+                      </div>
+                    )}
                   </div>
 
                   {/* Enhanced Payment Method */}
@@ -317,13 +404,18 @@ export default function DonatePage() {
                         <Shield className={`w-5 h-5 ml-auto ${paymentMethod === 'online' ? 'text-brand-500' : 'text-gray-400 group-hover:text-pink-500'}`} />
                       </button>
                     </div>
+                    
                   </div>
 
                   {/* Enhanced Donate Button */}
-                  <Button className="w-full bg-brand-500 hover:bg-brand-600 text-white text-xl py-6 rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group">
-                    <Heart className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform duration-200" />
+                  <Button 
+                    type="button"
+                    onClick={handleDonationSubmit}
+                    className="w-full bg-brand-500 hover:bg-brand-600 text-white text-lg sm:text-xl py-4 sm:py-6 rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 group"
+                  >
+                    <Heart className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 group-hover:scale-110 transition-transform duration-200" />
                     {locale === 'mn' ? 'Хандивлах' : 'Donate Now'}
-                    <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform duration-200" />
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 sm:ml-3 group-hover:translate-x-1 transition-transform duration-200" />
                   </Button>
                 </CardContent>
               </Card>

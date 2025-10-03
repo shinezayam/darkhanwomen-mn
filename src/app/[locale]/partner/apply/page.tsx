@@ -39,7 +39,7 @@ function PartnerApplyContent() {
     phone: '',
     address: '',
     website: '',
-    partnershipType: '',
+    partnershipType: type || 'program-partnership',
     budget: '',
     timeline: '',
     description: ''
@@ -59,8 +59,16 @@ function PartnerApplyContent() {
     });
   };
 
+  const handlePartnershipTypeChange = (newType: string) => {
+    setFormData({
+      ...formData,
+      partnershipType: newType
+    });
+  };
+
   const getTypeInfo = () => {
-    switch (type) {
+    const currentType = formData.partnershipType;
+    switch (currentType) {
       case 'program-partnership':
         return {
           title: locale === 'mn' ? 'Хөтөлбөрийн хамтрал - Бүртгүүлэх' : 'Program Partnership - Apply',
@@ -158,9 +166,9 @@ function PartnerApplyContent() {
         {/* Enhanced Form Section */}
         <section className="py-20 bg-white">
           <div className="container-max container-spacing">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-16 max-w-7xl mx-auto">
               {/* Enhanced Form */}
-              <Card className="card-modern p-8 shadow-2xl border-2 border-pink-300 bg-gradient-to-br from-white to-pink-50/30 backdrop-blur-sm ring-4 ring-pink-200 scale-105">
+              <Card className="card-modern p-6 sm:p-8 shadow-2xl border-2 border-pink-300 bg-gradient-to-br from-white to-pink-50/30 backdrop-blur-sm ring-4 ring-pink-200">
                 <CardHeader className="text-center pb-6">
                   <div className="w-20 h-20 bg-brand-500 rounded-3xl mx-auto mb-6 flex items-center justify-center shadow-lg">
                     <IconComponent className="w-10 h-10 text-white" />
@@ -172,56 +180,59 @@ function PartnerApplyContent() {
                     {locale === 'mn' ? 'Манай байгууллагатай хамтрах хүсэлт илгээх' : 'Submit a partnership request with our organization'}
                   </p>
                 </CardHeader>
-                <CardContent className="space-y-8">
-                  <form onSubmit={handleFormSubmit} className="space-y-8">
+                <CardContent className="space-y-6 sm:space-y-8">
+                  <form onSubmit={handleFormSubmit} className="space-y-6 sm:space-y-8">
                     {/* Enhanced Partnership Type Selection */}
                     <div>
                       <label className="block text-lg font-semibold text-gray-800 mb-4">
                         {locale === 'mn' ? 'Хамтрал төрлүүд' : 'Partnership Types'}
                       </label>
-                      <div className="grid grid-cols-1 gap-4">
+                      <div className="grid grid-cols-1 gap-3 sm:gap-4">
                         <button 
                           type="button"
-                          className={`p-6 border-2 rounded-2xl transition-all duration-300 text-center group ${
-                            type === 'program-partnership' 
-                              ? 'border-brand-500 bg-brand-50 shadow-lg scale-105' 
-                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50 hover:scale-105'
+                          onClick={() => handlePartnershipTypeChange('program-partnership')}
+                          className={`p-4 sm:p-6 border-2 rounded-2xl transition-all duration-300 text-center group ${
+                            formData.partnershipType === 'program-partnership' 
+                              ? 'border-brand-500 bg-brand-50 shadow-lg' 
+                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50'
                           }`}
                         >
-                          <div className={`font-bold text-lg ${type === 'program-partnership' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
+                          <div className={`font-bold text-lg ${formData.partnershipType === 'program-partnership' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
                             {locale === 'mn' ? 'Хөтөлбөрийн хамтрал' : 'Program Partnership'}
                           </div>
-                          <div className={`text-sm mt-1 ${type === 'program-partnership' ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
+                          <div className={`text-sm mt-1 ${formData.partnershipType === 'program-partnership' ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
                             {locale === 'mn' ? 'Хөтөлбөр хамтран хэрэгжүүлэх' : 'Collaborate on program implementation'}
                           </div>
                         </button>
                         <button 
                           type="button"
-                          className={`p-6 border-2 rounded-2xl transition-all duration-300 text-center group ${
-                            type === 'resource-partnership' 
-                              ? 'border-brand-500 bg-brand-50 shadow-lg scale-105' 
-                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50 hover:scale-105'
+                          onClick={() => handlePartnershipTypeChange('resource-partnership')}
+                          className={`p-4 sm:p-6 border-2 rounded-2xl transition-all duration-300 text-center group ${
+                            formData.partnershipType === 'resource-partnership' 
+                              ? 'border-brand-500 bg-brand-50 shadow-lg' 
+                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50'
                           }`}
                         >
-                          <div className={`font-bold text-lg ${type === 'resource-partnership' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
+                          <div className={`font-bold text-lg ${formData.partnershipType === 'resource-partnership' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
                             {locale === 'mn' ? 'Нөөцийн хамтрал' : 'Resource Partnership'}
                           </div>
-                          <div className={`text-sm mt-1 ${type === 'resource-partnership' ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
+                          <div className={`text-sm mt-1 ${formData.partnershipType === 'resource-partnership' ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
                             {locale === 'mn' ? 'Нөөц, хөрөнгө оруулалт' : 'Resource and investment partnership'}
                           </div>
                         </button>
                         <button 
                           type="button"
-                          className={`p-6 border-2 rounded-2xl transition-all duration-300 text-center group ${
-                            type === 'corporate-partnership' 
-                              ? 'border-brand-500 bg-brand-50 shadow-lg scale-105' 
-                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50 hover:scale-105'
+                          onClick={() => handlePartnershipTypeChange('corporate-partnership')}
+                          className={`p-4 sm:p-6 border-2 rounded-2xl transition-all duration-300 text-center group ${
+                            formData.partnershipType === 'corporate-partnership' 
+                              ? 'border-brand-500 bg-brand-50 shadow-lg' 
+                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50'
                           }`}
                         >
-                          <div className={`font-bold text-lg ${type === 'corporate-partnership' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
+                          <div className={`font-bold text-lg ${formData.partnershipType === 'corporate-partnership' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
                             {locale === 'mn' ? 'Корпорацийн хамтрал' : 'Corporate Partnership'}
                           </div>
-                          <div className={`text-sm mt-1 ${type === 'corporate-partnership' ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
+                          <div className={`text-sm mt-1 ${formData.partnershipType === 'corporate-partnership' ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
                             {locale === 'mn' ? 'Корпорацийн хамтрал, CSR' : 'Corporate partnership and CSR'}
                           </div>
                         </button>
@@ -233,7 +244,7 @@ function PartnerApplyContent() {
                       <label className="block text-lg font-semibold text-gray-800 mb-4">
                         {locale === 'mn' ? 'Байгууллагын мэдээлэл' : 'Organization Information'}
                       </label>
-                      <div className="grid grid-cols-1 gap-6">
+                      <div className="grid grid-cols-1 gap-4 sm:gap-6">
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
                             {locale === 'mn' ? 'Байгууллагын нэр *' : 'Organization Name *'}
@@ -246,7 +257,7 @@ function PartnerApplyContent() {
                               value={formData.organizationName}
                               onChange={handleInputChange}
                               required
-                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
+                              className="w-full pl-12 pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
                               placeholder={locale === 'mn' ? 'Байгууллагын нэрээ оруулна уу' : 'Enter organization name'}
                             />
                           </div>
@@ -263,7 +274,7 @@ function PartnerApplyContent() {
                               value={formData.contactPerson}
                               onChange={handleInputChange}
                               required
-                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
+                              className="w-full pl-12 pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
                               placeholder={locale === 'mn' ? 'Холбоо барих хүний нэр' : 'Enter contact person name'}
                             />
                           </div>
@@ -283,7 +294,7 @@ function PartnerApplyContent() {
                               value={formData.email}
                               onChange={handleInputChange}
                               required
-                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
+                              className="w-full pl-12 pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
                               placeholder={locale === 'mn' ? 'И-мэйл хаягаа оруулна уу' : 'Enter your email'}
                             />
                           </div>
@@ -300,7 +311,7 @@ function PartnerApplyContent() {
                               value={formData.phone}
                               onChange={handleInputChange}
                               required
-                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
+                              className="w-full pl-12 pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
                               placeholder={locale === 'mn' ? 'Утасны дугаараа оруулна уу' : 'Enter your phone number'}
                             />
                           </div>
@@ -319,7 +330,7 @@ function PartnerApplyContent() {
                               name="address"
                               value={formData.address}
                               onChange={handleInputChange}
-                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
+                              className="w-full pl-12 pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
                               placeholder={locale === 'mn' ? 'Хаягаа оруулна уу' : 'Enter your address'}
                             />
                           </div>
@@ -335,7 +346,7 @@ function PartnerApplyContent() {
                               name="website"
                               value={formData.website}
                               onChange={handleInputChange}
-                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
+                              className="w-full pl-12 pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
                               placeholder={locale === 'mn' ? 'Веб сайтын хаяг' : 'Enter website URL'}
                             />
                           </div>
@@ -416,7 +427,7 @@ function PartnerApplyContent() {
                           name="budget"
                           value={formData.budget}
                           onChange={handleInputChange}
-                          className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
+                          className="w-full pl-12 pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
                           placeholder={locale === 'mn' ? 'Төсөв' : 'Enter budget amount'}
                         />
                       </div>
@@ -432,7 +443,7 @@ function PartnerApplyContent() {
                         value={formData.description}
                         onChange={handleInputChange}
                         rows={4}
-                        className="w-full px-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
+                        className="w-full px-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
                         placeholder={locale === 'mn' ? 'Хамтралын тухай дэлгэрэнгүй мэдээлэл' : 'Describe your partnership proposal'}
                       />
                     </div>

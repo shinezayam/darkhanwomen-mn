@@ -39,7 +39,8 @@ function VolunteerApplyContent() {
     address: '',
     experience: '',
     availability: '',
-    motivation: ''
+    motivation: '',
+    volunteerType: type || 'training-support'
   });
 
   const handleFormSubmit = (e: React.FormEvent) => {
@@ -56,8 +57,16 @@ function VolunteerApplyContent() {
     });
   };
 
+  const handleVolunteerTypeChange = (newType: string) => {
+    setFormData({
+      ...formData,
+      volunteerType: newType
+    });
+  };
+
   const getTypeInfo = () => {
-    switch (type) {
+    const currentType = formData.volunteerType;
+    switch (currentType) {
       case 'training-support':
         return {
           title: locale === 'mn' ? 'Сургалтын дэмжлэг - Бүртгүүлэх' : 'Training Support - Apply',
@@ -155,9 +164,9 @@ function VolunteerApplyContent() {
         {/* Enhanced Form Section */}
         <section className="py-20 bg-white">
           <div className="container-max container-spacing">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-16 max-w-7xl mx-auto">
               {/* Enhanced Form */}
-              <Card className="card-modern p-8 shadow-2xl border-2 border-pink-300 bg-gradient-to-br from-white to-pink-50/30 backdrop-blur-sm ring-4 ring-pink-200 scale-105">
+              <Card className="card-modern p-6 sm:p-8 shadow-2xl border-2 border-pink-300 bg-gradient-to-br from-white to-pink-50/30 backdrop-blur-sm ring-4 ring-pink-200">
                 <CardHeader className="text-center pb-6">
                   <div className="w-20 h-20 bg-brand-500 rounded-3xl mx-auto mb-6 flex items-center justify-center shadow-lg">
                     <IconComponent className="w-10 h-10 text-white" />
@@ -169,56 +178,59 @@ function VolunteerApplyContent() {
                     {locale === 'mn' ? 'Манай байгууллагад сайн дураар оролцоход бүртгүүлээрэй' : 'Register to volunteer with our organization'}
                   </p>
                 </CardHeader>
-                <CardContent className="space-y-8">
-                  <form onSubmit={handleFormSubmit} className="space-y-8">
+                <CardContent className="space-y-6 sm:space-y-8">
+                  <form onSubmit={handleFormSubmit} className="space-y-6 sm:space-y-8">
                     {/* Enhanced Volunteer Type Selection */}
                     <div>
                       <label className="block text-lg font-semibold text-gray-800 mb-4">
                         {locale === 'mn' ? 'Сайн дураар ажиллах төрөл' : 'Volunteer Type'}
                       </label>
-                      <div className="grid grid-cols-1 gap-4">
+                      <div className="grid grid-cols-1 gap-3 sm:gap-4">
                         <button 
                           type="button"
-                          className={`p-6 border-2 rounded-2xl transition-all duration-300 text-center group ${
-                            type === 'training-support' 
-                              ? 'border-brand-500 bg-brand-50 shadow-lg scale-105' 
-                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50 hover:scale-105'
+                          onClick={() => handleVolunteerTypeChange('training-support')}
+                          className={`p-4 sm:p-6 border-2 rounded-2xl transition-all duration-300 text-center group ${
+                            formData.volunteerType === 'training-support' 
+                              ? 'border-brand-500 bg-brand-50 shadow-lg' 
+                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50'
                           }`}
                         >
-                          <div className={`font-bold text-lg ${type === 'training-support' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
+                          <div className={`font-bold text-lg ${formData.volunteerType === 'training-support' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
                             {locale === 'mn' ? 'Сургалтын дэмжлэг' : 'Training Support'}
                           </div>
-                          <div className={`text-sm mt-1 ${type === 'training-support' ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
+                          <div className={`text-sm mt-1 ${formData.volunteerType === 'training-support' ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
                             {locale === 'mn' ? 'Сургалт зохион байгуулах, дэмжлэг үзүүлэх' : 'Organize and support training programs'}
                           </div>
                         </button>
                         <button 
                           type="button"
-                          className={`p-6 border-2 rounded-2xl transition-all duration-300 text-center group ${
-                            type === 'event-management' 
-                              ? 'border-brand-500 bg-brand-50 shadow-lg scale-105' 
-                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50 hover:scale-105'
+                          onClick={() => handleVolunteerTypeChange('event-management')}
+                          className={`p-4 sm:p-6 border-2 rounded-2xl transition-all duration-300 text-center group ${
+                            formData.volunteerType === 'event-management' 
+                              ? 'border-brand-500 bg-brand-50 shadow-lg' 
+                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50'
                           }`}
                         >
-                          <div className={`font-bold text-lg ${type === 'event-management' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
+                          <div className={`font-bold text-lg ${formData.volunteerType === 'event-management' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
                             {locale === 'mn' ? 'Арга хэмжээний удирдлага' : 'Event Management'}
                           </div>
-                          <div className={`text-sm mt-1 ${type === 'event-management' ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
+                          <div className={`text-sm mt-1 ${formData.volunteerType === 'event-management' ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
                             {locale === 'mn' ? 'Арга хэмжээ зохион байгуулах, удирдах' : 'Organize and manage events'}
                           </div>
                         </button>
                         <button 
                           type="button"
-                          className={`p-6 border-2 rounded-2xl transition-all duration-300 text-center group ${
-                            type === 'communication-outreach' 
-                              ? 'border-brand-500 bg-brand-50 shadow-lg scale-105' 
-                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50 hover:scale-105'
+                          onClick={() => handleVolunteerTypeChange('communication-outreach')}
+                          className={`p-4 sm:p-6 border-2 rounded-2xl transition-all duration-300 text-center group ${
+                            formData.volunteerType === 'communication-outreach' 
+                              ? 'border-brand-500 bg-brand-50 shadow-lg' 
+                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50'
                           }`}
                         >
-                          <div className={`font-bold text-lg ${type === 'communication-outreach' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
+                          <div className={`font-bold text-lg ${formData.volunteerType === 'communication-outreach' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
                             {locale === 'mn' ? 'Харилцаа холбоо' : 'Communication & Outreach'}
                           </div>
-                          <div className={`text-sm mt-1 ${type === 'communication-outreach' ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
+                          <div className={`text-sm mt-1 ${formData.volunteerType === 'communication-outreach' ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
                             {locale === 'mn' ? 'Харилцаа холбоо, сурталчилгаа' : 'Communication and outreach activities'}
                           </div>
                         </button>
@@ -230,7 +242,7 @@ function VolunteerApplyContent() {
                       <label className="block text-lg font-semibold text-gray-800 mb-4">
                         {locale === 'mn' ? 'Хувийн мэдээлэл' : 'Personal Information'}
                       </label>
-                      <div className="grid grid-cols-1 gap-6">
+                      <div className="grid grid-cols-1 gap-4 sm:gap-6">
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
                             {locale === 'mn' ? 'Нэр *' : 'Name *'}
@@ -243,7 +255,7 @@ function VolunteerApplyContent() {
                               value={formData.name}
                               onChange={handleInputChange}
                               required
-                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
+                              className="w-full pl-12 pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
                               placeholder={locale === 'mn' ? 'Нэрээ оруулна уу' : 'Enter your name'}
                             />
                           </div>
@@ -260,14 +272,14 @@ function VolunteerApplyContent() {
                               value={formData.email}
                               onChange={handleInputChange}
                               required
-                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
+                              className="w-full pl-12 pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
                               placeholder={locale === 'mn' ? 'И-мэйл хаягаа оруулна уу' : 'Enter your email'}
                             />
                           </div>
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-1 gap-6 mt-6">
+                      <div className="grid grid-cols-1 gap-4 sm:gap-6 mt-4 sm:mt-6">
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
                             {locale === 'mn' ? 'Утасны дугаар *' : 'Phone Number *'}
@@ -280,7 +292,7 @@ function VolunteerApplyContent() {
                               value={formData.phone}
                               onChange={handleInputChange}
                               required
-                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
+                              className="w-full pl-12 pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
                               placeholder={locale === 'mn' ? 'Утасны дугаараа оруулна уу' : 'Enter your phone number'}
                             />
                           </div>
@@ -296,7 +308,7 @@ function VolunteerApplyContent() {
                               name="address"
                               value={formData.address}
                               onChange={handleInputChange}
-                              className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
+                              className="w-full pl-12 pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
                               placeholder={locale === 'mn' ? 'Хаягаа оруулна уу' : 'Enter your address'}
                             />
                           </div>
@@ -309,43 +321,43 @@ function VolunteerApplyContent() {
                       <label className="block text-lg font-semibold text-gray-800 mb-4">
                         {locale === 'mn' ? 'Ажиллах цаг' : 'Availability'}
                       </label>
-                      <div className="grid grid-cols-3 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                         <button 
                           type="button"
                           onClick={() => setFormData({...formData, availability: 'weekdays'})}
-                          className={`p-4 border-2 rounded-2xl transition-all duration-300 text-center group ${
+                          className={`p-3 sm:p-4 border-2 rounded-2xl transition-all duration-300 text-center group ${
                             formData.availability === 'weekdays' 
-                              ? 'border-brand-500 bg-brand-50 shadow-lg scale-105' 
-                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50 hover:scale-105'
+                              ? 'border-brand-500 bg-brand-50 shadow-lg' 
+                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50'
                           }`}
                         >
-                          <div className={`font-bold ${formData.availability === 'weekdays' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
+                          <div className={`font-bold text-sm sm:text-base ${formData.availability === 'weekdays' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
                             {locale === 'mn' ? 'Ажлын өдрүүд' : 'Weekdays'}
                           </div>
                         </button>
                         <button 
                           type="button"
                           onClick={() => setFormData({...formData, availability: 'weekends'})}
-                          className={`p-4 border-2 rounded-2xl transition-all duration-300 text-center group ${
+                          className={`p-3 sm:p-4 border-2 rounded-2xl transition-all duration-300 text-center group ${
                             formData.availability === 'weekends' 
-                              ? 'border-brand-500 bg-brand-50 shadow-lg scale-105' 
-                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50 hover:scale-105'
+                              ? 'border-brand-500 bg-brand-50 shadow-lg' 
+                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50'
                           }`}
                         >
-                          <div className={`font-bold ${formData.availability === 'weekends' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
+                          <div className={`font-bold text-sm sm:text-base ${formData.availability === 'weekends' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
                             {locale === 'mn' ? 'Амралтын өдрүүд' : 'Weekends'}
                           </div>
                         </button>
                         <button 
                           type="button"
                           onClick={() => setFormData({...formData, availability: 'flexible'})}
-                          className={`p-4 border-2 rounded-2xl transition-all duration-300 text-center group ${
+                          className={`p-3 sm:p-4 border-2 rounded-2xl transition-all duration-300 text-center group ${
                             formData.availability === 'flexible' 
-                              ? 'border-brand-500 bg-brand-50 shadow-lg scale-105' 
-                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50 hover:scale-105'
+                              ? 'border-brand-500 bg-brand-50 shadow-lg' 
+                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50'
                           }`}
                         >
-                          <div className={`font-bold ${formData.availability === 'flexible' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
+                          <div className={`font-bold text-sm sm:text-base ${formData.availability === 'flexible' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
                             {locale === 'mn' ? 'Уян хатан' : 'Flexible'}
                           </div>
                         </button>
@@ -357,7 +369,7 @@ function VolunteerApplyContent() {
                       <label className="block text-lg font-semibold text-gray-800 mb-4">
                         {locale === 'mn' ? 'Туршлага болон хүсэлт' : 'Experience & Motivation'}
                       </label>
-                      <div className="space-y-6">
+                      <div className="space-y-4 sm:space-y-6">
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
                             {locale === 'mn' ? 'Туршлага, ур чадвар' : 'Experience & Skills'}
@@ -367,7 +379,7 @@ function VolunteerApplyContent() {
                             value={formData.experience}
                             onChange={handleInputChange}
                             rows={4}
-                            className="w-full px-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
+                            className="w-full px-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
                             placeholder={locale === 'mn' ? 'Таны туршлага, ур чадварын тухай бичнэ үү' : 'Tell us about your experience and skills'}
                           />
                         </div>
@@ -381,7 +393,7 @@ function VolunteerApplyContent() {
                             value={formData.motivation}
                             onChange={handleInputChange}
                             rows={4}
-                            className="w-full px-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-lg font-medium transition-all duration-200"
+                            className="w-full px-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
                             placeholder={locale === 'mn' ? 'Таны сайн дураар ажиллах хүсэл, зорилгын тухай бичнэ үү' : 'Tell us about your motivation to volunteer'}
                           />
                         </div>
@@ -389,10 +401,10 @@ function VolunteerApplyContent() {
                     </div>
 
                     {/* Enhanced Submit Button */}
-                    <Button className="w-full bg-brand-500 hover:bg-brand-600 text-white text-xl py-6 rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group">
-                      <UserPlus className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform duration-200" />
+                    <Button className="w-full bg-brand-500 hover:bg-brand-600 text-white text-lg sm:text-xl py-4 sm:py-6 rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 group">
+                      <UserPlus className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 group-hover:scale-110 transition-transform duration-200" />
                       {locale === 'mn' ? 'Бүртгүүлэх' : 'Submit Application'}
-                      <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform duration-200" />
+                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 sm:ml-3 group-hover:translate-x-1 transition-transform duration-200" />
                     </Button>
                   </form>
                 </CardContent>

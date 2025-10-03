@@ -25,7 +25,10 @@ import {
   Star,
   CheckCircle,
   Scissors,
-  Palette
+  Palette,
+  Filter,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -34,6 +37,7 @@ export default function ProgramsPage() {
   const locale = pathname.startsWith('/en') ? 'en' : 'mn';
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
 
   const programs = [
     {
@@ -406,20 +410,44 @@ export default function ProgramsPage() {
                 )}
               </div>
 
+              {/* Mobile Filter Toggle Button */}
+              <div className="lg:hidden mb-6">
+                <button
+                  onClick={() => setIsFiltersOpen(!isFiltersOpen)}
+                  className="flex items-center justify-center space-x-2 w-full px-6 py-3 bg-white border-2 border-gray-200 rounded-2xl font-medium text-gray-600 hover:border-brand-300 transition-all duration-300"
+                >
+                  <Filter className="w-4 h-4" />
+                  <span>{locale === 'mn' ? 'Шүүлтүүр' : 'Filters'}</span>
+                  {isFiltersOpen ? (
+                    <ChevronUp className="w-4 h-4" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4" />
+                  )}
+                </button>
+              </div>
+
               {/* Category Filters */}
-              <div className="flex flex-wrap gap-4 justify-center">
+              <div className={`flex flex-wrap gap-4 justify-center transition-all duration-300 ${
+                isFiltersOpen ? 'block' : 'hidden lg:flex'
+              }`}>
                 {categories.map((category) => (
                   <button
                     key={category.id}
-                    onClick={() => setSelectedCategory(category.id)}
-                    className={`flex items-center space-x-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                    onClick={() => {
+                      setSelectedCategory(category.id);
+                      // Close filters on mobile after selection
+                      if (window.innerWidth < 1024) {
+                        setIsFiltersOpen(false);
+                      }
+                    }}
+                    className={`flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-all duration-300 text-sm sm:text-base ${
                       selectedCategory === category.id
                         ? 'bg-gradient-to-r from-brand-500 to-brand-600 text-white shadow-lg scale-105'
                         : 'bg-white text-gray-600 border-2 border-gray-200 hover:border-brand-300 hover:scale-105'
                     }`}
                   >
-                    <category.icon className="w-4 h-4" />
-                    <span>{category.name}</span>
+                    <category.icon className="w-3 h-3 sm:w-4 sm:h-4" />
+                    <span className="whitespace-nowrap">{category.name}</span>
                   </button>
                 ))}
               </div>

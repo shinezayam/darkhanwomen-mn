@@ -84,7 +84,7 @@ export default function GetInvolvedPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
               {/* Volunteer */}
               <Card className="group relative overflow-hidden bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0">
-                <div className="relative bg-gradient-to-br from-blue-50 to-indigo-50 p-8 h-full min-h-[450px] flex flex-col">
+                <div className="relative bg-white p-8 h-full min-h-[450px] flex flex-col">
                   <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-white/20 to-transparent rounded-full blur-xl"></div>
                   
                   <div className="flex items-start justify-between mb-8 relative z-10">
@@ -142,7 +142,7 @@ export default function GetInvolvedPage() {
 
               {/* Partner */}
               <Card className="group relative overflow-hidden bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0">
-                <div className="relative bg-gradient-to-br from-purple-50 to-violet-50 p-8 h-full min-h-[450px] flex flex-col">
+                <div className="relative bg-white p-8 h-full min-h-[450px] flex flex-col">
                   <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-white/20 to-transparent rounded-full blur-xl"></div>
                   
                   <div className="flex items-start justify-between mb-8 relative z-10">
@@ -200,7 +200,7 @@ export default function GetInvolvedPage() {
 
               {/* Donate */}
               <Card className="group relative overflow-hidden bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0">
-                <div className="relative bg-gradient-to-br from-pink-50 to-rose-50 p-8 h-full min-h-[450px] flex flex-col">
+                <div className="relative bg-white p-8 h-full min-h-[450px] flex flex-col">
                   <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-white/20 to-transparent rounded-full blur-xl"></div>
                   
                   <div className="flex items-start justify-between mb-8 relative z-10">

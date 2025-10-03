@@ -6,7 +6,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Search, Calendar, Award, TrendingUp, Heart, Newspaper } from 'lucide-react';
+import { ArrowLeft, Search, Calendar, Award, TrendingUp, Heart, Newspaper, Filter, ChevronDown, ChevronUp } from 'lucide-react';
 import Link from 'next/link';
 import { getNewsData } from '@/data/news';
 
@@ -15,6 +15,7 @@ export default function NewsPage() {
   const locale = pathname.startsWith('/en') ? 'en' : 'mn';
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
 
   const news = getNewsData(locale);
 
@@ -114,18 +115,42 @@ export default function NewsPage() {
                 )}
               </div>
 
+              {/* Mobile Filter Toggle Button */}
+              <div className="lg:hidden mb-6">
+                <button
+                  onClick={() => setIsFiltersOpen(!isFiltersOpen)}
+                  className="flex items-center justify-center space-x-2 w-full px-6 py-3 bg-white border-2 border-gray-200 rounded-2xl font-medium text-gray-600 hover:border-pink-300 transition-all duration-300"
+                >
+                  <Filter className="w-4 h-4" />
+                  <span>{locale === 'mn' ? 'Шүүлтүүр' : 'Filters'}</span>
+                  {isFiltersOpen ? (
+                    <ChevronUp className="w-4 h-4" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4" />
+                  )}
+                </button>
+              </div>
+
               {/* Category Filters */}
-              <div className="flex flex-wrap gap-4 justify-center">
+              <div className={`flex flex-wrap gap-4 justify-center transition-all duration-300 ${
+                isFiltersOpen ? 'block' : 'hidden lg:flex'
+              }`}>
                 {categories.map((cat) => (
                   <button
                     key={cat.id}
-                    onClick={() => setSelectedCategory(cat.id)}
-                    className={`flex items-center space-x-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                    onClick={() => {
+                      setSelectedCategory(cat.id);
+                      // Close filters on mobile after selection
+                      if (window.innerWidth < 1024) {
+                        setIsFiltersOpen(false);
+                      }
+                    }}
+                    className={`flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base font-medium transition-all duration-300 ${
                       selectedCategory === cat.id ? 'bg-gradient-to-r from-pink-500 to-pink-600 text-white shadow-lg scale-105' : 'bg-white text-gray-600 border-2 border-gray-200 hover:border-pink-300 hover:scale-105'
                     }`}
                   >
-                    <cat.icon className="w-4 h-4" />
-                    <span>{cat.name}</span>
+                    <cat.icon className="w-3 h-3 sm:w-4 sm:h-4" />
+                    <span className="whitespace-nowrap">{cat.name}</span>
                   </button>
                 ))}
               </div>

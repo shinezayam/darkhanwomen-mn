@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -17,10 +17,11 @@ import {
 
 export default function WarmJourneyPage() {
   const pathname = usePathname();
+  const router = useRouter();
   const locale = pathname.startsWith('/en') ? 'en' : 'mn';
 
   const handleRegistration = () => {
-    window.location.href = `/${locale}/register?program=warm-journey`;
+    router.push(`/${locale}/register?program=warm-journey`);
   };
 
   return (

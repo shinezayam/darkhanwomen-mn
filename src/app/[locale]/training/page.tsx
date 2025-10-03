@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardTitle } from '@/components/ui/card';
@@ -25,10 +25,11 @@ import Link from 'next/link';
 
 export default function TrainingPage() {
   const pathname = usePathname();
+  const router = useRouter();
   const locale = pathname.startsWith('/en') ? 'en' : 'mn';
 
   const handleRegistration = (trainingId: string) => {
-    window.location.href = `/${locale}/register?program=${trainingId}`;
+    router.push(`/${locale}/register?program=${trainingId}`);
   };
 
   return (
@@ -519,20 +520,24 @@ export default function TrainingPage() {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button 
-                    size="lg"
-                    className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg"
-                  >
-                    {locale === 'mn' ? 'Оролцох' : 'Get Involved'}
-                  </Button>
+                  <Link href={`/${locale}/get-involved`}>
+                    <Button 
+                      size="lg"
+                      className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg"
+                    >
+                      {locale === 'mn' ? 'Оролцох' : 'Get Involved'}
+                    </Button>
+                  </Link>
                   
-                  <Button 
-                    variant="outline"
-                    size="lg"
-                    className="border-2 border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 hover:scale-105"
-                  >
-                    {locale === 'mn' ? 'Холбоо барих' : 'Contact Us'}
-                  </Button>
+                  <Link href={`/${locale}/contact`}>
+                    <Button 
+                      variant="outline"
+                      size="lg"
+                      className="border-2 border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 hover:scale-105"
+                    >
+                      {locale === 'mn' ? 'Холбоо барих' : 'Contact Us'}
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>

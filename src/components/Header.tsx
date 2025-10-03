@@ -68,10 +68,17 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 container-spacing">
           {/* Modern Logo */}
           <Link href={`/${locale}`} className="flex items-center space-x-4 group">
-            <div className="relative">
+            <div className="relative flex items-center space-x-2">
               <div className="w-12 h-12 rounded-[12px] overflow-hidden shadow-sm group-hover:shadow-md transition-all duration-200 group-hover:scale-105">
                 <img
-                  src="/images/logo.png"
+                  src="/images/Logo-1.jpg"
+                  alt={locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation'}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="w-12 h-12 rounded-[12px] overflow-hidden shadow-sm group-hover:shadow-md transition-all duration-200 group-hover:scale-105">
+                <img
+                  src="/images/Logo-2.jpeg"
                   alt={locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation'}
                   className="w-full h-full object-contain"
                 />
@@ -117,7 +124,7 @@ export default function Header() {
               
               {/* Language dropdown menu */}
               {isLanguageMenuOpen && (
-                <div className="absolute top-full right-0 mt-2 w-48 bg-white/95 backdrop-blur-xl border border-brand-200/50 rounded-[8px] shadow-xl z-50 overflow-hidden">
+                <div className="absolute top-full right-0 sm:right-0 left-0 sm:left-auto mt-2 w-48 sm:w-56 bg-white/95 backdrop-blur-xl border border-brand-200/50 rounded-[8px] shadow-xl z-50 overflow-hidden max-w-[calc(100vw-2rem)]">
                   <Link
                     href={pathname.replace(/^\/[a-z]{2}/, '/mn')}
                     className={`flex items-center space-x-3 px-4 py-3 text-sm font-medium transition-all duration-200 ${
@@ -178,59 +185,72 @@ export default function Header() {
         {/* Modern Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="lg:hidden border-t border-pink-100/50 bg-white/95 backdrop-blur-xl">
-            <nav className="container-spacing py-4 space-y-2">
-              {navigationItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`px-4 py-3 rounded-[6px] text-base font-medium transition-all duration-200 ${
-                    isActive(item.href)
-                      ? 'text-brand-500 bg-brand-50 border-l-2 border-brand-500'
-                      : 'text-gray-700 hover:text-brand-500 hover:bg-brand-50/50'
-                  }`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
+            <nav className="container-spacing py-6">
+              {/* Main Navigation Items */}
+              <div className="space-y-1 mb-6">
+                {navigationItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={`block px-4 py-4 rounded-xl text-lg font-medium transition-all duration-200 ${
+                      isActive(item.href)
+                        ? 'text-brand-500 bg-brand-50 border-l-4 border-brand-500'
+                        : 'text-gray-700 hover:text-brand-500 hover:bg-brand-50/50'
+                    }`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
               
               {/* Mobile Language Switcher */}
-              <div className="border-t border-pink-100/50 pt-4 mt-4">
-                <div className="text-sm font-medium text-gray-500 mb-3 px-4">
+              <div className="border-t border-pink-100/50 pt-6">
+                <div className="text-base font-semibold text-gray-700 mb-4 px-4">
                   {locale === 'mn' ? 'Хэл сонгох' : 'Select Language'}
                 </div>
                 <div className="space-y-2">
                   <Link
                     href="/mn"
-                    className={`flex items-center space-x-3 px-4 py-3 rounded-[6px] text-base font-medium transition-all duration-200 ${
+                    className={`flex items-center space-x-4 px-4 py-4 rounded-xl text-lg font-medium transition-all duration-200 ${
                       locale === 'mn' 
-                        ? 'text-brand-500 bg-brand-50 border-l-2 border-brand-500' 
+                        ? 'text-brand-500 bg-brand-50 border-l-4 border-brand-500' 
                         : 'text-gray-700 hover:text-brand-500 hover:bg-brand-50/50'
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <span className="text-xl">🇲🇳</span>
+                    <span className="text-2xl">🇲🇳</span>
                     <div>
-                      <div className="font-semibold">Монгол</div>
-                      <div className="text-xs text-gray-500">Mongolian</div>
+                      <div className="font-semibold text-lg">Монгол</div>
+                      <div className="text-sm text-gray-500">Mongolian</div>
                     </div>
                   </Link>
                   <Link
                     href="/en"
-                    className={`flex items-center space-x-3 px-4 py-3 rounded-[6px] text-base font-medium transition-all duration-200 ${
+                    className={`flex items-center space-x-4 px-4 py-4 rounded-xl text-lg font-medium transition-all duration-200 ${
                       locale === 'en' 
-                        ? 'text-brand-500 bg-brand-50 border-l-2 border-brand-500' 
+                        ? 'text-brand-500 bg-brand-50 border-l-4 border-brand-500' 
                         : 'text-gray-700 hover:text-brand-500 hover:bg-brand-50/50'
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <span className="text-xl">🇺🇸</span>
+                    <span className="text-2xl">🇺🇸</span>
                     <div>
-                      <div className="font-semibold">English</div>
-                      <div className="text-xs text-gray-500">English</div>
+                      <div className="font-semibold text-lg">English</div>
+                      <div className="text-sm text-gray-500">English</div>
                     </div>
                   </Link>
                 </div>
+              </div>
+              
+              {/* Mobile Donate Button */}
+              <div className="border-t border-pink-100/50 pt-6 mt-6">
+                <Link href={`/${locale}/donate`} onClick={() => setIsMobileMenuOpen(false)}>
+                  <div className="flex items-center justify-center space-x-3 px-6 py-4 bg-gradient-to-r from-brand-500 to-brand-600 text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-200">
+                    <Heart className="w-5 h-5" />
+                    <span>{locale === 'mn' ? 'Хандивлах' : 'Donate Now'}</span>
+                  </div>
+                </Link>
               </div>
             </nav>
           </div>

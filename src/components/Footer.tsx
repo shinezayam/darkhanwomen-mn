@@ -36,10 +36,17 @@ export default function Footer() {
           {/* Modern Organization Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-4 mb-8">
-              <div className="relative">
+              <div className="relative flex items-center space-x-3">
                 <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg">
                   <img
-                    src="/images/logo.png"
+                    src="/images/Logo-1.jpg"
+                    alt={locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation'}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg">
+                  <img
+                    src="/images/Logo-2.jpeg"
                     alt={locale === 'mn' ? 'Эмэгтэйчүүдийн холбоо' : 'Women\'s Federation'}
                     className="w-full h-full object-contain"
                   />
@@ -165,7 +172,7 @@ export default function Footer() {
                 {locale === 'mn' ? 'Сошиал медиа' : 'Social Media'}
               </h5>
               <div className="flex space-x-4">
-                <a href="#" className="w-12 h-12 bg-gray-800 rounded-2xl flex items-center justify-center hover:bg-pink-500 transition-all duration-300 hover:scale-110 shadow-lg">
+                <a href="https://www.facebook.com/WomensFederationOfDarkhanUulProvince" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-gray-800 rounded-2xl flex items-center justify-center hover:bg-pink-500 transition-all duration-300 hover:scale-110 shadow-lg">
                   <Facebook className="w-5 h-5" />
                 </a>
                 <a href="#" className="w-12 h-12 bg-gray-800 rounded-2xl flex items-center justify-center hover:bg-pink-500 transition-all duration-300 hover:scale-110 shadow-lg">

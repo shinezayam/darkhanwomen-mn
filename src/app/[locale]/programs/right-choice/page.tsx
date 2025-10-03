@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -18,10 +18,11 @@ import {
 
 export default function RightChoicePage() {
   const pathname = usePathname();
+  const router = useRouter();
   const locale = pathname.startsWith('/en') ? 'en' : 'mn';
 
   const handleRegistration = () => {
-    window.location.href = `/${locale}/register?program=right-choice`;
+    router.push(`/${locale}/register?program=right-choice`);
   };
 
   return (
