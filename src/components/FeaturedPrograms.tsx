@@ -439,7 +439,7 @@ export default function FeaturedPrograms() {
             <Link key={index} href={getProgramPath(activity.id)} className="block">
               <Card className="group relative overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 cursor-pointer">
               {/* Enhanced Background with Gradient */}
-              <div className={`relative ${activity.bgColor} p-6 h-full min-h-[350px] flex flex-col`}>
+              <div className={`relative ${activity.bgColor} p-6 h-full min-h-[220px] sm:min-h-[350px] flex flex-col`}>
                 {/* Decorative Background Elements */}
                 <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-white/20 to-transparent rounded-full blur-xl"></div>
                 

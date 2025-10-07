@@ -135,7 +135,7 @@ export default function Stats() {
             <span className="tracking-wide uppercase">{locale === 'mn' ? 'Бидний нөлөө' : 'Our Impact'}</span>
           </div>
           
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 sm:mb-8 leading-tight px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 sm:mb-8 leading-tight px-4">
             {locale === 'mn' ? 'Тоо баримтууд' : 'Impact by Numbers'}
           </h2>
           
@@ -148,7 +148,7 @@ export default function Stats() {
         </div>
 
         {/* Professional Stats Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-12 sm:mb-20 px-4">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-12 sm:mb-20 px-2 sm:px-4">
           {stats.map((stat, index) => (
             <div
               key={index}
