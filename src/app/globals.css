@@ -130,6 +130,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: -0.01em;
+    /* Prevent horizontal overflow on small devices */
+    overflow-x: hidden;
   }
   
   /* Mongolian text support */
@@ -224,18 +226,51 @@
       padding-right: 1.5rem;
     }
   }
-  
-  @media (min-width: 1024px) {
-    .section-padding {
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
+
+  /* Make images, pictures and videos responsive to their container to avoid overflow */
+  img, picture, video {
   }
   
   .container-max {
     max-width: 80rem;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  /* Utility used throughout components for consistent horizontal spacing */
+  .container-spacing {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-spacing {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-spacing {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  
+  /* Make images, pictures and videos responsive to their container to avoid overflow */
+  img, picture, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Tweak section spacing for smaller screens to reduce excessive vertical padding */
+  .section-spacing {
+    padding: 3rem 0;
+  }
+
+  @media (min-width: 640px) {
+    .section-spacing {
+      padding: 4.5rem 0;
+    }
   }
   
   /* Hero section */

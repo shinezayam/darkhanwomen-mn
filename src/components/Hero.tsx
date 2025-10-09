@@ -10,7 +10,7 @@ export default function Hero() {
   const locale = pathname.startsWith('/en') ? 'en' : 'mn';
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+  <section className="relative min-h-[55vh] sm:min-h-screen flex items-center justify-center overflow-hidden bg-white">
 
       {/* Main Content Container */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -43,16 +43,17 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-12 sm:mb-16 px-4">
+  {/* CTA Buttons */}
+  <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center items-center mb-8 sm:mb-16 px-4">
+          {/* Make donate less prominent on mobile: smaller, outline variant on small screens */}
           <Link href={`/${locale}/donate`}>
             <Button 
               size="lg" 
-              className="btn-primary group bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white font-bold px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 text-sm sm:text-base"
+              className="group bg-gradient-to-r from-brand-500 to-brand-600 lg:bg-none lg:btn-primary text-white lg:text-white font-bold px-5 sm:px-6 md:px-10 py-2 sm:py-3 md:py-4 rounded-2xl shadow-sm lg:shadow-xl transition-all duration-300 hover:scale-102 text-sm sm:text-base lg:text-base"
             >
               <span className="relative z-10 flex items-center">
-                <Heart className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 mr-2 sm:mr-3 group-hover:scale-110 transition-transform duration-300" />
-                {locale === 'mn' ? 'Хандивлах' : 'Donate Now'}
+                <Heart className="w-4 h-4 mr-2" />
+                {locale === 'mn' ? 'Хандивлах' : 'Donate'}
               </span>
             </Button>
           </Link>
@@ -74,14 +75,15 @@ export default function Hero() {
         {/* Stats removed per request */}
 
         {/* Image grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4 max-w-5xl mx-auto mb-12 sm:mb-16 px-4">
-          {['/images/hero_2_new.jpg?v=4','/images/hero_1_new.jpg?v=4','/images/hero_3.jpg?v=4','/images/hero_4.jpg?v=4','/images/hero_5.jpg?v=4','/images/hero_6.jpg?v=4'].map((src, idx) => (
+        {/* On small screens show fewer images to reduce scroll length */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4 max-w-4xl mx-auto mb-8 sm:mb-16 px-4">
+          {['/images/hero_2_new.jpg?v=4','/images/hero_1_new.jpg?v=4','/images/hero_3.jpg?v=4'].map((src, idx) => (
             <div key={src} className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200">
               <img
                 src={src}
                 alt={locale === 'mn' ? 'Үйл ажиллагааны зураг' : 'Activity photo'}
                 className="w-full h-full object-cover"
-                loading={idx < 3 ? 'eager' : 'lazy'}
+                loading={idx < 2 ? 'eager' : 'lazy'}
               />
             </div>
           ))}

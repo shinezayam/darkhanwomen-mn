@@ -18,7 +18,7 @@ export default function RecentNews() {
     <section className="section-spacing bg-white">
       <div className="container-max container-spacing">
         <div className="text-center mb-12">
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-3">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3">
             {locale === 'mn' ? 'Мэдээ мэдээлэл' : 'Latest News'}
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
@@ -28,7 +28,7 @@ export default function RecentNews() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 items-stretch">
+  <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 items-stretch">
           {news.map((item) => (
             <Link key={item.id} href={`/${locale}/news/${item.id}`} className="block">
               <Card className="overflow-hidden rounded-2xl shadow-lg border-0 hover:-translate-y-1 transition-transform h-full flex flex-col cursor-pointer">

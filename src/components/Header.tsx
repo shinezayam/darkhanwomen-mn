@@ -65,7 +65,7 @@ export default function Header() {
   return (
     <header className="bg-white/95 backdrop-blur-xl shadow-sm border-b border-pink-100/50 sticky top-0 z-50">
       <div className="container-max">
-        <div className="flex items-center justify-between h-16 container-spacing">
+  <div className="flex items-center justify-between h-14 md:h-16 container-spacing">
           {/* Modern Logo */}
           <Link href={`/${locale}`} className="flex items-center space-x-4 group">
             <div className="relative flex items-center space-x-2">
@@ -159,14 +159,17 @@ export default function Header() {
               )}
             </div>
             
-            <Link href={`/${locale}/donate`}>
-              <Button 
-                className="btn-primary group"
-              >
-                <Heart className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-300" />
-                {locale === 'mn' ? 'Хандивлах' : 'Donate'}
-              </Button>
-            </Link>
+            {/* Desktop donate - hidden on small screens to reduce visual weight */}
+            <div className="hidden lg:block">
+              <Link href={`/${locale}/donate`}>
+                <Button 
+                  className="btn-primary group"
+                >
+                  <Heart className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                  {locale === 'mn' ? 'Хандивлах' : 'Donate'}
+                </Button>
+              </Link>
+            </div>
 
             {/* Modern mobile menu button */}
             <button

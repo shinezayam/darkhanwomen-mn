@@ -27,11 +27,11 @@ export default function Footer() {
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
       {/* Modern Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-pink-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-r from-blue-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-56 h-56 sm:w-96 sm:h-96 bg-gradient-to-r from-pink-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-56 h-56 sm:w-96 sm:h-96 bg-gradient-to-r from-blue-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="container-max px-6 lg:px-8 py-20 relative z-10">
+  <div className="container-max px-6 lg:px-8 py-12 sm:py-20 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Modern Organization Info */}
           <div className="lg:col-span-2">
@@ -62,7 +62,7 @@ export default function Footer() {
               </div>
             </div>
             
-            <p className="text-gray-300 mb-8 max-w-md leading-relaxed text-lg">
+            <p className="text-gray-300 mb-6 max-w-md leading-relaxed text-base sm:text-lg">
               {locale === 'mn'
                 ? '1962 оноос хойш эмэгтэйчүүдийн эрхийг хамгаалах, тэдний хөгжилд хувь нэмэр оруулах зорилготойгоор ажиллаж байна.'
                 : 'Working since 1962 to protect women\'s rights and contribute to their development and empowerment.'
@@ -70,7 +70,7 @@ export default function Footer() {
             </p>
 
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               <div className="flex items-center space-x-4 text-gray-300 hover:text-pink-400 transition-colors duration-300">
                 <div className="w-10 h-10 bg-pink-500/20 rounded-xl flex items-center justify-center">
                   <MapPin className="w-5 h-5 text-pink-400" />
@@ -171,7 +171,7 @@ export default function Footer() {
               <h5 className="text-sm font-bold mb-6 text-gray-400 tracking-wide uppercase">
                 {locale === 'mn' ? 'Сошиал медиа' : 'Social Media'}
               </h5>
-              <div className="flex space-x-4">
+              <div className="flex space-x-3">
                 <a href="https://www.facebook.com/WomensFederationOfDarkhanUulProvince" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-gray-800 rounded-2xl flex items-center justify-center hover:bg-pink-500 transition-all duration-300 hover:scale-110 shadow-lg">
                   <Facebook className="w-5 h-5" />
                 </a>
