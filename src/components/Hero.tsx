@@ -75,15 +75,14 @@ export default function Hero() {
         {/* Stats removed per request */}
 
         {/* Image grid */}
-        {/* On small screens show fewer images to reduce scroll length */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4 max-w-4xl mx-auto mb-8 sm:mb-16 px-4">
-          {['/images/hero_2_new.jpg?v=4','/images/hero_1_new.jpg?v=4','/images/hero_3.jpg?v=4'].map((src, idx) => (
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
+          {['/images/hero_2_new.jpg?v=4','/images/hero_1_new.jpg?v=4','/images/hero_3.jpg?v=4','/images/hero_4.jpg?v=4','/images/hero_5.jpg?v=4','/images/hero_6.jpg?v=4'].map((src, idx) => (
             <div key={src} className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200">
               <img
                 src={src}
                 alt={locale === 'mn' ? 'Үйл ажиллагааны зураг' : 'Activity photo'}
                 className="w-full h-full object-cover"
-                loading={idx < 2 ? 'eager' : 'lazy'}
+                loading={idx < 3 ? 'eager' : 'lazy'}
               />
             </div>
           ))}
