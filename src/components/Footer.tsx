@@ -161,7 +161,7 @@ export default function Footer() {
                   href={`/${locale}/get-involved`}
                   className="text-gray-300 hover:text-pink-400 transition-colors duration-300 font-medium hover:translate-x-2 transform inline-block"
                 >
-                  {locale === 'mn' ? 'Хамтрагч болох' : 'Partner With Us'}
+                  {locale === 'mn' ? 'Гишүүн болох' : 'Become a Member'}
                 </Link>
               </li>
             </ul>

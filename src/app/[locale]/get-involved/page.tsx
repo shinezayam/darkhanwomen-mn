@@ -156,19 +156,19 @@ export default function GetInvolvedPage() {
                       variant="secondary" 
                       className="text-xs font-semibold px-4 py-2 rounded-full shadow-sm border-0 bg-gradient-to-r from-purple-100 to-violet-100 text-purple-700"
                     >
-                      {locale === 'mn' ? 'Хамтрал' : 'Partnership'}
+                      {locale === 'mn' ? 'Гишүүнчлэл' : 'Membership'}
                     </Badge>
                   </div>
                   
                   <div className="flex-1 flex flex-col">
                     <CardTitle className="text-2xl font-bold text-gray-900 mb-4 leading-tight font-display">
-                      {locale === 'mn' ? 'Хамтрагч болох' : 'Partner'}
+                      {locale === 'mn' ? 'Гишүүн болох' : 'Member'}
                     </CardTitle>
                     
                     <p className="text-gray-600 mb-6 leading-relaxed text-base flex-1">
                       {locale === 'mn'
                         ? 'Байгууллага, компанитай хамтран ажиллаж, илүү том нөлөө үзүүлье.'
-                        : 'Partner with organizations and companies to create greater impact.'
+                        : 'Join as a member organization to create greater impact.'
                       }
                     </p>
                     
@@ -189,7 +189,7 @@ export default function GetInvolvedPage() {
                     
                     <Link href={`/${locale}/partner/apply`}>
                       <Button className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl border-0">
-                        {locale === 'mn' ? 'Хамтрах' : 'Partner'}
+                        {locale === 'mn' ? 'Гишүүн болох' : 'Become Member'}
                       </Button>
                     </Link>
                   </div>
@@ -334,7 +334,7 @@ export default function GetInvolvedPage() {
                       <Handshake className="w-6 h-6 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900">
-                      {locale === 'mn' ? 'Хамтралын төрлүүд' : 'Partnership Types'}
+                      {locale === 'mn' ? 'Гишүүнчлэлийн төрлүүд' : 'Membership Types'}
                     </h3>
                   </div>
                   
@@ -343,7 +343,7 @@ export default function GetInvolvedPage() {
                       <Gift className="w-5 h-5 text-purple-600 mt-1 flex-shrink-0" />
                       <div>
                         <h4 className="font-semibold text-gray-900 mb-1">
-                          {locale === 'mn' ? 'Санхүүгийн хамтрал' : 'Financial Partnership'}
+                          {locale === 'mn' ? 'Санхүүгийн дэмжлэг' : 'Financial Support'}
                         </h4>
                         <p className="text-sm text-gray-600">
                           {locale === 'mn' ? 'Хөтөлбөрүүдийг санхүүжүүлэх' : 'Fund our programs'}
@@ -355,7 +355,7 @@ export default function GetInvolvedPage() {
                       <Award className="w-5 h-5 text-pink-600 mt-1 flex-shrink-0" />
                       <div>
                         <h4 className="font-semibold text-gray-900 mb-1">
-                          {locale === 'mn' ? 'Мэдлэгийн хамтрал' : 'Knowledge Partnership'}
+                          {locale === 'mn' ? 'Мэдлэгийн хуваалцах' : 'Knowledge Sharing'}
                         </h4>
                         <p className="text-sm text-gray-600">
                           {locale === 'mn' ? 'Мэдлэг, туршлага солилцох' : 'Share knowledge and experience'}
@@ -367,7 +367,7 @@ export default function GetInvolvedPage() {
                       <Star className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
                       <div>
                         <h4 className="font-semibold text-gray-900 mb-1">
-                          {locale === 'mn' ? 'Стратегийн хамтрал' : 'Strategic Partnership'}
+                          {locale === 'mn' ? 'Стратегийн хамтрал' : 'Strategic Collaboration'}
                         </h4>
                         <p className="text-sm text-gray-600">
                           {locale === 'mn' ? 'Урт хугацааны хамтын ажиллагаа' : 'Long-term collaboration'}
