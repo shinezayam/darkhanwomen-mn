@@ -30,7 +30,7 @@ function PartnerApplyContent() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const locale = pathname.startsWith('/en') ? 'en' : 'mn';
-  const type = searchParams.get('type') || 'program-partnership';
+  const type = searchParams.get('type') || 'member-organization';
 
   const [formData, setFormData] = useState({
     organizationName: '',
@@ -131,7 +131,7 @@ function PartnerApplyContent() {
               <div className="flex justify-center items-center space-x-8 mb-8">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-brand-500">100+</div>
-                  <div className="text-sm text-gray-600">{locale === 'mn' ? 'Хамтрагч байгууллага' : 'Partner Organizations'}</div>
+                  <div className="text-sm text-gray-600">{locale === 'mn' ? 'Гишүүн байгууллага' : 'Member Organizations'}</div>
                 </div>
                 <div className="w-px h-12 bg-gray-300"></div>
                 <div className="text-center">
@@ -162,7 +162,7 @@ function PartnerApplyContent() {
                     {typeInfo.title}
                   </CardTitle>
                   <p className="text-gray-600 text-lg">
-                    {locale === 'mn' ? 'Манай байгууллагатай хамтрах хүсэлт илгээх' : 'Submit a partnership request with our organization'}
+                    {locale === 'mn' ? 'Манай байгууллагын гишүүн болох хүсэлт илгээх' : 'Submit a membership application to our organization'}
                   </p>
                 </CardHeader>
                 <CardContent className="space-y-6 sm:space-y-8">
@@ -572,7 +572,7 @@ function PartnerApplyContent() {
                       <Award className="w-8 h-8 text-white" />
                     </div>
                     <CardTitle className="text-2xl font-bold text-gray-900">
-                      {locale === 'mn' ? 'Хамтралын ашиг' : 'Partnership Benefits'}
+                      {locale === 'mn' ? 'Гишүүнчлэлийн ашиг' : 'Membership Benefits'}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
@@ -599,7 +599,7 @@ function PartnerApplyContent() {
                           {locale === 'mn' ? 'Шинэ сүлжээ' : 'New Network'}
                         </h4>
                         <p className="text-gray-600 text-sm">
-                          {locale === 'mn' ? 'Шинэ хамтрагч, сүлжээтэй танилцах' : 'Connect with new partners and networks'}
+                          {locale === 'mn' ? 'Шинэ гишүүн байгууллага, сүлжээтэй танилцах' : 'Connect with new member organizations and networks'}
                         </p>
                       </div>
                     </div>
