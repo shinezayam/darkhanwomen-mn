@@ -9,49 +9,49 @@ export default function Stats() {
   const pathname = usePathname();
   const locale = pathname.startsWith('/en') ? 'en' : 'mn';
   const [isVisible, setIsVisible] = useState(false);
-  const [counts, setCounts] = useState({ members: 0, projects: 0, years: 0, beneficiaries: 0 });
+  const [counts, setCounts] = useState({ years: 0, palace: 0, organizations: 0, people: 0 });
   const sectionRef = useRef<HTMLElement>(null);
 
   const stats = useMemo(() => [
     {
-      icon: Users,
-      number: 500,
-      suffix: '+',
-      label: locale === 'mn' ? 'Гишүүд' : 'Members',
-      description: locale === 'mn' ? 'Идэвхтэй гишүүд' : 'Active members',
-      color: 'from-blue-500 to-blue-600',
-      bgColor: 'bg-blue-50',
-      iconColor: 'text-blue-600',
+      icon: Award,
+      number: 1962,
+      suffix: '',
+      label: locale === 'mn' ? 'Жил' : 'Years',
+      description: locale === 'mn' ? 'Өнөөдрийг хүртэл тасралтгүй үйл ажиллагаа явуулж байна' : 'Years of continuous operation',
+      color: 'from-purple-500 to-purple-600',
+      bgColor: 'bg-purple-50',
+      iconColor: 'text-purple-600',
       delay: 'delay-100'
     },
     {
-      icon: Target,
-      number: 25,
-      suffix: '+',
-      label: locale === 'mn' ? 'Төслүүд' : 'Projects',
-      description: locale === 'mn' ? 'Амжилттай төслүүд' : 'Successful projects',
+      icon: Star,
+      number: 1,
+      suffix: '',
+      label: locale === 'mn' ? 'Ордон' : 'Palace',
+      description: locale === 'mn' ? 'Монгол улсын хэмжээн дэх цор ганц эмэгтэйчүүдийн ордон' : 'Mongolia\'s only women\'s palace',
       color: 'from-pink-500 to-pink-600',
       bgColor: 'bg-pink-50',
       iconColor: 'text-pink-600',
       delay: 'delay-200'
     },
     {
-      icon: Award,
-      number: 60,
-      suffix: '+',
-      label: locale === 'mn' ? 'Жил' : 'Years',
-      description: locale === 'mn' ? 'Идэвхтэй ажиллаж байна' : 'Years of service',
-      color: 'from-purple-500 to-purple-600',
-      bgColor: 'bg-purple-50',
-      iconColor: 'text-purple-600',
+      icon: Users,
+      number: 16,
+      suffix: '',
+      label: locale === 'mn' ? 'Байгууллага' : 'Organizations',
+      description: locale === 'mn' ? 'Гишүүн байгууллага' : 'Member organizations',
+      color: 'from-blue-500 to-blue-600',
+      bgColor: 'bg-blue-50',
+      iconColor: 'text-blue-600',
       delay: 'delay-300'
     },
     {
       icon: Heart,
-      number: 1000,
-      suffix: '+',
-      label: locale === 'mn' ? 'Хэрэглэгчид' : 'Beneficiaries',
-      description: locale === 'mn' ? 'Тусламж авсан хүмүүс' : 'People helped',
+      number: 4500,
+      suffix: '',
+      label: locale === 'mn' ? 'Хүн' : 'People',
+      description: locale === 'mn' ? '1 жилд давтагдсан тоогоор хүрч ажилладаг' : 'People reached annually',
       color: 'from-green-500 to-green-600',
       bgColor: 'bg-green-50',
       iconColor: 'text-green-600',
@@ -96,7 +96,7 @@ export default function Stats() {
 
       setCounts(prev => ({
         ...prev,
-        [index === 0 ? 'members' : index === 1 ? 'projects' : index === 2 ? 'years' : 'beneficiaries']: currentValue
+        [index === 0 ? 'years' : index === 1 ? 'palace' : index === 2 ? 'organizations' : 'people']: currentValue
       }));
 
       if (progress < 1) {
@@ -109,10 +109,10 @@ export default function Stats() {
 
   const getCurrentCount = (index: number) => {
     switch (index) {
-      case 0: return counts.members;
-      case 1: return counts.projects;
-      case 2: return counts.years;
-      case 3: return counts.beneficiaries;
+      case 0: return counts.years;
+      case 1: return counts.palace;
+      case 2: return counts.organizations;
+      case 3: return counts.people;
       default: return 0;
     }
   };
