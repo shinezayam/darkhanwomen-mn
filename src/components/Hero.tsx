@@ -24,7 +24,7 @@ export default function Hero() {
         </div>
         
         {/* Main Headline */}
-        <h1 className="text-3xl md:text-4xl font-bold mb-6 sm:mb-8 leading-tight px-2">
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
           <span className="bg-gradient-to-r from-brand-500 via-brand-600 to-brand-700 bg-clip-text text-transparent">
             {locale === 'mn' 
               ? 'ДАРХАН-УУЛ АЙМГИЙН ЭМЭГТЭЙЧҮҮДИЙН ХОЛБОО'
@@ -34,8 +34,8 @@ export default function Hero() {
         </h1>
         
         {/* Tagline */}
-        <div className="mb-8 sm:mb-12 max-w-5xl mx-auto px-4">
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-600 leading-relaxed font-light">
+        <div className="mb-12 max-w-5xl mx-auto">
+          <p className="text-xl sm:text-2xl lg:text-3xl text-gray-600 leading-relaxed font-light">
             {locale === 'mn'
               ? 'Эртэч, эерэг, эрүүл Дарханы төлөө'
               : 'For a Smart, Active, Healthy Darkhan'
