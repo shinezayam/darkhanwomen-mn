@@ -12,13 +12,40 @@ import {
   Download,
   FileText,
   Video,
-  Link as LinkIcon
+  Link as LinkIcon,
+  Newspaper,
+  Eye
 } from 'lucide-react';
 import Link from 'next/link';
+import PDFReader from '@/components/PDFReader';
+import { useState } from 'react';
 
 export default function ResourcesPage() {
   const pathname = usePathname();
   const locale = pathname.startsWith('/en') ? 'en' : 'mn';
+  const [selectedMagazine, setSelectedMagazine] = useState<string | null>(null);
+
+  // Magazine data - you can add your PDF files here
+  const magazines = [
+    {
+      id: 'magazine-1',
+      title: locale === 'mn' ? 'Эмэгтэйчүүдийн холбооны сэтгүүл - 2024 оны 1-р дугаар' : 'Women\'s Federation Magazine - Issue 1, 2024',
+      description: locale === 'mn' ? 'Эмэгтэйчүүдийн эрхийн талаарх мэдээлэл, төслүүдийн тайлан, удирдлагын зөвлөмж' : 'Information about women\'s rights, project reports, and leadership advice',
+      author: locale === 'mn' ? 'Дархан-Уул аймгийн эмэгтэйчүүдийн холбоо' : 'Darkhan-Uul Women\'s Federation',
+      date: '2024-01',
+      pdfUrl: '/magazines/magazine-1.pdf', // Placeholder - replace with actual PDF
+      coverImage: '/images/magazine-cover-1.jpg' // Optional cover image
+    },
+    {
+      id: 'magazine-2',
+      title: locale === 'mn' ? 'Эмэгтэйчүүдийн холбооны сэтгүүл - 2024 оны 2-р дугаар' : 'Women\'s Federation Magazine - Issue 2, 2024',
+      description: locale === 'mn' ? 'Хөтөлбөрүүдийн амжилт, гишүүдийн түүх, ирээдүйн төлөвлөгөө' : 'Program successes, member stories, and future plans',
+      author: locale === 'mn' ? 'Дархан-Уул аймгийн эмэгтэйчүүдийн холбоо' : 'Darkhan-Uul Women\'s Federation',
+      date: '2024-02',
+      pdfUrl: '/magazines/magazine-2.pdf', // Placeholder - replace with actual PDF
+      coverImage: '/images/magazine-cover-2.jpg' // Optional cover image
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -116,6 +143,121 @@ export default function ResourcesPage() {
                 </Card>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Magazines Section */}
+        <section className="py-20 bg-gradient-to-br from-purple-50 via-white to-pink-50">
+          <div className="container-max container-spacing">
+            <div className="text-center mb-16">
+              {/* Badge */}
+              <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm text-purple-700 px-6 py-3 mb-8 shadow-lg border border-purple-100 rounded-full">
+                <Newspaper className="w-5 h-5" />
+                <span className="text-sm font-medium">
+                  {locale === 'mn' ? 'Сэтгүүлүүд' : 'Magazines'}
+                </span>
+              </div>
+
+              <h2 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
+                <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+                  {locale === 'mn' ? 'СЭТГҮҮЛҮҮД' : 'MAGAZINES'}
+                </span>
+              </h2>
+              
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                {locale === 'mn'
+                  ? 'Манай байгууллагын сэтгүүлүүдийг уншиж, мэдээлэл аваарай'
+                  : 'Read our organization\'s magazines and stay informed'
+                }
+              </p>
+            </div>
+
+            {/* Magazine Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+              {magazines.map((magazine) => (
+                <Card key={magazine.id} className="card-modern overflow-hidden hover:shadow-xl transition-all duration-300">
+                  <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50">
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <CardTitle className="text-xl font-bold text-gray-900 mb-2">
+                          {magazine.title}
+                        </CardTitle>
+                        <p className="text-gray-600 text-sm mb-3">
+                          {magazine.description}
+                        </p>
+                        <div className="flex items-center space-x-4 text-xs text-gray-500">
+                          <span>{magazine.author}</span>
+                          <span>•</span>
+                          <span>{magazine.date}</span>
+                        </div>
+                      </div>
+                      <Badge variant="secondary" className="text-xs">
+                        <FileText className="w-3 h-3 mr-1" />
+                        PDF
+                      </Badge>
+                    </div>
+                  </CardHeader>
+                  
+                  <CardContent className="p-6">
+                    <div className="flex space-x-3">
+                      <Button
+                        onClick={() => setSelectedMagazine(magazine.id)}
+                        className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105"
+                      >
+                        <Eye className="w-4 h-4 mr-2" />
+                        {locale === 'mn' ? 'Унших' : 'Read'}
+                      </Button>
+                      
+                      <Button
+                        variant="outline"
+                        onClick={() => {
+                          const link = document.createElement('a');
+                          link.href = magazine.pdfUrl;
+                          link.download = magazine.title;
+                          link.click();
+                        }}
+                        className="px-6 py-3 rounded-xl border-2 border-purple-200 hover:bg-purple-50 transition-all duration-300"
+                      >
+                        <Download className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {/* PDF Reader Modal */}
+            {selectedMagazine && (
+              <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+                <div className="bg-white rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden">
+                  <div className="flex justify-end p-4 border-b">
+                    <Button
+                      variant="outline"
+                      onClick={() => setSelectedMagazine(null)}
+                      className="hover:bg-gray-50"
+                    >
+                      ✕
+                    </Button>
+                  </div>
+                  
+                  <div className="p-4">
+                    {(() => {
+                      const magazine = magazines.find(m => m.id === selectedMagazine);
+                      return magazine ? (
+                        <PDFReader
+                          pdfUrl={magazine.pdfUrl}
+                          title={magazine.title}
+                          description={magazine.description}
+                          author={magazine.author}
+                          date={magazine.date}
+                          locale={locale}
+                        />
+                      ) : null;
+                    })()}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </section>
       </main>

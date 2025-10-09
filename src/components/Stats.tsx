@@ -17,7 +17,7 @@ export default function Stats() {
       icon: Award,
       number: 1962,
       suffix: '',
-      label: locale === 'mn' ? 'Жил' : 'Years',
+      label: locale === 'mn' ? 'Оноос' : 'Years',
       description: locale === 'mn' ? 'Өнөөдрийг хүртэл тасралтгүй үйл ажиллагаа явуулж байна' : 'Years of continuous operation',
       color: 'from-purple-500 to-purple-600',
       bgColor: 'bg-purple-50',
