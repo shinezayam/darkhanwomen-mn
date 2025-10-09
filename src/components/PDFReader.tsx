@@ -39,8 +39,15 @@ export default function PDFReader({
   const [zoom, setZoom] = useState(100);
   const [rotation, setRotation] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
+  const [totalPages, setTotalPages] = useState(30); // Set reasonable default
   const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.download = title;
+    link.click();
+  };
 
   const handleZoomIn = () => {
     setZoom(prev => Math.min(prev + 25, 300));
@@ -58,13 +65,6 @@ export default function PDFReader({
     setIsFullscreen(!isFullscreen);
   };
 
-  const handleDownload = () => {
-    const link = document.createElement('a');
-    link.href = pdfUrl;
-    link.download = title;
-    link.click();
-  };
-
   const handlePreviousPage = () => {
     if (currentPage > 1) {
       setCurrentPage(prev => prev - 1);
@@ -77,36 +77,13 @@ export default function PDFReader({
     }
   };
 
+  // Update iframe when page or zoom changes
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (isFullscreen) {
-        switch (e.key) {
-          case 'Escape':
-            setIsFullscreen(false);
-            break;
-          case 'ArrowLeft':
-            handlePreviousPage();
-            break;
-          case 'ArrowRight':
-            handleNextPage();
-            break;
-          case '+':
-          case '=':
-            handleZoomIn();
-            break;
-          case '-':
-            handleZoomOut();
-            break;
-          case 'r':
-            handleRotate();
-            break;
-        }
-      }
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [isFullscreen, currentPage, totalPages]);
+    if (iframeRef.current) {
+      const newSrc = `${pdfUrl}#page=${currentPage}&zoom=${zoom}&toolbar=0&navpanes=0&scrollbar=1`;
+      iframeRef.current.src = newSrc;
+    }
+  }, [currentPage, zoom, pdfUrl]);
 
   return (
     <div className={`${isFullscreen ? 'fixed inset-0 z-50 bg-white' : ''}`}>
@@ -133,10 +110,6 @@ export default function PDFReader({
                     <span>{date}</span>
                   </div>
                 )}
-                <Badge variant="secondary" className="text-xs">
-                  <FileText className="w-3 h-3 mr-1" />
-                  PDF
-                </Badge>
               </div>
             </div>
             
@@ -161,104 +134,107 @@ export default function PDFReader({
               </Button>
             </div>
           </div>
-        </CardHeader>
 
-        <CardContent className="p-0">
-          {/* PDF Controls */}
-          <div className="bg-gray-50 border-b px-4 py-2">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={handleZoomOut}
-                  disabled={zoom <= 50}
-                >
-                  <ZoomOut className="w-4 h-4" />
-                </Button>
-                
-                <span className="text-sm font-medium min-w-[60px] text-center">
-                  {zoom}%
-                </span>
-                
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={handleZoomIn}
-                  disabled={zoom >= 300}
-                >
-                  <ZoomIn className="w-4 h-4" />
-                </Button>
-                
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={handleRotate}
-                >
-                  <RotateCw className="w-4 h-4" />
-                </Button>
-              </div>
+          {/* Controls */}
+          <div className="flex items-center justify-between mt-4 pt-4 border-t border-pink-100">
+            <div className="flex items-center space-x-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleZoomOut}
+                disabled={zoom <= 50}
+              >
+                <ZoomOut className="w-4 h-4" />
+              </Button>
+              
+              <span className="text-sm font-medium min-w-[60px] text-center">
+                {zoom}%
+              </span>
+              
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleZoomIn}
+                disabled={zoom >= 300}
+              >
+                <ZoomIn className="w-4 h-4" />
+              </Button>
+              
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleRotate}
+              >
+                <RotateCw className="w-4 h-4" />
+              </Button>
+            </div>
 
-              <div className="flex items-center space-x-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={handlePreviousPage}
-                  disabled={currentPage <= 1}
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </Button>
-                
-                <span className="text-sm font-medium min-w-[80px] text-center">
-                  {currentPage} / {totalPages || '?'}
-                </span>
-                
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={handleNextPage}
-                  disabled={currentPage >= totalPages}
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </Button>
-              </div>
+            <div className="flex items-center space-x-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handlePreviousPage}
+                disabled={currentPage <= 1}
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </Button>
+              
+              <span className="text-sm font-medium min-w-[80px] text-center">
+                {currentPage} / {totalPages}
+              </span>
+              
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleNextPage}
+                disabled={currentPage >= totalPages}
+              >
+                <ChevronRight className="w-4 h-4" />
+              </Button>
             </div>
           </div>
+        </CardHeader>
 
-          {/* PDF Viewer */}
-          <div 
-            className={`${isFullscreen ? 'h-[calc(100vh-140px)]' : 'h-[600px]'} overflow-auto bg-gray-100`}
+        {/* PDF Viewer */}
+        <div 
+          className={`${isFullscreen ? 'h-[calc(100vh-140px)]' : 'h-[600px]'} overflow-auto bg-gray-100 relative`}
+        >
+          <div
             style={{
               transform: `rotate(${rotation}deg) scale(${zoom / 100})`,
-              transformOrigin: 'center center'
+              transformOrigin: 'center center',
+              transition: 'transform 0.2s ease-in-out',
+              width: '100%',
+              height: '100%'
             }}
           >
             <iframe
               ref={iframeRef}
-              src={`${pdfUrl}#toolbar=0&navpanes=0&scrollbar=1&page=${currentPage}&zoom=${zoom}`}
+              src={`${pdfUrl}#page=${currentPage}&zoom=100&toolbar=0&navpanes=0&scrollbar=1`}
               className="w-full h-full border-0"
               title={title}
               onLoad={() => {
-                // This is a simplified approach - in a real app you'd want to use a proper PDF library
-                // to get accurate page count
-                setTotalPages(10); // Placeholder - would need proper PDF parsing
+                console.log('PDF loaded successfully');
+              }}
+              onError={() => {
+                console.log('PDF failed to load');
               }}
             />
           </div>
+        </div>
 
-          {/* Keyboard Shortcuts Help */}
-          {isFullscreen && (
-            <div className="absolute bottom-4 right-4 bg-black/80 text-white text-xs p-3 rounded-lg">
-              <div className="space-y-1">
-                <div>{locale === 'mn' ? 'Товчлуур:' : 'Shortcuts:'}</div>
-                <div>← → {locale === 'mn' ? 'хуудас' : 'pages'}</div>
-                <div>+ - {locale === 'mn' ? 'томруулах' : 'zoom'}</div>
-                <div>R {locale === 'mn' ? 'эргүүлэх' : 'rotate'}</div>
-                <div>ESC {locale === 'mn' ? 'гаралт' : 'exit'}</div>
-              </div>
+        {/* Keyboard Shortcuts Help */}
+        {isFullscreen && (
+          <div className="absolute bottom-4 right-4 bg-black/80 text-white text-xs p-3 rounded-lg">
+            <div className="space-y-1">
+              <div>{locale === 'mn' ? 'Товчлуур:' : 'Shortcuts:'}</div>
+              <div>← → {locale === 'mn' ? 'хуудас' : 'pages'}</div>
+              <div>+ - {locale === 'mn' ? 'зураас' : 'zoom'}</div>
+              <div>R {locale === 'mn' ? 'эргүүлэх' : 'rotate'}</div>
+              <div>ESC {locale === 'mn' ? 'гаралт' : 'exit'}</div>
             </div>
-          )}
-        </CardContent>
+          </div>
+        )}
       </Card>
     </div>
   );

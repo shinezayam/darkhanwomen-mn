@@ -13,7 +13,8 @@ export default function Footer() {
     { name: locale === 'mn' ? 'Бидний тухай' : 'About', href: `/${locale}/about` },
     { name: locale === 'mn' ? 'Хөтөлбөрүүд' : 'Programs', href: `/${locale}/programs` },
     { name: locale === 'mn' ? 'Сургалт' : 'Training', href: `/${locale}/training` },
-    { name: locale === 'mn' ? 'Мэдээ' : 'News', href: `/${locale}/blog` },
+    { name: locale === 'mn' ? 'Мэдээ' : 'News', href: `/${locale}/news` },
+    { name: locale === 'mn' ? 'Сэтгүүлүүд' : 'Magazines', href: `/${locale}/resources` },
     { name: locale === 'mn' ? 'Оролцох' : 'Get Involved', href: `/${locale}/get-involved` },
     { name: locale === 'mn' ? 'Холбоо' : 'Contact', href: `/${locale}/contact` },
   ];
@@ -87,7 +88,12 @@ export default function Footer() {
                   <Phone className="w-5 h-5 text-pink-400" />
                 </div>
                 <div>
-                  <div className="font-medium">77358486, 99017277, 99003897</div>
+                  <a 
+                    href="tel:77358486" 
+                    className="font-medium hover:text-pink-400 transition-colors duration-300 cursor-pointer"
+                  >
+                    77358486
+                  </a>
                 </div>
               </div>
               <div className="flex items-center space-x-4 text-gray-300 hover:text-pink-400 transition-colors duration-300">
@@ -95,8 +101,12 @@ export default function Footer() {
                   <Mail className="w-5 h-5 text-pink-400" />
                 </div>
                 <div>
-                  <div className="font-medium">info@darkhanwomen.mn</div>
-                  <div className="font-medium">darkhanwomenfederation@gmail.com</div>
+                  <a 
+                    href="mailto:darkhanwomenfederation@gmail.com" 
+                    className="font-medium hover:text-pink-400 transition-colors duration-300 cursor-pointer"
+                  >
+                    darkhanwomenfederation@gmail.com
+                  </a>
                 </div>
               </div>
               <div className="flex items-center space-x-4 text-gray-300 hover:text-pink-400 transition-colors duration-300">

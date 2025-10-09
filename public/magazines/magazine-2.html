@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хүчирхэг эмэгтэйчүүд - 2024 оны сэтгүүл</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            min-height: 100vh;
+        }
+        .magazine {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 40px;
+        }
+        .article {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        .article:last-child {
+            border-bottom: none;
+        }
+        .article h2 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        .article p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+        .featured-women {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .woman-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #ff6b6b;
+        }
+        .woman-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin-bottom: 10px;
+        }
+        .woman-title {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .woman-achievement {
+            color: #333;
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+        .quote {
+            background: linear-gradient(135deg, #ff6b6b20, #ee5a2420);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #ff6b6b;
+            margin: 20px 0;
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine">
+        <div class="header">
+            <h1>Хүчирхэг эмэгтэйчүүд</h1>
+            <p>2024 оны сэтгүүл</p>
+        </div>
+        
+        <div class="content">
+            <div class="article">
+                <h2>Хүчирхэг эмэгтэйчүүдийн түүх</h2>
+                <p>Энэ сэтгүүлд бид манай нийгэмд том өөрчлөлт авчирсан, бусдад урам зориг өгсөн хүчирхэг эмэгтэйчүүдийн түүхийг танилцуулж байна. Тэд бүгд өөр өөр салбарт ажиллаж, өөр өөр арга замаар амжилт олж, бусдад жишээ болж байна.</p>
+            </div>
+            
+            <div class="featured-women">
+                <div class="woman-card">
+                    <div class="woman-name">Сараагийн Батцэцэг</div>
+                    <div class="woman-title">Бизнес эрхлэгч, нийгмийн зүтгэлтэн</div>
+                    <div class="woman-achievement">Жижиг дунд бизнесийн хөгжилд хувь нэмэр оруулж, 100+ эмэгтэйчүүдэд ажлын байр бүрдүүлсэн</div>
+                </div>
+                
+                <div class="woman-card">
+                    <div class="woman-name">Доржсүрэнгийн Мөнхцэцэг</div>
+                    <div class="woman-title">Боловсролын салбарын мэргэжилтэн</div>
+                    <div class="woman-achievement">Хөдөөгийн сургуулиудад технологийн боловсрол нэвтрүүлж, 500+ хүүхэдтэй ажилласан</div>
+                </div>
+                
+                <div class="woman-card">
+                    <div class="woman-name">Батбаярын Цагаанцэцэг</div>
+                    <div class="woman-title">Эрүүл мэндийн салбарын мэргэжилтэн</div>
+                    <div class="woman-achievement">Эмэгтэйчүүдийн эрүүл мэндийн талаар мэдлэг тарааж, 1000+ эмэгтэйчүүдэд үнэгүй үзлэг хийсэн</div>
+                </div>
+            </div>
+            
+            <div class="quote">
+                "Эмэгтэйчүүд хүч чадлаа бүрэн ашиглаж чадвал нийгэмд том өөрчлөлт авчирч чадна. Бид бүгд хүчирхэг байж чадна."
+            </div>
+            
+            <div class="article">
+                <h2>Амжилтын нууц</h2>
+                <p>Эдгээр хүчирхэг эмэгтэйчүүдийн амжилтын нууц нь тэдний тэсвэр хатуужил, зорилготой байдал, бусдад туслах хүсэл зэрэгт оршдог. Тэд бүгд өөрсдийн мэдлэг, туршлагаа бусдад хуваалцаж, нийгмийн хөгжилд хувь нэмэр оруулж байна.</p>
+            </div>
+            
+            <div class="article">
+                <h2>Ирээдүйн зорилго</h2>
+                <p>Бид ирээдүйд илүү олон эмэгтэйчүүдийг хүчирхэг болгох, тэдэнд илүү олон боломж бүрдүүлэх зорилготой. Шинэ хөтөлбөрүүд, сургалтууд, хамтын ажиллагаа зэрэгт анхаарлаа хандуулах болно.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

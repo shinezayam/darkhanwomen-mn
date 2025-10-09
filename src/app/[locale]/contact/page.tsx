@@ -93,7 +93,12 @@ export default function ContactPage() {
                         <h4 className="font-semibold text-gray-900">
                           {locale === 'mn' ? 'Утас' : 'Phone'}
                         </h4>
-                        <p className="text-gray-600">77358486, 99017277, 99003897</p>
+                        <a 
+                          href="tel:77358486" 
+                          className="text-gray-600 hover:text-blue-600 transition-colors duration-200 cursor-pointer"
+                        >
+                          77358486
+                        </a>
                       </div>
                     </div>
                     
@@ -105,7 +110,12 @@ export default function ContactPage() {
                         <h4 className="font-semibold text-gray-900">
                           {locale === 'mn' ? 'Имэйл' : 'Email'}
                         </h4>
-                        <p className="text-gray-600">info@darkhanwomen.mn</p>
+                        <a 
+                          href="mailto:darkhanwomenfederation@gmail.com" 
+                          className="text-gray-600 hover:text-blue-600 transition-colors duration-200 cursor-pointer"
+                        >
+                          darkhanwomenfederation@gmail.com
+                        </a>
                         
                       </div>
                     </div>

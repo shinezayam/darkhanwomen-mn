@@ -23,25 +23,25 @@ interface MagazinesProps {
 export default function Magazines({ locale }: MagazinesProps) {
   const [selectedMagazine, setSelectedMagazine] = useState<string | null>(null);
 
-  // Magazine data - you can add your PDF files here
+  // Magazine data - using actual uploaded magazine images
   const magazines = [
     {
-      id: 'magazine-1',
-      title: locale === 'mn' ? 'Эмэгтэйчүүдийн холбооны сэтгүүл - 2024 оны 1-р дугаар' : 'Women\'s Federation Magazine - Issue 1, 2024',
-      description: locale === 'mn' ? 'Эмэгтэйчүүдийн эрхийн талаарх мэдээлэл, төслүүдийн тайлан, удирдлагын зөвлөмж' : 'Information about women\'s rights, project reports, and leadership advice',
+      id: 'focus-magazine-02-22',
+      title: locale === 'mn' ? 'Focus сэтгүүл - 2022 оны 2-р дугаар' : 'Focus Magazine - Issue 2, 2022',
+      description: locale === 'mn' ? 'Эмэгтэйчүүдийн хөгжил, бизнес салбарын мэдээлэл, удирдлагын зөвлөмж' : 'Women\'s development, business sector information, and leadership advice',
       author: locale === 'mn' ? 'Дархан-Уул аймгийн эмэгтэйчүүдийн холбоо' : 'Darkhan-Uul Women\'s Federation',
-      date: '2024-01',
-      pdfUrl: '/magazines/magazine-1.pdf', // Placeholder - replace with actual PDF
-      coverImage: '/images/magazine-cover-1.jpg' // Optional cover image
+      date: '2022-02',
+      pdfUrl: '/magazines/Focus_02.22.pdf',
+      coverImage: '/magazines/Focus_magazine_02-22.png'
     },
     {
-      id: 'magazine-2',
-      title: locale === 'mn' ? 'Эмэгтэйчүүдийн холбооны сэтгүүл - 2024 оны 2-р дугаар' : 'Women\'s Federation Magazine - Issue 2, 2024',
-      description: locale === 'mn' ? 'Хөтөлбөрүүдийн амжилт, гишүүдийн түүх, ирээдүйн төлөвлөгөө' : 'Program successes, member stories, and future plans',
+      id: 'powerful-women-2024',
+      title: locale === 'mn' ? 'Хүчирхэг эмэгтэйчүүд - 2024 оны сэтгүүл' : 'Powerful Women - 2024 Magazine',
+      description: locale === 'mn' ? 'Хүчирхэг эмэгтэйчүүдийн түүх, амжилт, удирдлагын туршлага' : 'Stories of powerful women, their successes, and leadership experiences',
       author: locale === 'mn' ? 'Дархан-Уул аймгийн эмэгтэйчүүдийн холбоо' : 'Darkhan-Uul Women\'s Federation',
-      date: '2024-02',
-      pdfUrl: '/magazines/magazine-2.pdf', // Placeholder - replace with actual PDF
-      coverImage: '/images/magazine-cover-2.jpg' // Optional cover image
+      date: '2024',
+      pdfUrl: '/magazines/huchirheg emegteichuud 2024 setguul.pdf',
+      coverImage: '/magazines/Хүчирхэг_эмэгтэйчүүд_2024_сэтгүүл_preview.png'
     }
   ];
 
@@ -66,32 +66,30 @@ export default function Magazines({ locale }: MagazinesProps) {
             {magazines.map((magazine) => (
               <Card key={magazine.id} className="overflow-hidden rounded-2xl shadow-lg border-0 hover:-translate-y-1 transition-transform h-full flex flex-col cursor-pointer">
                 {/* Magazine Cover Preview */}
-                <div className="aspect-[16/9] relative overflow-hidden bg-gradient-to-br from-brand-50 to-white">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-32 h-40 bg-white rounded-lg shadow-lg mx-auto mb-4 flex items-center justify-center border-2 border-brand-200">
-                        {magazine.coverImage ? (
-                          <img 
-                            src={magazine.coverImage} 
-                            alt={magazine.title}
-                            className="w-full h-full object-cover rounded-lg"
-                            onError={(e) => {
-                              // Fallback to PDF icon if image fails to load
-                              e.currentTarget.style.display = 'none';
-                              e.currentTarget.nextElementSibling.style.display = 'flex';
-                            }}
-                          />
-                        ) : null}
-                        <div className={`${magazine.coverImage ? 'hidden' : 'flex'} flex-col items-center justify-center text-brand-400`}>
-                          <FileText className="w-12 h-12 mb-2" />
-                          <span className="text-xs font-medium">PDF</span>
-                        </div>
-                      </div>
-                      <Badge variant="secondary" className="text-xs bg-brand-100 text-brand-700">
-                        <FileText className="w-3 h-3 mr-1" />
-                        {locale === 'mn' ? 'Сэтгүүл' : 'Magazine'}
-                      </Badge>
-                    </div>
+                <div className="aspect-[3/4] relative overflow-hidden bg-gradient-to-br from-brand-50 to-white">
+                  {magazine.coverImage ? (
+                    <img 
+                      src={magazine.coverImage} 
+                      alt={magazine.title}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        // Fallback to PDF icon if image fails to load
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.nextElementSibling.style.display = 'flex';
+                      }}
+                    />
+                  ) : null}
+                  <div className={`${magazine.coverImage ? 'hidden' : 'flex'} absolute inset-0 flex-col items-center justify-center text-brand-400`}>
+                    <FileText className="w-16 h-16 mb-4" />
+                    <span className="text-lg font-medium">PDF</span>
+                  </div>
+                  
+                  {/* Badge overlay */}
+                  <div className="absolute top-4 left-4">
+                    <Badge variant="secondary" className="text-xs bg-white/90 text-brand-700 shadow-lg">
+                      <FileText className="w-3 h-3 mr-1" />
+                      {locale === 'mn' ? 'Сэтгүүл' : 'Magazine'}
+                    </Badge>
                   </div>
                   
                   {/* Hover overlay */}
@@ -139,7 +137,7 @@ export default function Magazines({ locale }: MagazinesProps) {
                           link.download = magazine.title;
                           link.click();
                         }}
-                        className="px-6 py-3 rounded-xl border-2 border-brand-200 hover:bg-brand-50 transition-all duration-300"
+                        className="px-6 py-3 rounded-xl border-2 border-brand-200 hover:bg-brand-50 transition-all duration-300 h-14"
                       >
                         <Download className="w-4 h-4" />
                       </Button>

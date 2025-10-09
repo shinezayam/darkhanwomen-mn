@@ -48,6 +48,10 @@ export default function Header() {
       href: `/${locale}/news`,
     },
     {
+      name: locale === 'mn' ? 'Сэтгүүлүүд' : 'Magazines',
+      href: `/${locale}/resources`,
+    },
+    {
       name: locale === 'mn' ? 'Оролцох' : 'Get Involved',
       href: `/${locale}/get-involved`,
     },
