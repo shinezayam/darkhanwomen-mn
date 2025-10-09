@@ -34,22 +34,34 @@ function PartnerApplyContent() {
 
   const [formData, setFormData] = useState({
     organizationName: '',
-    contactPerson: '',
-    email: '',
+    activityDirection: '',
+    managementName: '',
+    womenCouncilChairman: '',
+    position: '',
+    yearsWorked: '',
+    womenCouncilGoal: '',
+    womenCouncilMembers: '',
+    womenCouncilLeaders: '',
     phone: '',
     address: '',
-    website: '',
-    partnershipType: type || 'program-partnership',
-    budget: '',
-    timeline: '',
-    description: ''
+    totalEmployees: '',
+    totalFemale: '',
+    totalMale: '',
+    managementFemale: '',
+    managementMale: '',
+    householdHeadsFemale: '',
+    householdHeadsMale: '',
+    disabledFemale: '',
+    disabledMale: '',
+    collaborationProposal: '',
+    supportProposal: ''
   });
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     // Handle form submission
-    alert(locale === 'mn' ? 'Хүсэлт амжилттай илгээгдлээ!' : 'Application submitted successfully!');
+    alert(locale === 'mn' ? 'Гишүүн байгууллага болох анкет амжилттай илгээгдлээ!' : 'Member organization application submitted successfully!');
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -59,41 +71,13 @@ function PartnerApplyContent() {
     });
   };
 
-  const handlePartnershipTypeChange = (newType: string) => {
-    setFormData({
-      ...formData,
-      partnershipType: newType
-    });
-  };
 
   const getTypeInfo = () => {
-    const currentType = formData.partnershipType;
-    switch (currentType) {
-      case 'program-partnership':
-        return {
-          title: locale === 'mn' ? 'Хөтөлбөрийн хамтрал - Бүртгүүлэх' : 'Program Partnership - Apply',
-          icon: Handshake,
-          color: 'from-purple-500 to-indigo-500'
-        };
-      case 'resource-partnership':
-        return {
-          title: locale === 'mn' ? 'Нөөцийн хамтрал - Бүртгүүлэх' : 'Resource Partnership - Apply',
-          icon: Handshake,
-          color: 'from-indigo-500 to-indigo-600'
-        };
-      case 'corporate-partnership':
-        return {
-          title: locale === 'mn' ? 'Корпорацийн хамтрал - Бүртгүүлэх' : 'Corporate Partnership - Apply',
-          icon: Handshake,
-          color: 'from-green-500 to-green-600'
-        };
-      default:
-        return {
-          title: locale === 'mn' ? 'Хамтрал - Бүртгүүлэх' : 'Partnership - Apply',
-          icon: Handshake,
-          color: 'from-purple-500 to-indigo-500'
-        };
-    }
+    return {
+      title: locale === 'mn' ? 'Гишүүн байгууллага болох анкет' : 'Member Organization Application Form',
+      icon: Building2,
+      color: 'from-purple-500 to-indigo-500'
+    };
   };
 
   const typeInfo = getTypeInfo();
@@ -127,8 +111,8 @@ function PartnerApplyContent() {
             <div className="text-center mb-16 pt-16">
               {/* Enhanced Badge */}
               <div className="inline-flex items-center space-x-2 bg-brand-500 text-white px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-xl border border-brand-500/20">
-                <Handshake className="w-5 h-5" />
-                <span className="tracking-wide">{locale === 'mn' ? 'Хамтрал' : 'Partnership'}</span>
+                <Building2 className="w-5 h-5" />
+                <span className="tracking-wide">{locale === 'mn' ? 'Гишүүн байгууллага' : 'Member Organization'}</span>
                 <Star className="w-4 h-4" />
               </div>
               
@@ -139,7 +123,7 @@ function PartnerApplyContent() {
               
               {/* Enhanced Subtitle */}
               <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
-                {locale === 'mn' ? 'Манай байгууллагатай хамтрах хүсэлт илгээх' : 'Submit a partnership request with our organization'}
+                {locale === 'mn' ? 'Дархан-Уул аймгийн эмэгтэйчүүдийн холбооны гишүүн байгууллага болох хүсэлт' : 'Application to become a member organization of Darkhan-Uul Women\'s Federation'}
               </p>
 
               {/* Impact Counter */}
@@ -182,72 +166,15 @@ function PartnerApplyContent() {
                 </CardHeader>
                 <CardContent className="space-y-6 sm:space-y-8">
                   <form onSubmit={handleFormSubmit} className="space-y-6 sm:space-y-8">
-                    {/* Enhanced Partnership Type Selection */}
+                    {/* General Information Section */}
                     <div>
                       <label className="block text-lg font-semibold text-gray-800 mb-4">
-                        {locale === 'mn' ? 'Хамтрал төрлүүд' : 'Partnership Types'}
-                      </label>
-                      <div className="grid grid-cols-1 gap-3 sm:gap-4">
-                        <button 
-                          type="button"
-                          onClick={() => handlePartnershipTypeChange('program-partnership')}
-                          className={`p-4 sm:p-6 border-2 rounded-2xl transition-all duration-300 text-center group ${
-                            formData.partnershipType === 'program-partnership' 
-                              ? 'border-brand-500 bg-brand-50 shadow-lg' 
-                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50'
-                          }`}
-                        >
-                          <div className={`font-bold text-lg ${formData.partnershipType === 'program-partnership' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
-                            {locale === 'mn' ? 'Хөтөлбөрийн хамтрал' : 'Program Partnership'}
-                          </div>
-                          <div className={`text-sm mt-1 ${formData.partnershipType === 'program-partnership' ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
-                            {locale === 'mn' ? 'Хөтөлбөр хамтран хэрэгжүүлэх' : 'Collaborate on program implementation'}
-                          </div>
-                        </button>
-                        <button 
-                          type="button"
-                          onClick={() => handlePartnershipTypeChange('resource-partnership')}
-                          className={`p-4 sm:p-6 border-2 rounded-2xl transition-all duration-300 text-center group ${
-                            formData.partnershipType === 'resource-partnership' 
-                              ? 'border-brand-500 bg-brand-50 shadow-lg' 
-                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50'
-                          }`}
-                        >
-                          <div className={`font-bold text-lg ${formData.partnershipType === 'resource-partnership' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
-                            {locale === 'mn' ? 'Нөөцийн хамтрал' : 'Resource Partnership'}
-                          </div>
-                          <div className={`text-sm mt-1 ${formData.partnershipType === 'resource-partnership' ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
-                            {locale === 'mn' ? 'Нөөц, хөрөнгө оруулалт' : 'Resource and investment partnership'}
-                          </div>
-                        </button>
-                        <button 
-                          type="button"
-                          onClick={() => handlePartnershipTypeChange('corporate-partnership')}
-                          className={`p-4 sm:p-6 border-2 rounded-2xl transition-all duration-300 text-center group ${
-                            formData.partnershipType === 'corporate-partnership' 
-                              ? 'border-brand-500 bg-brand-50 shadow-lg' 
-                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50'
-                          }`}
-                        >
-                          <div className={`font-bold text-lg ${formData.partnershipType === 'corporate-partnership' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
-                            {locale === 'mn' ? 'Корпорацийн хамтрал' : 'Corporate Partnership'}
-                          </div>
-                          <div className={`text-sm mt-1 ${formData.partnershipType === 'corporate-partnership' ? 'text-brand-500' : 'text-gray-500 group-hover:text-brand-500'}`}>
-                            {locale === 'mn' ? 'Корпорацийн хамтрал, CSR' : 'Corporate partnership and CSR'}
-                          </div>
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Enhanced Organization Information */}
-                    <div>
-                      <label className="block text-lg font-semibold text-gray-800 mb-4">
-                        {locale === 'mn' ? 'Байгууллагын мэдээлэл' : 'Organization Information'}
+                        {locale === 'mn' ? '1. ЕРӨНХИЙ МЭДЭЭЛЭЛ' : '1. GENERAL INFORMATION'}
                       </label>
                       <div className="grid grid-cols-1 gap-4 sm:gap-6">
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
-                            {locale === 'mn' ? 'Байгууллагын нэр *' : 'Organization Name *'}
+                            {locale === 'mn' ? '1. Байгууллагын нэр *' : '1. Organization Name *'}
                           </label>
                           <div className="relative">
                             <Building2 className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -264,44 +191,120 @@ function PartnerApplyContent() {
                         </div>
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
-                            {locale === 'mn' ? 'Холбоо барих хүн *' : 'Contact Person *'}
+                            {locale === 'mn' ? '2. Үйл ажиллагааны чиглэл *' : '2. Activity Direction *'}
+                          </label>
+                          <div className="relative">
+                            <Target className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                            <input
+                              type="text"
+                              name="activityDirection"
+                              value={formData.activityDirection}
+                              onChange={handleInputChange}
+                              required
+                              className="w-full pl-12 pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
+                              placeholder={locale === 'mn' ? 'Үйл ажиллагааны чиглэлээ оруулна уу' : 'Enter activity direction'}
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            {locale === 'mn' ? '3. Байгууллагын удирдлагын овог нэр *' : '3. Management Name *'}
                           </label>
                           <div className="relative">
                             <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                             <input
                               type="text"
-                              name="contactPerson"
-                              value={formData.contactPerson}
+                              name="managementName"
+                              value={formData.managementName}
                               onChange={handleInputChange}
                               required
                               className="w-full pl-12 pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
-                              placeholder={locale === 'mn' ? 'Холбоо барих хүний нэр' : 'Enter contact person name'}
+                              placeholder={locale === 'mn' ? 'Удирдлагын овог нэр' : 'Enter management name'}
                             />
                           </div>
                         </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 gap-6 mt-6">
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
-                            {locale === 'mn' ? 'И-мэйл *' : 'Email *'}
+                            {locale === 'mn' ? '4. Эмэгтэйчүүдийн зөвлөлийн даргын овог, нэр *' : '4. Women\'s Council Chairman Name *'}
                           </label>
                           <div className="relative">
-                            <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                            <Users className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                             <input
-                              type="email"
-                              name="email"
-                              value={formData.email}
+                              type="text"
+                              name="womenCouncilChairman"
+                              value={formData.womenCouncilChairman}
                               onChange={handleInputChange}
                               required
                               className="w-full pl-12 pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
-                              placeholder={locale === 'mn' ? 'И-мэйл хаягаа оруулна уу' : 'Enter your email'}
+                              placeholder={locale === 'mn' ? 'Зөвлөлийн даргын овог нэр' : 'Enter chairman name'}
                             />
                           </div>
                         </div>
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
-                            {locale === 'mn' ? 'Утасны дугаар *' : 'Phone Number *'}
+                            {locale === 'mn' ? '5. Албан тушаал *' : '5. Position *'}
+                          </label>
+                          <div className="relative">
+                            <Award className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                            <input
+                              type="text"
+                              name="position"
+                              value={formData.position}
+                              onChange={handleInputChange}
+                              required
+                              className="w-full pl-12 pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
+                              placeholder={locale === 'mn' ? 'Албан тушаал' : 'Enter position'}
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            {locale === 'mn' ? '6. Ажилласан жил *' : '6. Years Worked *'}
+                          </label>
+                          <div className="relative">
+                            <Star className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                            <input
+                              type="number"
+                              name="yearsWorked"
+                              value={formData.yearsWorked}
+                              onChange={handleInputChange}
+                              required
+                              className="w-full pl-12 pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
+                              placeholder={locale === 'mn' ? 'Ажилласан жил' : 'Enter years worked'}
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            {locale === 'mn' ? '7. Байгууллагын эмэгтэйчүүдийн зөвлөлийн зорилго *' : '7. Women\'s Council Goal *'}
+                          </label>
+                          <textarea
+                            name="womenCouncilGoal"
+                            value={formData.womenCouncilGoal}
+                            onChange={handleInputChange}
+                            required
+                            rows={3}
+                            className="w-full px-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
+                            placeholder={locale === 'mn' ? 'Зөвлөлийн зорилго' : 'Enter council goal'}
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            {locale === 'mn' ? '8. Эмэгтэйчүүдийн зөвлөлийн бүрэлдэхүүн, тэргүүлэгч гишүүн *' : '8. Women\'s Council Members and Leaders *'}
+                          </label>
+                          <textarea
+                            name="womenCouncilMembers"
+                            value={formData.womenCouncilMembers}
+                            onChange={handleInputChange}
+                            required
+                            rows={3}
+                            className="w-full px-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
+                            placeholder={locale === 'mn' ? 'Зөвлөлийн гишүүд, тэргүүлэгчид' : 'Enter council members and leaders'}
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            {locale === 'mn' ? '13. Холбогдох утасны дугаар *' : '13. Contact Phone Number *'}
                           </label>
                           <div className="relative">
                             <Phone className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -312,16 +315,13 @@ function PartnerApplyContent() {
                               onChange={handleInputChange}
                               required
                               className="w-full pl-12 pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
-                              placeholder={locale === 'mn' ? 'Утасны дугаараа оруулна уу' : 'Enter your phone number'}
+                              placeholder={locale === 'mn' ? 'Утасны дугаар' : 'Enter phone number'}
                             />
                           </div>
                         </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 gap-6 mt-6">
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
-                            {locale === 'mn' ? 'Хаяг' : 'Address'}
+                            {locale === 'mn' ? '14. Байгууллагын хаяг *' : '14. Organization Address *'}
                           </label>
                           <div className="relative">
                             <MapPin className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -330,128 +330,157 @@ function PartnerApplyContent() {
                               name="address"
                               value={formData.address}
                               onChange={handleInputChange}
+                              required
                               className="w-full pl-12 pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
-                              placeholder={locale === 'mn' ? 'Хаягаа оруулна уу' : 'Enter your address'}
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <label className="block text-sm font-semibold text-gray-700 mb-2">
-                            {locale === 'mn' ? 'Веб сайт' : 'Website'}
-                          </label>
-                          <div className="relative">
-                            <Globe className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                            <input
-                              type="url"
-                              name="website"
-                              value={formData.website}
-                              onChange={handleInputChange}
-                              className="w-full pl-12 pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
-                              placeholder={locale === 'mn' ? 'Веб сайтын хаяг' : 'Enter website URL'}
+                              placeholder={locale === 'mn' ? 'Байгууллагын хаяг' : 'Enter organization address'}
                             />
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    {/* Enhanced Timeline Selection */}
+                    {/* Statistical Data Section */}
                     <div>
                       <label className="block text-lg font-semibold text-gray-800 mb-4">
-                        {locale === 'mn' ? 'Хугацаа' : 'Timeline'}
+                        {locale === 'mn' ? '15. ТООН МЭДЭЭЛЭЛ' : '15. STATISTICAL DATA'}
                       </label>
-                      <div className="grid grid-cols-2 gap-4">
-                        <button 
-                          type="button"
-                          onClick={() => setFormData({...formData, timeline: '3-months'})}
-                          className={`p-4 border-2 rounded-2xl transition-all duration-300 text-center group ${
-                            formData.timeline === '3-months' 
-                              ? 'border-brand-500 bg-brand-50 shadow-lg scale-105' 
-                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50 hover:scale-105'
-                          }`}
-                        >
-                          <div className={`font-bold ${formData.timeline === '3-months' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
-                            {locale === 'mn' ? '3 сар' : '3 months'}
-                          </div>
-                        </button>
-                        <button 
-                          type="button"
-                          onClick={() => setFormData({...formData, timeline: '6-months'})}
-                          className={`p-4 border-2 rounded-2xl transition-all duration-300 text-center group ${
-                            formData.timeline === '6-months' 
-                              ? 'border-brand-500 bg-brand-50 shadow-lg scale-105' 
-                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50 hover:scale-105'
-                          }`}
-                        >
-                          <div className={`font-bold ${formData.timeline === '6-months' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
-                            {locale === 'mn' ? '6 сар' : '6 months'}
-                          </div>
-                        </button>
-                        <button 
-                          type="button"
-                          onClick={() => setFormData({...formData, timeline: '1-year'})}
-                          className={`p-4 border-2 rounded-2xl transition-all duration-300 text-center group ${
-                            formData.timeline === '1-year' 
-                              ? 'border-brand-500 bg-brand-50 shadow-lg scale-105' 
-                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50 hover:scale-105'
-                          }`}
-                        >
-                          <div className={`font-bold ${formData.timeline === '1-year' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
-                            {locale === 'mn' ? '1 жил' : '1 year'}
-                          </div>
-                        </button>
-                        <button 
-                          type="button"
-                          onClick={() => setFormData({...formData, timeline: 'long-term'})}
-                          className={`p-4 border-2 rounded-2xl transition-all duration-300 text-center group ${
-                            formData.timeline === 'long-term' 
-                              ? 'border-brand-500 bg-brand-50 shadow-lg scale-105' 
-                              : 'border-gray-200 hover:border-brand-500 hover:bg-brand-50 hover:scale-105'
-                          }`}
-                        >
-                          <div className={`font-bold ${formData.timeline === 'long-term' ? 'text-pink-700' : 'text-gray-900 group-hover:text-pink-700'}`}>
-                            {locale === 'mn' ? 'Урт хугацаа' : 'Long-term'}
-                          </div>
-                        </button>
+                      <div className="overflow-x-auto">
+                        <table className="w-full border-collapse border border-gray-300 rounded-lg">
+                          <thead>
+                            <tr className="bg-gray-50">
+                              <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-700">№</th>
+                              <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-700">{locale === 'mn' ? 'Асуумж' : 'Question'}</th>
+                              <th className="border border-gray-300 px-4 py-3 text-center font-semibold text-gray-700">{locale === 'mn' ? 'Эмэгтэй' : 'Female'}</th>
+                              <th className="border border-gray-300 px-4 py-3 text-center font-semibold text-gray-700">{locale === 'mn' ? 'Эрэгтэй' : 'Male'}</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td className="border border-gray-300 px-4 py-3 text-center font-semibold">1</td>
+                              <td className="border border-gray-300 px-4 py-3">{locale === 'mn' ? 'Нийт' : 'Total'}</td>
+                              <td className="border border-gray-300 px-4 py-3">
+                                <input
+                                  type="number"
+                                  name="totalFemale"
+                                  value={formData.totalFemale}
+                                  onChange={handleInputChange}
+                                  className="w-full px-2 py-1 border border-gray-200 rounded text-center"
+                                />
+                              </td>
+                              <td className="border border-gray-300 px-4 py-3">
+                                <input
+                                  type="number"
+                                  name="totalMale"
+                                  value={formData.totalMale}
+                                  onChange={handleInputChange}
+                                  className="w-full px-2 py-1 border border-gray-200 rounded text-center"
+                                />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td className="border border-gray-300 px-4 py-3 text-center font-semibold">2</td>
+                              <td className="border border-gray-300 px-4 py-3">{locale === 'mn' ? 'Удирдлага /алба, хэлтэс, газрын дарга буюу түүнээс дээш/' : 'Management /Department, Division, Director or above/'}</td>
+                              <td className="border border-gray-300 px-4 py-3">
+                                <input
+                                  type="number"
+                                  name="managementFemale"
+                                  value={formData.managementFemale}
+                                  onChange={handleInputChange}
+                                  className="w-full px-2 py-1 border border-gray-200 rounded text-center"
+                                />
+                              </td>
+                              <td className="border border-gray-300 px-4 py-3">
+                                <input
+                                  type="number"
+                                  name="managementMale"
+                                  value={formData.managementMale}
+                                  onChange={handleInputChange}
+                                  className="w-full px-2 py-1 border border-gray-200 rounded text-center"
+                                />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td className="border border-gray-300 px-4 py-3 text-center font-semibold">3</td>
+                              <td className="border border-gray-300 px-4 py-3">{locale === 'mn' ? 'Өрх толгойлсон' : 'Household Heads'}</td>
+                              <td className="border border-gray-300 px-4 py-3">
+                                <input
+                                  type="number"
+                                  name="householdHeadsFemale"
+                                  value={formData.householdHeadsFemale}
+                                  onChange={handleInputChange}
+                                  className="w-full px-2 py-1 border border-gray-200 rounded text-center"
+                                />
+                              </td>
+                              <td className="border border-gray-300 px-4 py-3">
+                                <input
+                                  type="number"
+                                  name="householdHeadsMale"
+                                  value={formData.householdHeadsMale}
+                                  onChange={handleInputChange}
+                                  className="w-full px-2 py-1 border border-gray-200 rounded text-center"
+                                />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td className="border border-gray-300 px-4 py-3 text-center font-semibold">4</td>
+                              <td className="border border-gray-300 px-4 py-3">{locale === 'mn' ? 'Хөгжлийн бэрхшээлтэй' : 'With Disabilities'}</td>
+                              <td className="border border-gray-300 px-4 py-3">
+                                <input
+                                  type="number"
+                                  name="disabledFemale"
+                                  value={formData.disabledFemale}
+                                  onChange={handleInputChange}
+                                  className="w-full px-2 py-1 border border-gray-200 rounded text-center"
+                                />
+                              </td>
+                              <td className="border border-gray-300 px-4 py-3">
+                                <input
+                                  type="number"
+                                  name="disabledMale"
+                                  value={formData.disabledMale}
+                                  onChange={handleInputChange}
+                                  className="w-full px-2 py-1 border border-gray-200 rounded text-center"
+                                />
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </div>
 
-                    {/* Enhanced Budget Input */}
+                    {/* Collaboration Proposals */}
                     <div>
                       <label className="block text-lg font-semibold text-gray-800 mb-4">
-                        {locale === 'mn' ? 'Төсөв' : 'Budget'}
-                      </label>
-                      <div className="relative">
-                        <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 font-bold text-lg">₮</span>
-                        <input
-                          type="number"
-                          name="budget"
-                          value={formData.budget}
-                          onChange={handleInputChange}
-                          className="w-full pl-12 pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
-                          placeholder={locale === 'mn' ? 'Төсөв' : 'Enter budget amount'}
-                        />
-                      </div>
-                    </div>
-
-                    {/* Enhanced Partnership Description */}
-                    <div>
-                      <label className="block text-lg font-semibold text-gray-800 mb-4">
-                        {locale === 'mn' ? 'Хамтралын тухай дэлгэрэнгүй' : 'Partnership Description'}
+                        {locale === 'mn' ? '3. АЭХ-той хамтран ажиллах санал' : '3. Collaboration Proposal with Women\'s Federation'}
                       </label>
                       <textarea
-                        name="description"
-                        value={formData.description}
+                        name="collaborationProposal"
+                        value={formData.collaborationProposal}
                         onChange={handleInputChange}
                         rows={4}
                         className="w-full px-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
-                        placeholder={locale === 'mn' ? 'Хамтралын тухай дэлгэрэнгүй мэдээлэл' : 'Describe your partnership proposal'}
+                        placeholder={locale === 'mn' ? 'Хамтран ажиллах саналаа оруулна уу' : 'Enter your collaboration proposal'}
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-lg font-semibold text-gray-800 mb-4">
+                        {locale === 'mn' ? '4. Байгууллагын зүгээс дэмжин ажиллах санал' : '4. Organization\'s Support Proposal'}
+                      </label>
+                      <textarea
+                        name="supportProposal"
+                        value={formData.supportProposal}
+                        onChange={handleInputChange}
+                        rows={4}
+                        className="w-full px-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200"
+                        placeholder={locale === 'mn' ? 'Дэмжлэг үзүүлэх саналаа оруулна уу' : 'Enter your support proposal'}
                       />
                     </div>
 
                     {/* Enhanced Submit Button */}
                     <Button className="w-full bg-brand-500 hover:bg-brand-600 text-white text-xl py-6 rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group">
-                      <Handshake className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform duration-200" />
-                      {locale === 'mn' ? 'Хүсэлт илгээх' : 'Submit Request'}
+                      <Building2 className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform duration-200" />
+                      {locale === 'mn' ? 'Анкет илгээх' : 'Submit Application'}
                       <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform duration-200" />
                     </Button>
                   </form>
