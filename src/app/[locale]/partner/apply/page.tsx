@@ -74,7 +74,7 @@ function PartnerApplyContent() {
 
   const getTypeInfo = () => {
     return {
-      title: locale === 'mn' ? 'Гишүүн байгууллага болох анкет' : 'Member Organization Application Form',
+      title: locale === 'mn' ? 'Гишүүн байгууллага болох' : 'Become a Member Organization',
       icon: Building2,
       color: 'from-purple-500 to-indigo-500'
     };
