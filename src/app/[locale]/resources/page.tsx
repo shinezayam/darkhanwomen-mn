@@ -175,7 +175,48 @@ export default function ResourcesPage() {
             {/* Magazine Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
               {magazines.map((magazine) => (
-                <Card key={magazine.id} className="card-modern overflow-hidden hover:shadow-xl transition-all duration-300">
+                <Card key={magazine.id} className="card-modern overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                  {/* Magazine Cover Preview */}
+                  <div className="relative h-64 bg-gradient-to-br from-purple-100 to-pink-100 overflow-hidden">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="w-32 h-40 bg-white rounded-lg shadow-lg mx-auto mb-4 flex items-center justify-center border-2 border-purple-200">
+                          {magazine.coverImage ? (
+                            <img 
+                              src={magazine.coverImage} 
+                              alt={magazine.title}
+                              className="w-full h-full object-cover rounded-lg"
+                              onError={(e) => {
+                                // Fallback to PDF icon if image fails to load
+                                e.currentTarget.style.display = 'none';
+                                e.currentTarget.nextElementSibling.style.display = 'flex';
+                              }}
+                            />
+                          ) : null}
+                          <div className={`${magazine.coverImage ? 'hidden' : 'flex'} flex-col items-center justify-center text-purple-400`}>
+                            <FileText className="w-12 h-12 mb-2" />
+                            <span className="text-xs font-medium">PDF</span>
+                          </div>
+                        </div>
+                        <Badge variant="secondary" className="text-xs">
+                          <FileText className="w-3 h-3 mr-1" />
+                          {locale === 'mn' ? 'Сэтгүүл' : 'Magazine'}
+                        </Badge>
+                      </div>
+                    </div>
+                    
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <Button
+                        onClick={() => setSelectedMagazine(magazine.id)}
+                        className="bg-white/90 hover:bg-white text-purple-600 font-bold px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105"
+                      >
+                        <Eye className="w-4 h-4 mr-2" />
+                        {locale === 'mn' ? 'Унших' : 'Read'}
+                      </Button>
+                    </div>
+                  </div>
+
                   <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
@@ -191,10 +232,6 @@ export default function ResourcesPage() {
                           <span>{magazine.date}</span>
                         </div>
                       </div>
-                      <Badge variant="secondary" className="text-xs">
-                        <FileText className="w-3 h-3 mr-1" />
-                        PDF
-                      </Badge>
                     </div>
                   </CardHeader>
                   

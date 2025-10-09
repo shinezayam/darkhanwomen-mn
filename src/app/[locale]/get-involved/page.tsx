@@ -388,63 +388,91 @@ export default function GetInvolvedPage() {
             <div className="mb-20">
               <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold text-gray-900 mb-4 font-display">
-                  {locale === 'mn' ? 'Оролцооны давуу тал' : 'Benefits of Getting Involved'}
+                  {locale === 'mn' ? 'ГИШҮҮН БАЙГУУЛЛАГА БОЛОХЫН ДАВУУ ТАЛУУД' : 'ADVANTAGES OF BECOMING A MEMBER ORGANIZATION'}
                 </h2>
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                   {locale === 'mn'
-                    ? 'Бидэнтэй нэгдэхэд олж авах давуу талууд'
-                    : 'Benefits you\'ll gain by joining our mission'
+                    ? 'Манай холбооны гишүүн байгууллага болох давуу талууд'
+                    : 'Advantages of becoming a member organization of our federation'
                   }
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
-                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg">
-                    <Heart className="w-10 h-10 text-white" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
+                      <Users className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-3 font-display">
+                        {locale === 'mn' ? 'Хүүхэд, эмэгтэйчүүдийг хөгжүүлэх үйлсэд хамтрах' : 'Collaborate in children and women development'}
+                      </h4>
+                      <p className="text-gray-600 leading-relaxed">
+                        {locale === 'mn' 
+                          ? 'Хүүхэд, эмэгтэйчүүдийн нийтлэг эрх ашгийг хөндсөн нийгмийн асуудлууд дээр нэгдэж, хамтарч ажиллах боломжтой.'
+                          : 'Opportunity to unite and collaborate on social issues affecting the common rights and interests of children and women.'
+                        }
+                      </p>
+                    </div>
                   </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-3 font-display">
-                    {locale === 'mn' ? 'Сэтгэл ханамж' : 'Satisfaction'}
-                  </h4>
-                  <p className="text-gray-600 leading-relaxed">
-                    {locale === 'mn' ? 'Бусдад туслах сэтгэл ханамж' : 'Satisfaction of helping others'}
-                  </p>
                 </div>
                 
-                <div className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
-                  <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg">
-                    <Users className="w-10 h-10 text-white" />
+                <div className="p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
+                      <Heart className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-3 font-display">
+                        {locale === 'mn' ? 'Хүүхэд, эмэгтэйчүүдийг хамгаалах үйлсэд нэгдэх' : 'Join in protecting children and women'}
+                      </h4>
+                      <p className="text-gray-600 leading-relaxed">
+                        {locale === 'mn' 
+                          ? 'Хүүхэд, эмэгтэйчүүдийн эрхийг хамгаалах, хүчирхийллээс урьдчилан сэргийлэх, аюулгүй орчин бүрдүүлэхэд чиглэсэн үйл ажиллагаанд хамтарч ажиллах боломжтой.'
+                          : 'Opportunity to collaborate in activities aimed at protecting the rights of children and women, preventing violence, and creating a safe environment.'
+                        }
+                      </p>
+                    </div>
                   </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-3 font-display">
-                    {locale === 'mn' ? 'Танилын хүрээ' : 'Networking'}
-                  </h4>
-                  <p className="text-gray-600 leading-relaxed">
-                    {locale === 'mn' ? 'Шинэ хүмүүстэй танилцах' : 'Meet new people'}
-                  </p>
                 </div>
                 
-                <div className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
-                  <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg">
-                    <Award className="w-10 h-10 text-white" />
+                <div className="p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
+                      <Target className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-3 font-display">
+                        {locale === 'mn' ? 'Нийгмийн сайн сайхны төлөө оролцоо' : 'Contribute to social welfare'}
+                      </h4>
+                      <p className="text-gray-600 leading-relaxed">
+                        {locale === 'mn' 
+                          ? 'Дархан-Уул аймгийн Эмэгтэйчүүдийн холбоо нь эмэгтэйчүүдийн манлайллыг дэмжих, нийгмийн тэгш байдлыг хангах, хүүхэд, эмэгтэйчүүдийн эрхийг хамгаалах олон талт үйл ажиллагаа явуулдаг.'
+                          : 'The Darkhan-Uul Women\'s Federation conducts multifaceted activities to support women\'s leadership, ensure social equality, and protect the rights of children and women.'
+                        }
+                      </p>
+                    </div>
                   </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-3 font-display">
-                    {locale === 'mn' ? 'Ур чадвар' : 'Skills'}
-                  </h4>
-                  <p className="text-gray-600 leading-relaxed">
-                    {locale === 'mn' ? 'Шинэ ур чадвар эзэмших' : 'Learn new skills'}
-                  </p>
                 </div>
                 
-                <div className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
-                  <div className="w-20 h-20 bg-gradient-to-br from-pink-500 to-pink-600 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg">
-                    <Target className="w-10 h-10 text-white" />
+                <div className="p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
+                      <Award className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-3 font-display">
+                        {locale === 'mn' ? 'Харилцан суралцан хамтран ажиллах' : 'Mutual learning and collaboration'}
+                      </h4>
+                      <p className="text-gray-600 leading-relaxed">
+                        {locale === 'mn' 
+                          ? 'Эмэгтэйчүүдийн холбооноос гэр бүл, сэтгэл зүй, цахим аюулгүй байдал, эрх зүйн мэдлэгийн чиглэлээр зохион байгуулдаг сургалтуудад гишүүн байгууллагын ажилтан, албан хаагчид үнэ төлбөргүй хамрагдах боломжтой.'
+                          : 'Member organization staff and officials can participate free of charge in training programs organized by the Women\'s Federation in the fields of family, psychology, cybersecurity, and legal knowledge.'
+                        }
+                      </p>
+                    </div>
                   </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-3 font-display">
-                    {locale === 'mn' ? 'Зорилго' : 'Purpose'}
-                  </h4>
-                  <p className="text-gray-600 leading-relaxed">
-                    {locale === 'mn' ? 'Амьдралын зорилго олох' : 'Find life purpose'}
-                  </p>
                 </div>
               </div>
             </div>

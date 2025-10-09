@@ -576,44 +576,70 @@ function PartnerApplyContent() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
-                    <div className="flex items-center space-x-4 p-4 bg-gradient-to-br from-white/70 to-purple-50/30 rounded-2xl border border-white/50">
-                      <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center">
-                        <Star className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900">
-                          {locale === 'mn' ? 'Бизнесийн хөгжил' : 'Business Growth'}
-                        </h4>
-                        <p className="text-gray-600 text-sm">
-                          {locale === 'mn' ? 'Бизнесийн хөгжилд хувь нэмэр оруулах' : 'Contribute to business growth'}
-                        </p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center space-x-4 p-4 bg-gradient-to-br from-white/70 to-purple-50/30 rounded-2xl border border-white/50">
-                      <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center">
+                    <div className="flex items-start space-x-4 p-4 bg-gradient-to-br from-white/70 to-purple-50/30 rounded-2xl border border-white/50">
+                      <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
                         <Users className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-900">
-                          {locale === 'mn' ? 'Шинэ сүлжээ' : 'New Network'}
+                        <h4 className="font-semibold text-gray-900 mb-2">
+                          {locale === 'mn' ? 'Хүүхэд, эмэгтэйчүүдийг хөгжүүлэх үйлсэд хамтрах' : 'Collaborate in children and women development'}
                         </h4>
                         <p className="text-gray-600 text-sm">
-                          {locale === 'mn' ? 'Шинэ гишүүн байгууллага, сүлжээтэй танилцах' : 'Connect with new member organizations and networks'}
+                          {locale === 'mn' 
+                            ? 'Хүүхэд, эмэгтэйчүүдийн нийтлэг эрх ашгийг хөндсөн нийгмийн асуудлууд дээр нэгдэж, хамтарч ажиллах боломжтой.'
+                            : 'Opportunity to unite and collaborate on social issues affecting the common rights and interests of children and women.'
+                          }
                         </p>
                       </div>
                     </div>
                     
-                    <div className="flex items-center space-x-4 p-4 bg-gradient-to-br from-white/70 to-purple-50/30 rounded-2xl border border-white/50">
-                      <div className="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center">
+                    <div className="flex items-start space-x-4 p-4 bg-gradient-to-br from-white/70 to-purple-50/30 rounded-2xl border border-white/50">
+                      <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
                         <Heart className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-900">
-                          {locale === 'mn' ? 'Сэтгэл ханамж' : 'Satisfaction'}
+                        <h4 className="font-semibold text-gray-900 mb-2">
+                          {locale === 'mn' ? 'Хүүхэд, эмэгтэйчүүдийг хамгаалах үйлсэд нэгдэх' : 'Join in protecting children and women'}
                         </h4>
                         <p className="text-gray-600 text-sm">
-                          {locale === 'mn' ? 'Нийгмийн сайн сайхныг бүтээх' : 'Create social good and satisfaction'}
+                          {locale === 'mn' 
+                            ? 'Хүүхэд, эмэгтэйчүүдийн эрхийг хамгаалах, хүчирхийллээс урьдчилан сэргийлэх, аюулгүй орчин бүрдүүлэхэд чиглэсэн үйл ажиллагаанд хамтарч ажиллах боломжтой.'
+                            : 'Opportunity to collaborate in activities aimed at protecting the rights of children and women, preventing violence, and creating a safe environment.'
+                          }
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start space-x-4 p-4 bg-gradient-to-br from-white/70 to-purple-50/30 rounded-2xl border border-white/50">
+                      <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <Target className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-2">
+                          {locale === 'mn' ? 'Нийгмийн сайн сайхны төлөө оролцоо' : 'Contribute to social welfare'}
+                        </h4>
+                        <p className="text-gray-600 text-sm">
+                          {locale === 'mn' 
+                            ? 'Дархан-Уул аймгийн Эмэгтэйчүүдийн холбоо нь эмэгтэйчүүдийн манлайллыг дэмжих, нийгмийн тэгш байдлыг хангах, хүүхэд, эмэгтэйчүүдийн эрхийг хамгаалах олон талт үйл ажиллагаа явуулдаг.'
+                            : 'The Darkhan-Uul Women\'s Federation conducts multifaceted activities to support women\'s leadership, ensure social equality, and protect the rights of children and women.'
+                          }
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start space-x-4 p-4 bg-gradient-to-br from-white/70 to-purple-50/30 rounded-2xl border border-white/50">
+                      <div className="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <Award className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-2">
+                          {locale === 'mn' ? 'Харилцан суралцан хамтран ажиллах' : 'Mutual learning and collaboration'}
+                        </h4>
+                        <p className="text-gray-600 text-sm">
+                          {locale === 'mn' 
+                            ? 'Эмэгтэйчүүдийн холбооноос гэр бүл, сэтгэл зүй, цахим аюулгүй байдал, эрх зүйн мэдлэгийн чиглэлээр зохион байгуулдаг сургалтуудад гишүүн байгууллагын ажилтан, албан хаагчид үнэ төлбөргүй хамрагдах боломжтой.'
+                            : 'Member organization staff and officials can participate free of charge in training programs organized by the Women\'s Federation in the fields of family, psychology, cybersecurity, and legal knowledge.'
+                          }
                         </p>
                       </div>
                     </div>

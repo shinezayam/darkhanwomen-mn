@@ -48,101 +48,104 @@ export default function Magazines({ locale }: MagazinesProps) {
   return (
     <>
       {/* Magazines Section */}
-      <section className="py-20 bg-gradient-to-br from-purple-50 via-white to-pink-50 relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-purple-200/30 to-pink-300/30 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-br from-pink-200/30 to-purple-200/30 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-yellow-200/20 to-orange-200/20 rounded-full blur-2xl"></div>
-        </div>
-
-        <div className="container-max container-spacing relative z-10">
-          <div className="text-center mb-16">
-            {/* Badge */}
-            <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm text-purple-700 px-6 py-3 mb-8 shadow-lg border border-purple-100 rounded-full">
-              <Newspaper className="w-5 h-5" />
-              <span className="text-sm font-medium">
-                {locale === 'mn' ? 'Сэтгүүлүүд' : 'Magazines'}
-              </span>
-            </div>
-
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-                {locale === 'mn' ? 'СЭТГҮҮЛҮҮД' : 'MAGAZINES'}
-              </span>
+      <section className="section-spacing bg-white">
+        <div className="container-max container-spacing">
+          <div className="text-center mb-12">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3">
+              {locale === 'mn' ? 'Сэтгүүлүүд' : 'Magazines'}
             </h2>
-            
-            <p className="text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
+            <p className="text-gray-600 max-w-3xl mx-auto">
               {locale === 'mn'
                 ? 'Манай байгууллагын сэтгүүлүүдийг уншиж, мэдээлэл аваарай'
                 : 'Read our organization\'s magazines and stay informed'
               }
             </p>
-
-            {/* View All Button */}
-            <Link href={`/${locale}/resources`}>
-              <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                {locale === 'mn' ? 'Бүх сэтгүүл үзэх' : 'View All Magazines'}
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </Link>
           </div>
 
-          {/* Magazine Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mb-12 items-stretch">
             {magazines.map((magazine) => (
-              <Card key={magazine.id} className="card-modern overflow-hidden hover:shadow-xl transition-all duration-300 group">
-                <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <CardTitle className="text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
-                        {magazine.title}
-                      </CardTitle>
-                      <p className="text-gray-600 text-sm mb-3 line-clamp-2">
-                        {magazine.description}
-                      </p>
-                      <div className="flex items-center space-x-4 text-xs text-gray-500">
-                        <div className="flex items-center space-x-1">
-                          <User className="w-3 h-3" />
-                          <span className="truncate">{magazine.author}</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <Calendar className="w-3 h-3" />
-                          <span>{magazine.date}</span>
+              <Card key={magazine.id} className="overflow-hidden rounded-2xl shadow-lg border-0 hover:-translate-y-1 transition-transform h-full flex flex-col cursor-pointer">
+                {/* Magazine Cover Preview */}
+                <div className="aspect-[16/9] relative overflow-hidden bg-gradient-to-br from-brand-50 to-white">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-32 h-40 bg-white rounded-lg shadow-lg mx-auto mb-4 flex items-center justify-center border-2 border-brand-200">
+                        {magazine.coverImage ? (
+                          <img 
+                            src={magazine.coverImage} 
+                            alt={magazine.title}
+                            className="w-full h-full object-cover rounded-lg"
+                            onError={(e) => {
+                              // Fallback to PDF icon if image fails to load
+                              e.currentTarget.style.display = 'none';
+                              e.currentTarget.nextElementSibling.style.display = 'flex';
+                            }}
+                          />
+                        ) : null}
+                        <div className={`${magazine.coverImage ? 'hidden' : 'flex'} flex-col items-center justify-center text-brand-400`}>
+                          <FileText className="w-12 h-12 mb-2" />
+                          <span className="text-xs font-medium">PDF</span>
                         </div>
                       </div>
+                      <Badge variant="secondary" className="text-xs bg-brand-100 text-brand-700">
+                        <FileText className="w-3 h-3 mr-1" />
+                        {locale === 'mn' ? 'Сэтгүүл' : 'Magazine'}
+                      </Badge>
                     </div>
-                    <Badge variant="secondary" className="text-xs">
-                      <FileText className="w-3 h-3 mr-1" />
-                      PDF
-                    </Badge>
                   </div>
-                </CardHeader>
-                
-                <CardContent className="p-6">
-                  <div className="flex space-x-3">
+                  
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <Button
                       onClick={() => setSelectedMagazine(magazine.id)}
-                      className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105"
+                      className="bg-white/90 hover:bg-white text-brand-600 font-bold px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105"
                     >
                       <Eye className="w-4 h-4 mr-2" />
                       {locale === 'mn' ? 'Унших' : 'Read'}
                     </Button>
-                    
-                    <Button
-                      variant="outline"
-                      onClick={() => {
-                        const link = document.createElement('a');
-                        link.href = magazine.pdfUrl;
-                        link.download = magazine.title;
-                        link.click();
-                      }}
-                      className="px-6 py-3 rounded-xl border-2 border-purple-200 hover:bg-purple-50 transition-all duration-300"
-                    >
-                      <Download className="w-4 h-4" />
-                    </Button>
                   </div>
-                </CardContent>
+                </div>
+
+                <div className="p-6 bg-white flex flex-col flex-grow">
+                  <CardTitle className="text-xl font-semibold text-gray-900 mb-3">{magazine.title}</CardTitle>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">{magazine.description}</p>
+                  
+                  <div className="mt-auto">
+                    <div className="flex items-center justify-between text-xs text-gray-500 mb-4">
+                      <div className="flex items-center space-x-1">
+                        <User className="w-3 h-3" />
+                        <span className="truncate">{magazine.author}</span>
+                      </div>
+                      <div className="flex items-center space-x-1">
+                        <Calendar className="w-3 h-3" />
+                        <span>{magazine.date}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="flex space-x-3">
+                      <Button
+                        onClick={() => setSelectedMagazine(magazine.id)}
+                        className="flex-1 btn-primary"
+                      >
+                        <Eye className="w-4 h-4 mr-2" />
+                        {locale === 'mn' ? 'Унших' : 'Read'}
+                      </Button>
+                      
+                      <Button
+                        variant="outline"
+                        onClick={() => {
+                          const link = document.createElement('a');
+                          link.href = magazine.pdfUrl;
+                          link.download = magazine.title;
+                          link.click();
+                        }}
+                        className="px-6 py-3 rounded-xl border-2 border-brand-200 hover:bg-brand-50 transition-all duration-300"
+                      >
+                        <Download className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+                </div>
               </Card>
             ))}
           </div>
