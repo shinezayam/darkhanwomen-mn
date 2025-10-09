@@ -116,14 +116,19 @@ function PartnerApplyContent() {
                 <Star className="w-4 h-4" />
               </div>
               
-              {/* Enhanced Title */}
-              <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6">
-                {typeInfo.title}
-              </h1>
+              {/* Official Document Title */}
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 mb-8 shadow-lg border border-gray-200">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 text-center">
+                  {locale === 'mn' ? 'Дархан-Уул аймгийн эмэгтэйчүүдийн холбоо НҮТББ-ын' : 'Darkhan-Uul Women\'s Federation NGO'}
+                </h1>
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-brand-600 mb-4 text-center">
+                  {locale === 'mn' ? 'ГИШҮҮН БАЙГУУЛЛАГЫН МЭДЭЭЛЭЛИЙН ХУУДАС' : 'MEMBER ORGANIZATION INFORMATION SHEET'}
+                </h2>
+              </div>
               
               {/* Enhanced Subtitle */}
               <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
-                {locale === 'mn' ? 'Дархан-Уул аймгийн эмэгтэйчүүдийн холбооны гишүүн байгууллага болох хүсэлт' : 'Application to become a member organization of Darkhan-Uul Women\'s Federation'}
+                {locale === 'mn' ? 'Гишүүн байгууллага болох хүсэлт' : 'Application to become a member organization'}
               </p>
 
               {/* Impact Counter */}
@@ -157,11 +162,11 @@ function PartnerApplyContent() {
                   <div className="w-20 h-20 bg-brand-500 rounded-3xl mx-auto mb-6 flex items-center justify-center shadow-lg">
                     <IconComponent className="w-10 h-10 text-white" />
                   </div>
-                  <CardTitle className="text-4xl font-bold text-gray-900 mb-4">
-                    {typeInfo.title}
+                  <CardTitle className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                    {locale === 'mn' ? 'ГИШҮҮН БАЙГУУЛЛАГЫН МЭДЭЭЛЭЛИЙН ХУУДАС' : 'MEMBER ORGANIZATION INFORMATION SHEET'}
                   </CardTitle>
                   <p className="text-gray-600 text-lg">
-                    {locale === 'mn' ? 'Манай байгууллагатай хамтрах хүсэлт илгээх' : 'Submit a partnership request with our organization'}
+                    {locale === 'mn' ? 'Гишүүн байгууллага болох хүсэлт' : 'Application to become a member organization'}
                   </p>
                 </CardHeader>
                 <CardContent className="space-y-6 sm:space-y-8">
