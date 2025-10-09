@@ -72,11 +72,14 @@ export default function Magazines({ locale }: MagazinesProps) {
                       src={magazine.coverImage} 
                       alt={magazine.title}
                       className="w-full h-full object-cover"
-                      onError={(e) => {
-                        // Fallback to PDF icon if image fails to load
-                        e.currentTarget.style.display = 'none';
-                        e.currentTarget.nextElementSibling.style.display = 'flex';
-                      }}
+                            onError={(e) => {
+                              // Fallback to PDF icon if image fails to load
+                              e.currentTarget.style.display = 'none';
+                              const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
+                              if (nextElement) {
+                                nextElement.style.display = 'flex';
+                              }
+                            }}
                     />
                   ) : null}
                   <div className={`${magazine.coverImage ? 'hidden' : 'flex'} absolute inset-0 flex-col items-center justify-center text-brand-400`}>
