@@ -34,6 +34,7 @@ function PartnerApplyContent() {
 
   const [formData, setFormData] = useState({
     organizationName: '',
+    logo: '',
     activityDirection: '',
     managementName: '',
     womenCouncilChairman: '',
@@ -186,9 +187,29 @@ function PartnerApplyContent() {
                             />
                           </div>
                         </div>
+                        
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
-                            {locale === 'mn' ? '2. Үйл ажиллагааны чиглэл *' : '2. Activity Direction *'}
+                            {locale === 'mn' ? '2. Байгууллагын лого *' : '2. Organization Logo *'}
+                          </label>
+                          <div className="relative">
+                            <input
+                              type="file"
+                              name="logo"
+                              accept="image/*"
+                              onChange={handleInputChange}
+                              className="w-full px-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-brand-500 text-base sm:text-lg font-medium transition-all duration-200 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-brand-50 file:text-brand-700 hover:file:bg-brand-100"
+                              required
+                            />
+                          </div>
+                          <p className="text-sm text-gray-500 mt-1">
+                            {locale === 'mn' ? 'JPG, PNG, GIF файл хэлбэртэй лого оруулна уу' : 'Upload logo in JPG, PNG, or GIF format'}
+                          </p>
+                        </div>
+                        
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            {locale === 'mn' ? '3. Үйл ажиллагааны чиглэл *' : '3. Activity Direction *'}
                           </label>
                           <div className="relative">
                             <Target className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -205,7 +226,7 @@ function PartnerApplyContent() {
                         </div>
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
-                            {locale === 'mn' ? '3. Байгууллагын удирдлагын овог нэр *' : '3. Management Name *'}
+                            {locale === 'mn' ? '4. Байгууллагын удирдлагын овог нэр *' : '4. Management Name *'}
                           </label>
                           <div className="relative">
                             <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -222,7 +243,7 @@ function PartnerApplyContent() {
                         </div>
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
-                            {locale === 'mn' ? '4. Эмэгтэйчүүдийн зөвлөлийн даргын овог, нэр *' : '4. Women\'s Council Chairman Name *'}
+                            {locale === 'mn' ? '5. Эмэгтэйчүүдийн зөвлөлийн даргын овог, нэр *' : '5. Women\'s Council Chairman Name *'}
                           </label>
                           <div className="relative">
                             <Users className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -239,7 +260,7 @@ function PartnerApplyContent() {
                         </div>
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
-                            {locale === 'mn' ? '5. Албан тушаал *' : '5. Position *'}
+                            {locale === 'mn' ? '6. Албан тушаал *' : '6. Position *'}
                           </label>
                           <div className="relative">
                             <Award className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -256,7 +277,7 @@ function PartnerApplyContent() {
                         </div>
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
-                            {locale === 'mn' ? '6. Ажилласан жил *' : '6. Years Worked *'}
+                            {locale === 'mn' ? '7. Ажилласан жил *' : '7. Years Worked *'}
                           </label>
                           <div className="relative">
                             <Star className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -273,7 +294,7 @@ function PartnerApplyContent() {
                         </div>
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
-                            {locale === 'mn' ? '7. Байгууллагын эмэгтэйчүүдийн зөвлөлийн зорилго *' : '7. Women\'s Council Goal *'}
+                            {locale === 'mn' ? '8. Байгууллагын эмэгтэйчүүдийн зөвлөлийн зорилго *' : '8. Women\'s Council Goal *'}
                           </label>
                           <textarea
                             name="womenCouncilGoal"
@@ -287,7 +308,7 @@ function PartnerApplyContent() {
                         </div>
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
-                            {locale === 'mn' ? '8. Эмэгтэйчүүдийн зөвлөлийн бүрэлдэхүүн, тэргүүлэгч гишүүн *' : '8. Women\'s Council Members and Leaders *'}
+                            {locale === 'mn' ? '9. Эмэгтэйчүүдийн зөвлөлийн бүрэлдэхүүн, тэргүүлэгч гишүүн *' : '9. Women\'s Council Members and Leaders *'}
                           </label>
                           <textarea
                             name="womenCouncilMembers"
@@ -301,7 +322,7 @@ function PartnerApplyContent() {
                         </div>
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
-                            {locale === 'mn' ? '13. Холбогдох утасны дугаар *' : '13. Contact Phone Number *'}
+                            {locale === 'mn' ? '10. Холбогдох утасны дугаар *' : '10. Contact Phone Number *'}
                           </label>
                           <div className="relative">
                             <Phone className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -318,7 +339,7 @@ function PartnerApplyContent() {
                         </div>
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
-                            {locale === 'mn' ? '14. Байгууллагын хаяг *' : '14. Organization Address *'}
+                            {locale === 'mn' ? '11. Байгууллагын хаяг *' : '11. Organization Address *'}
                           </label>
                           <div className="relative">
                             <MapPin className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -339,7 +360,7 @@ function PartnerApplyContent() {
                     {/* Statistical Data Section */}
                     <div>
                       <label className="block text-lg font-semibold text-gray-800 mb-4">
-                        {locale === 'mn' ? '15. ТООН МЭДЭЭЛЭЛ' : '15. STATISTICAL DATA'}
+                        {locale === 'mn' ? '12. ТООН МЭДЭЭЛЭЛ' : '12. STATISTICAL DATA'}
                       </label>
                       <div className="overflow-x-auto">
                         <table className="w-full border-collapse border border-gray-300 rounded-lg">
@@ -448,7 +469,7 @@ function PartnerApplyContent() {
                     {/* Collaboration Proposals */}
                     <div>
                       <label className="block text-lg font-semibold text-gray-800 mb-4">
-                        {locale === 'mn' ? '3. АЭХ-той хамтран ажиллах санал' : '3. Collaboration Proposal with Women\'s Federation'}
+                        {locale === 'mn' ? '13. АЭХ-той хамтран ажиллах санал' : '13. Collaboration Proposal with Women\'s Federation'}
                       </label>
                       <textarea
                         name="collaborationProposal"
@@ -462,7 +483,7 @@ function PartnerApplyContent() {
 
                     <div>
                       <label className="block text-lg font-semibold text-gray-800 mb-4">
-                        {locale === 'mn' ? '4. Байгууллагын зүгээс дэмжин ажиллах санал' : '4. Organization\'s Support Proposal'}
+                        {locale === 'mn' ? '14. Байгууллагын зүгээс дэмжин ажиллах санал' : '14. Organization\'s Support Proposal'}
                       </label>
                       <textarea
                         name="supportProposal"
