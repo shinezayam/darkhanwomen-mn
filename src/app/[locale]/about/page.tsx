@@ -159,12 +159,14 @@ export default function AboutPage() {
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       {locale === 'mn' ? 'Үнэт зүйл' : 'Values'}
                     </h3>
-                    <p className="text-gray-700 leading-relaxed flex-grow">
-                    {locale === 'mn' 
-                        ? 'Тэгш боломж - Тэгш хөгжил	Оюунлаг эмэгтэйчүүд - Оюунлаг нийгэм'
-                      : 'Equal Opportunity - Equal Development, Smart Women - Smart Society'
-                    }
-                  </p>
+                    <p 
+                      className="text-gray-700 leading-relaxed flex-grow"
+                      dangerouslySetInnerHTML={{
+                        __html: locale === 'mn' 
+                          ? 'Тэгш боломж - Тэгш хөгжил<br/>Оюунлаг эмэгтэйчүүд - Оюунлаг нийгэм'
+                          : 'Equal Opportunity - Equal Development, Smart Women - Smart Society'
+                      }}
+                    />
                   </div>
                 </div>
 
