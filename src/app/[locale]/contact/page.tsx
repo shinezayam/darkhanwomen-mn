@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -12,13 +13,64 @@ import {
   Clock,
   ArrowLeft,
   Send,
-  Globe
+  Globe,
+  CheckCircle,
+  AlertCircle
 } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ContactPage() {
   const pathname = usePathname();
   const locale = pathname.startsWith('/en') ? 'en' : 'mn';
+  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error: any) {
+      console.error('Error submitting contact form:', error);
+      setSubmitStatus('error');
+      setErrorMessage(error.message || 'Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -201,7 +253,7 @@ export default function ContactPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <form className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -209,6 +261,10 @@ export default function ContactPage() {
                         </label>
                         <input
                           type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
                           className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
                           placeholder={locale === 'mn' ? 'Нэрээ оруулна уу' : 'Enter your name'}
                         />
@@ -219,6 +275,10 @@ export default function ContactPage() {
                         </label>
                         <input
                           type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
                           className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
                           placeholder={locale === 'mn' ? 'Имэйл хаягаа оруулна уу' : 'Enter your email'}
                         />
@@ -231,6 +291,10 @@ export default function ContactPage() {
                       </label>
                       <input
                         type="text"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        required
                         className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
                         placeholder={locale === 'mn' ? 'Сэдвийг оруулна уу' : 'Enter subject'}
                       />
@@ -242,14 +306,55 @@ export default function ContactPage() {
                       </label>
                       <textarea
                         rows={5}
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
                         className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
                         placeholder={locale === 'mn' ? 'Захидлаа бичнэ үү' : 'Write your message'}
                       ></textarea>
                     </div>
+
+                    {/* Status Messages */}
+                    {submitStatus === 'success' && (
+                      <div className="flex items-center space-x-2 p-4 bg-green-50 border border-green-200 rounded-xl">
+                        <CheckCircle className="w-5 h-5 text-green-600" />
+                        <p className="text-green-800 font-medium">
+                          {locale === 'mn' ? 'Захидал амжилттай илгээгдлээ!' : 'Message sent successfully!'}
+                        </p>
+                      </div>
+                    )}
+
+                    {submitStatus === 'error' && (
+                      <div className="flex items-start space-x-2 p-4 bg-red-50 border border-red-200 rounded-xl">
+                        <AlertCircle className="w-5 h-5 text-red-600 mt-0.5" />
+                        <div>
+                          <p className="text-red-800 font-medium">
+                            {locale === 'mn' ? 'Алдаа гарлаа!' : 'An error occurred!'}
+                          </p>
+                          {errorMessage && (
+                            <p className="text-red-700 text-sm mt-1">{errorMessage}</p>
+                          )}
+                        </div>
+                      </div>
+                    )}
                     
-                    <Button className="w-full btn-primary">
-                      <Send className="w-5 h-5 mr-2" />
-                      {locale === 'mn' ? 'Илгээх' : 'Send Message'}
+                    <Button 
+                      type="submit" 
+                      className="w-full btn-primary"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <div className="flex items-center">
+                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                          {locale === 'mn' ? 'Илгээж байна...' : 'Sending...'}
+                        </div>
+                      ) : (
+                        <>
+                          <Send className="w-5 h-5 mr-2" />
+                          {locale === 'mn' ? 'Илгээх' : 'Send Message'}
+                        </>
+                      )}
                     </Button>
                   </form>
                 </CardContent>

@@ -43,11 +43,29 @@ function VolunteerApplyContent() {
     volunteerType: type || 'training-support'
   });
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission
-    alert(locale === 'mn' ? 'Хүсэлт амжилттай илгээгдлээ!' : 'Application submitted successfully!');
+    
+    try {
+      const response = await fetch('/api/volunteer', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit application');
+      }
+
+      alert(locale === 'mn' ? 'Хүсэлт амжилттай илгээгдлээ!' : 'Application submitted successfully!');
+    } catch (error: any) {
+      console.error('Error submitting volunteer application:', error);
+      alert(error.message || locale === 'mn' ? 'Алдаа гарлаа! Дахин оролдоно уу.' : 'An error occurred! Please try again.');
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

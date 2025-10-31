@@ -70,11 +70,28 @@ function RegisterPageContent() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    try {
+      const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit registration');
+      }
+
+      setIsSubmitted(true);
+    } catch (error: any) {
+      console.error('Error submitting registration:', error);
+      alert(error.message || locale === 'mn' ? 'Алдаа гарлаа! Дахин оролдоно уу.' : 'An error occurred! Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {

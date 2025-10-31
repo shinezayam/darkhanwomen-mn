@@ -44,7 +44,7 @@ export default function DonatePage() {
     { amount: 500000, impact: locale === 'mn' ? 'Том арга хэмжээ зохион байгуулах' : 'Organize a major event', icon: Award },
   ];
 
-  const handleDonationSubmit = (e: React.FormEvent) => {
+  const handleDonationSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     const finalAmount = selectedAmount || parseInt(customAmount) || 0;
@@ -53,22 +53,50 @@ export default function DonatePage() {
       alert(locale === 'mn' ? 'Хандивын хэмжээг сонгоно уу!' : 'Please select a donation amount!');
       return;
     }
-    
-    // Create URL parameters for payment page
-    const params = new URLSearchParams({
-      amount: finalAmount.toString(),
-      type: donationType,
-      paymentMethod: paymentMethod || 'card'
-    });
-    
-    if (dedicationType && dedicationName) {
-      params.append('dedicationType', dedicationType);
-      params.append('dedicationName', dedicationName);
+
+    // Prepare donation data
+    const donationData = {
+      amount: finalAmount,
+      donationType,
+      paymentMethod: paymentMethod || 'card',
+      dedicationType: dedicationType || undefined,
+      dedicationName: dedicationName || undefined,
+    };
+
+    try {
+      // Save donation to database
+      const response = await fetch('/api/donate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(donationData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to process donation');
+      }
+
+      // Create URL parameters for payment page
+      const params = new URLSearchParams({
+        amount: finalAmount.toString(),
+        type: donationType,
+        paymentMethod: paymentMethod || 'card'
+      });
+      
+      if (dedicationType && dedicationName) {
+        params.append('dedicationType', dedicationType);
+        params.append('dedicationName', dedicationName);
+      }
+
+      // Navigate to payment page
+      window.location.href = `/${locale}/payment?${params.toString()}`;
+    } catch (error: any) {
+      console.error('Error submitting donation:', error);
+      alert(error.message || locale === 'mn' ? 'Алдаа гарлаа! Дахин оролдоно уу.' : 'An error occurred! Please try again.');
     }
-    
-    
-    // Navigate to payment page
-    window.location.href = `/${locale}/payment?${params.toString()}`;
   };
 
   const handleAmountSelect = (amount: number) => {

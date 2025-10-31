@@ -34,7 +34,7 @@ function PartnerApplyContent() {
 
   const [formData, setFormData] = useState({
     organizationName: '',
-    logo: '',
+    logo: '' as any,
     activityDirection: '',
     managementName: '',
     womenCouncilChairman: '',
@@ -57,21 +57,112 @@ function PartnerApplyContent() {
     collaborationProposal: '',
     supportProposal: ''
   });
+  const [logoFile, setLogoFile] = useState<File | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
+  const [fileError, setFileError] = useState<string | null>(null); // NEW: Track file error
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB in bytes
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission
-    alert(locale === 'mn' ? 'Гишүүн байгууллага болох анкет амжилттай илгээгдлээ!' : 'Member organization application submitted successfully!');
+
+    // Check file size again before upload (double safety)
+    if (logoFile && logoFile.size > MAX_FILE_SIZE) {
+      setFileError(locale === 'mn' ? 'Файлын хэмжээ хэт том байна. 5MB-ээс бага байх ёстой.' : 'File size too large. Must be under 5MB.');
+      return;
+    }
+
+    setIsUploading(true);
+    setFileError(null);
+    
+    try {
+      let logoUrl = '';
+
+      // Upload logo if provided
+      if (logoFile) {
+        const uploadFormData = new FormData();
+        uploadFormData.append('file', logoFile);
+
+        const uploadResponse = await fetch('/api/upload', {
+          method: 'POST',
+          body: uploadFormData,
+        });
+
+        const uploadData = await uploadResponse.json();
+
+        if (!uploadResponse.ok) {
+          throw new Error(uploadData.error || 'Failed to upload logo');
+        }
+
+        logoUrl = uploadData.url;
+      }
+
+      // Prepare submission data
+      const submissionData = {
+        ...formData,
+        logoUrl,
+        yearsWorked: parseInt(formData.yearsWorked) || 0,
+        totalEmployees: formData.totalEmployees ? parseInt(formData.totalEmployees) : undefined,
+        totalFemale: formData.totalFemale ? parseInt(formData.totalFemale) : undefined,
+        totalMale: formData.totalMale ? parseInt(formData.totalMale) : undefined,
+        managementFemale: formData.managementFemale ? parseInt(formData.managementFemale) : undefined,
+        managementMale: formData.managementMale ? parseInt(formData.managementMale) : undefined,
+        householdHeadsFemale: formData.householdHeadsFemale ? parseInt(formData.householdHeadsFemale) : undefined,
+        householdHeadsMale: formData.householdHeadsMale ? parseInt(formData.householdHeadsMale) : undefined,
+        disabledFemale: formData.disabledFemale ? parseInt(formData.disabledFemale) : undefined,
+        disabledMale: formData.disabledMale ? parseInt(formData.disabledMale) : undefined,
+      };
+
+      delete (submissionData as any).logo;
+
+      const response = await fetch('/api/partner', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submissionData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit application');
+      }
+
+      alert(locale === 'mn' ? 'Гишүүн байгууллага болох анкет амжилттай илгээгдлээ!' : 'Member organization application submitted successfully!');
+    } catch (error: any) {
+      console.error('Error submitting partner application:', error);
+      alert(error.message || locale === 'mn' ? 'Алдаа гарлаа! Дахин оролдоно уу.' : 'An error occurred! Please try again.');
+    } finally {
+      setIsUploading(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const target = e.target as HTMLInputElement;
+    
+    // Handle file input separately
+    if (target.type === 'file' && target.files && target.files.length > 0) {
+      const file = target.files[0];
+      
+      // Check file size
+      if (file.size > MAX_FILE_SIZE) {
+        setFileError(locale === 'mn' ? 'Файлын хэмжээ хэт том байна. 5MB-ээс бага байх ёстой.' : 'File size too large. Must be under 5MB.');
+        setLogoFile(null);
+        target.value = ''; // Clear the input
+        return;
+      }
+
+      setFileError(null);
+      setLogoFile(file);
+      return;
+    }
+
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
-
 
   const getTypeInfo = () => {
     return {
@@ -203,10 +294,14 @@ function PartnerApplyContent() {
                             />
                           </div>
                           <p className="text-sm text-gray-500 mt-1">
-                            {locale === 'mn' ? 'JPG, PNG, GIF файл хэлбэртэй лого оруулна уу' : 'Upload logo in JPG, PNG, or GIF format'}
+                            {locale === 'mn' ? 'JPG, PNG, GIF файл хэлбэртэй лого оруулна уу (5MB хүртэл)' : 'Upload logo in JPG, PNG, or GIF format (up to 5MB)'}
                           </p>
+                          {fileError && (
+                            <p className="text-sm text-red-600 mt-2 font-medium">{fileError}</p>
+                          )}
                         </div>
                         
+                        {/* ... rest of your form fields (unchanged) ... */}
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
                             {locale === 'mn' ? '3. Үйл ажиллагааны чиглэл *' : '3. Activity Direction *'}
@@ -496,16 +591,29 @@ function PartnerApplyContent() {
                     </div>
 
                     {/* Enhanced Submit Button */}
-                    <Button className="w-full bg-brand-500 hover:bg-brand-600 text-white text-xl py-6 rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group">
-                      <Building2 className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform duration-200" />
-                      {locale === 'mn' ? 'Анкет илгээх' : 'Submit Application'}
-                      <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform duration-200" />
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-brand-500 hover:bg-brand-600 text-white text-xl py-6 rounded-2xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group"
+                      disabled={isUploading || !!fileError}
+                    >
+                      {isUploading ? (
+                        <div className="flex items-center">
+                          <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white mr-3"></div>
+                          {locale === 'mn' ? 'Илгээж байна...' : 'Submitting...'}
+                        </div>
+                      ) : (
+                        <>
+                          <Building2 className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform duration-200" />
+                          {locale === 'mn' ? 'Анкет илгээх' : 'Submit Application'}
+                          <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform duration-200" />
+                        </>
+                      )}
                     </Button>
                   </form>
                 </CardContent>
               </Card>
 
-              {/* Enhanced Impact Information */}
+              {/* ... rest of your right column (unchanged) ... */}
               <div className="space-y-8">
                 {/* Impact Card */}
                 <Card className="card-modern p-6 shadow-md border-0 bg-gradient-to-br from-green-50 to-emerald-50 opacity-95">
