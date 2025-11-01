@@ -38,7 +38,7 @@ export function sanitizeInput(input: string): string {
 /**
  * Validate required fields
  */
-export function validateRequired(data: Record<string, any>, requiredFields: string[]): string | null {
+export function validateRequired(data: Record<string, unknown>, requiredFields: string[]): string | null {
   for (const field of requiredFields) {
     const value = data[field];
     if (value === undefined || value === null || value === '') {
@@ -51,7 +51,7 @@ export function validateRequired(data: Record<string, any>, requiredFields: stri
 /**
  * Validate number range
  */
-export function isValidNumber(value: any, min?: number, max?: number): boolean {
+export function isValidNumber(value: unknown, min?: number, max?: number): boolean {
   const num = Number(value);
   if (isNaN(num)) return false;
   if (min !== undefined && num < min) return false;
@@ -78,12 +78,12 @@ export function isValidFileSize(size: number, maxSize: number): boolean {
 /**
  * Validate and sanitize form data
  */
-export function sanitizeFormData<T extends Record<string, any>>(data: T): T {
+export function sanitizeFormData<T extends Record<string, unknown>>(data: T): T {
   const sanitized = { ...data };
   
   for (const key in sanitized) {
     if (typeof sanitized[key] === 'string') {
-      sanitized[key] = sanitizeInput(sanitized[key]);
+      sanitized[key] = sanitizeInput(sanitized[key]) as T[Extract<keyof T, string>];
     }
   }
   

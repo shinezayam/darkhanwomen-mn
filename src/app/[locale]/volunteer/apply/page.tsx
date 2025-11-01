@@ -62,9 +62,9 @@ function VolunteerApplyContent() {
       }
 
       alert(locale === 'mn' ? 'Хүсэлт амжилттай илгээгдлээ!' : 'Application submitted successfully!');
-    } catch (error: any) {
+    } catch (error) {
       console.error('Error submitting volunteer application:', error);
-      alert(error.message || locale === 'mn' ? 'Алдаа гарлаа! Дахин оролдоно уу.' : 'An error occurred! Please try again.');
+      alert(error instanceof Error ? error.message : (locale === 'mn' ? 'Алдаа гарлаа! Дахин оролдоно уу.' : 'An error occurred! Please try again.'));
     }
   };
 

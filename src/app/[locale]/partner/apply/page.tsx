@@ -1,16 +1,14 @@
 'use client';
 
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useState, Suspense } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { 
-  Handshake, 
   Building2,
   User,
-  Mail,
   Phone,
   MapPin,
   Globe,
@@ -28,13 +26,11 @@ import Link from 'next/link';
 
 function PartnerApplyContent() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const locale = pathname.startsWith('/en') ? 'en' : 'mn';
-  const type = searchParams.get('type') || 'member-organization';
 
   const [formData, setFormData] = useState({
     organizationName: '',
-    logo: '' as any,
+    logo: '',
     activityDirection: '',
     managementName: '',
     womenCouncilChairman: '',
@@ -98,8 +94,10 @@ function PartnerApplyContent() {
       }
 
       // Prepare submission data
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { logo, ...dataWithoutLogo } = formData;
       const submissionData = {
-        ...formData,
+        ...dataWithoutLogo,
         logoUrl,
         yearsWorked: parseInt(formData.yearsWorked) || 0,
         totalEmployees: formData.totalEmployees ? parseInt(formData.totalEmployees) : undefined,
@@ -112,8 +110,6 @@ function PartnerApplyContent() {
         disabledFemale: formData.disabledFemale ? parseInt(formData.disabledFemale) : undefined,
         disabledMale: formData.disabledMale ? parseInt(formData.disabledMale) : undefined,
       };
-
-      delete (submissionData as any).logo;
 
       const response = await fetch('/api/partner', {
         method: 'POST',
@@ -130,9 +126,9 @@ function PartnerApplyContent() {
       }
 
       alert(locale === 'mn' ? 'Гишүүн байгууллага болох анкет амжилттай илгээгдлээ!' : 'Member organization application submitted successfully!');
-    } catch (error: any) {
+    } catch (error) {
       console.error('Error submitting partner application:', error);
-      alert(error.message || locale === 'mn' ? 'Алдаа гарлаа! Дахин оролдоно уу.' : 'An error occurred! Please try again.');
+      alert(error instanceof Error ? error.message : (locale === 'mn' ? 'Алдаа гарлаа! Дахин оролдоно уу.' : 'An error occurred! Please try again.'));
     } finally {
       setIsUploading(false);
     }

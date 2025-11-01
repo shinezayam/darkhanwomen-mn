@@ -93,9 +93,9 @@ export default function DonatePage() {
 
       // Navigate to payment page
       window.location.href = `/${locale}/payment?${params.toString()}`;
-    } catch (error: any) {
+    } catch (error) {
       console.error('Error submitting donation:', error);
-      alert(error.message || locale === 'mn' ? 'Алдаа гарлаа! Дахин оролдоно уу.' : 'An error occurred! Please try again.');
+      alert(error instanceof Error ? error.message : (locale === 'mn' ? 'Алдаа гарлаа! Дахин оролдоно уу.' : 'An error occurred! Please try again.'));
     }
   };
 

@@ -86,9 +86,9 @@ function RegisterPageContent() {
       }
 
       setIsSubmitted(true);
-    } catch (error: any) {
+    } catch (error) {
       console.error('Error submitting registration:', error);
-      alert(error.message || locale === 'mn' ? 'Алдаа гарлаа! Дахин оролдоно уу.' : 'An error occurred! Please try again.');
+      alert(error instanceof Error ? error.message : (locale === 'mn' ? 'Алдаа гарлаа! Дахин оролдоно уу.' : 'An error occurred! Please try again.'));
     } finally {
       setIsSubmitting(false);
     }
