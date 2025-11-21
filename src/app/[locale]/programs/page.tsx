@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -34,6 +34,7 @@ import {
 
 export default function ProgramsPage() {
   const pathname = usePathname();
+  const router = useRouter();
   const locale = pathname.startsWith('/en') ? 'en' : 'mn';
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -517,17 +518,18 @@ export default function ProgramsPage() {
                       </div>
                       
                       {/* Enhanced CTA Button */}
-                      <Link href={`/${locale}/programs/${program.id}`}>
-                        <Button 
-                          variant="outline" 
-                          className="w-full bg-gradient-to-r from-white/90 to-white/70 backdrop-blur-sm border-2 border-gray-200 hover:border-brand-400 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100 text-gray-700 hover:text-brand-700 font-bold py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl group text-base"
-                        >
-                          <span className="flex items-center justify-center">
-                            {locale === 'mn' ? 'Дэлгэрэнгүй' : 'Learn More'}
-                            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform duration-300" />
-                          </span>
-                        </Button>
-                      </Link>
+                    <div className="block h-full">
+                      <button
+                        type="button"
+                        onClick={() => router.push(`/${locale}/programs/${program.id}`)}
+                        className="inline-flex items-center justify-center w-full bg-gradient-to-r from-white/90 to-white/70 backdrop-blur-sm border-2 border-gray-200 hover:border-brand-400 hover:from-brand-50 hover:to-brand-100 text-gray-700 hover:text-brand-700 font-bold py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl text-base group"
+                      >
+                        <span className="flex items-center justify-center">
+                          {locale === 'mn' ? 'Дэлгэрэнгүй' : 'Learn More'}
+                          <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform duration-300" />
+                        </span>
+                      </button>
+                    </div>
                     </div>
                   </div>
 
